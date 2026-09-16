@@ -1,116 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
-import { Package, Clock, CheckCircle2, Truck, AlertCircle, ShoppingBag } from 'lucide-react';
+import { CheckCircle2, Clock3, MapPin, Package, ShoppingBag, Truck } from 'lucide-react';
+
+const Money = ({ value }) => <>₹{value.toLocaleString('en-IN')}</>;
+const statusMeta = {
+  Delivered: { icon: CheckCircle2, copy: 'Delivered', stage: 3 },
+  Shipped: { icon: Truck, copy: 'On its way', stage: 2 },
+  Confirmed: { icon: CheckCircle2, copy: 'Order confirmed', stage: 1 },
+  Pending: { icon: Clock3, copy: 'Being prepared', stage: 1 },
+  Cancelled: { icon: Clock3, copy: 'Cancelled', stage: 0 },
+};
 
 export default function Orders() {
   const { orders } = useCart();
-
-  const getStatusBadge = (status) => {
-    switch (status) {
-      case 'Delivered':
-        return <span className="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5" /> Delivered</span>;
-      case 'Shipped':
-        return <span className="bg-blue-100 text-blue-800 text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1"><Truck className="w-3.5 h-3.5" /> Shipped</span>;
-      case 'Confirmed':
-        return <span className="bg-purple-100 text-purple-800 text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5" /> Confirmed</span>;
-      case 'Cancelled':
-        return <span className="bg-red-100 text-red-800 text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" /> Cancelled</span>;
-      default:
-        return <span className="bg-amber-100 text-amber-800 text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> Pending</span>;
-    }
-  };
-
-  return (
-    <div className="max-w-7xl mx-auto px-4 lg:px-8 py-10 space-y-8 font-sans">
-      
-      {/* Header */}
-      <div className="border-b border-gray-200 pb-4">
-        <h1 className="font-serif text-3xl font-extrabold text-deep-charcoal">
-          My Orders
-        </h1>
-        <p className="text-xs text-gray-500">
-          Track and review your previous Banahatti handloom saree orders.
-        </p>
+  if (!orders.length) return <main className="orders-page container-custom"><div className="empty-bag"><Package size={40} /><p className="eyebrow">Your story starts here</p><h1>No orders yet.</h1><p>When you bring a Banahatti weave home, you’ll be able to follow it here.</p><Link to="/collections" className="button-primary">Browse sarees</Link></div></main>;
+  return <main className="orders-page container-custom">
+    <header className="orders-header"><div><p className="eyebrow">Your handloom journey</p><h1>My orders.</h1><p>Keep track of every piece, from our loom to your doorstep.</p></div><div className="orders-count"><Package size={18} /><strong>{orders.length}</strong><span>{orders.length === 1 ? 'order placed' : 'orders placed'}</span></div></header>
+    <div className="orders-list">{orders.map((order) => { const meta = statusMeta[order.status] || statusMeta.Pending; const StatusIcon = meta.icon; return <article className="order-card" key={order.id}>
+      <header className="order-card-head"><div><p>Order no.</p><h2>{order.id}</h2><span>Placed on {new Date(`${order.date}T12:00:00`).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</span></div><div className={`order-status ${order.status.toLowerCase()}`}><StatusIcon size={15} /><span>{meta.copy}</span></div><strong className="order-total"><small>Total</small><Money value={order.totalAmount} /></strong></header>
+      <div className="order-card-body"><div className="order-products">{order.items.map((item, index) => <div className="order-product" key={`${item.sareeId}-${index}`}><img src={item.image} alt={item.name} /><div><h3>{item.name}</h3><p>Quantity {item.quantity}</p><Link to={`/saree/${item.sareeId}`}>View saree →</Link></div><strong><Money value={item.price * item.quantity} /></strong></div>)}</div>
+        {order.status !== 'Cancelled' && <div className="order-tracker"><div className="tracker-labels"><span className={meta.stage >= 1 ? 'active' : ''}>Confirmed</span><span className={meta.stage >= 2 ? 'active' : ''}>Shipped</span><span className={meta.stage >= 3 ? 'active' : ''}>Delivered</span></div><div className="tracker-line"><i className={meta.stage >= 1 ? 'active' : ''} /><i className={meta.stage >= 2 ? 'active' : ''} /><i className={meta.stage >= 3 ? 'active' : ''} /></div></div>}
       </div>
-
-      {orders.length === 0 ? (
-        <div className="bg-white p-12 text-center rounded-2xl border border-gray-200 max-w-md mx-auto space-y-4 my-8">
-          <Package className="w-16 h-16 text-gray-300 mx-auto" />
-          <h3 className="font-serif text-2xl font-bold text-deep-charcoal">No Orders Placed Yet</h3>
-          <p className="text-xs text-gray-500">You haven't placed any saree orders yet.</p>
-          <Link 
-            to="/collections"
-            className="bg-crimson text-white px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider inline-block shadow"
-          >
-            Start Browsing Sarees
-          </Link>
-        </div>
-      ) : (
-        <div className="space-y-6">
-          {orders.map((order) => (
-            <div 
-              key={order.id}
-              className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden"
-            >
-              {/* Order Header */}
-              <div className="bg-cream/50 p-4 border-b border-gray-200 flex flex-wrap items-center justify-between gap-4 text-xs">
-                <div>
-                  <span className="text-gray-400 font-bold uppercase block text-[10px]">Order ID</span>
-                  <span className="font-mono font-bold text-deep-charcoal text-sm">{order.id}</span>
-                </div>
-
-                <div>
-                  <span className="text-gray-400 font-bold uppercase block text-[10px]">Order Date</span>
-                  <span className="font-semibold text-deep-charcoal">{order.date}</span>
-                </div>
-
-                <div>
-                  <span className="text-gray-400 font-bold uppercase block text-[10px]">Total Amount</span>
-                  <span className="font-serif font-bold text-crimson text-sm">
-                    ₹{order.totalAmount.toLocaleString('en-IN')}
-                  </span>
-                </div>
-
-                <div>
-                  {getStatusBadge(order.status)}
-                </div>
-              </div>
-
-              {/* Order Items List */}
-              <div className="p-4 sm:p-6 space-y-4 divide-y divide-gray-100">
-                {order.items.map((item, idx) => (
-                  <div key={idx} className="pt-3 first:pt-0 flex items-center justify-between text-xs gap-4">
-                    <div className="flex items-center gap-3">
-                      <img 
-                        src={item.image} 
-                        alt={item.name}
-                        className="w-14 h-16 object-cover rounded-lg border border-gray-200 flex-shrink-0" 
-                      />
-                      <div>
-                        <h4 className="font-serif font-bold text-sm text-deep-charcoal">{item.name}</h4>
-                        <p className="text-gray-500">Quantity: {item.quantity}</p>
-                      </div>
-                    </div>
-
-                    <span className="font-serif font-bold text-deep-charcoal">
-                      ₹{(item.price * item.quantity).toLocaleString('en-IN')}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Delivery Address footer */}
-              <div className="bg-gray-50/70 p-4 text-[11px] text-gray-500 border-t border-gray-100 flex flex-col sm:flex-row justify-between gap-2">
-                <span><strong>Delivery Address:</strong> {order.address}</span>
-                <span className="text-emerald-700 font-semibold">100% Handloom Mark Verified Order</span>
-              </div>
-
-            </div>
-          ))}
-        </div>
-      )}
-
-    </div>
-  );
+      <footer className="order-card-footer"><p><MapPin size={15} /><span><strong>Delivering to</strong>{order.address}</span></p><span className="order-certified"><CheckCircle2 size={15} /> Handloom verified</span></footer>
+    </article>; })}</div>
+  </main>;
 }
