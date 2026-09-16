@@ -1,0 +1,62 @@
+export const weaversData = [
+  {
+    id: 'weaver-01',
+    name: 'Basavarajappa Pattar',
+    title: 'Master Weaver & Chikki Paras Specialist',
+    guild: 'Banahatti Guild #04',
+    yearsExperience: 28,
+    activeLooms: 3,
+    location: 'Banahatti Town, Bagalkot District',
+    photo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80',
+    story: 'Basavarajappa has spent nearly three decades perfecting the intricate double-warp Chikki Paras check weave. Inheriting his pit-loom setup from his grandfather, he takes immense pride in training young weavers in Bagalkot to preserve natural vegetable dyeing.',
+    awards: ['State Handloom Excellency Award 2018', 'GI Tag Pioneer Weaver 2021'],
+    totalSareesWoven: 1420,
+    specialty: 'Double-warp Chikki Paras borders & 80s combed cotton',
+    sareesCreated: ['saree-01', 'saree-09', 'saree-12', 'saree-15']
+  },
+  {
+    id: 'weaver-02',
+    name: 'Saraswati Hegde',
+    title: 'Senior Silk-Cotton Jacquard Artisan',
+    guild: 'Banahatti Guild #12',
+    yearsExperience: 22,
+    activeLooms: 2,
+    location: 'Rabkavi Weaver Colony',
+    photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
+    story: 'Saraswati specializes in blending fine mulberry silk warps with breathable combed cotton wefts. Her signature Topeni interlocking 3-shuttle borders require meticulous hand coordination on frame looms.',
+    awards: ['Karnataka Craft Excellency Award 2022'],
+    totalSareesWoven: 980,
+    specialty: 'Topeni Silk Borders & Zari Pallu design',
+    sareesCreated: ['saree-05', 'saree-08', 'saree-11']
+  },
+  {
+    id: 'weaver-03',
+    name: 'Mallikarjun Hadapad',
+    title: 'Kasuti Extra-Weft Heritage Weaver',
+    guild: 'Banahatti Guild #01',
+    yearsExperience: 34,
+    activeLooms: 4,
+    location: 'Banahatti Main Weaver Sector',
+    photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
+    story: 'Mallikarjun is renowned for translating ancient Karnataka Kasuti embroidery motifs into extra-weft hand shuttle weaves. Each peacock, lotus, and chariot motif is hand-counted thread by thread without mechanical automation.',
+    awards: ['National Artisan Recognition 2015', 'Master Craftsman Honor'],
+    totalSareesWoven: 2150,
+    specialty: 'Kasuti motif extra-weft & black organic cotton sarees',
+    sareesCreated: ['saree-04', 'saree-07', 'saree-13', 'saree-20']
+  },
+  {
+    id: 'weaver-04',
+    name: 'Guruprasad Devanga',
+    title: 'Bridal Mulberry Silk Master Artisan',
+    guild: 'Master Loom Studio #01',
+    yearsExperience: 40,
+    activeLooms: 5,
+    location: 'Banahatti Master Loom Facility',
+    photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
+    story: 'Guruprasad leads the master loom facility producing Banahatti’s finest heavy zari bridal heirlooms. He pioneered custom wedding monogram weaving directly into silk saree pallus.',
+    awards: ['Presidential Handloom Honor 2019'],
+    totalSareesWoven: 2800,
+    specialty: 'Heavy Zari Bridal Silk & Monogram Weaving',
+    sareesCreated: ['saree-06', 'saree-16', 'saree-19']
+  }
+];
