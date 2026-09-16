@@ -1,157 +1,172 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import SareeCard from '../components/SareeCard';
-import HeroBannerSlider from '../components/HeroBannerSlider';
 import { ShieldCheck, ShoppingBag, Headphones } from 'lucide-react';
 
 export default function Home() {
+  const navigate = useNavigate();
   const { sarees } = useCart();
 
-  const latestSarees = sarees.filter((s) => s.isLatest).slice(0, 4);
-  const bestSellerSarees = sarees.filter((s) => s.isBestSeller || s.rating >= 4.9).slice(0, 4);
+  const latestSarees = sarees.filter((s) => s.isLatest || s.category === 'COTTON').slice(0, 4);
+  const bestSellerSarees = sarees.filter((s) => s.isBestSeller || s.rating >= 4.8).slice(0, 4);
 
   return (
-    <div className="space-y-16 lg:space-y-24 pb-16 font-sans">
+    <div className="space-y-0 font-sans bg-[#FAF8F5]">
       
-      {/* ATTRACTIVE DYNAMIC CHANGING HERO BANNER SLIDER */}
-      <HeroBannerSlider sarees={sarees} />
-
-      {/* LATEST COLLECTION SECTION */}
-      <section className="max-w-7xl mx-auto px-4 lg:px-8">
-        <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
-          <div>
-            <span className="text-xs font-bold text-crimson uppercase tracking-widest block mb-1">
-              FRESH LOOM ARRIVALS
+      {/* 1. HERO SECTION */}
+      <section className="container-custom pt-8 pb-12">
+        <div className="bg-white border border-[#E5DED7] grid grid-cols-1 lg:grid-cols-2 min-h-[600px] overflow-hidden">
+          
+          {/* Left Side: Centered Content */}
+          <div className="flex flex-col justify-center items-start text-left p-10 sm:p-14 lg:p-16 space-y-5 bg-white">
+            <span className="text-[11px] font-bold uppercase tracking-[2px] text-[#9A6863]">
+              OUR BESTSELLER
             </span>
-            <h2 className="font-serif text-3xl font-extrabold text-deep-charcoal">
-              LATEST COLLECTION
-            </h2>
+
+            <h1 className="font-serif text-[40px] sm:text-[48px] font-normal text-[#252525] leading-[1.1]">
+              Handwoven Elegance <br />
+              from Banahatti
+            </h1>
+
+            <p className="text-[16px] text-[#77716B] leading-[1.6] max-w-md font-normal">
+              Discover timeless handloom sarees crafted with tradition and care.
+            </p>
+
+            <div className="pt-4">
+              <button
+                onClick={() => navigate('/collections')}
+                className="bg-[#252525] hover:bg-[#9A6863] text-white text-[12px] font-bold uppercase tracking-[1.5px] px-[30px] py-[14px] transition-colors shadow-sm"
+              >
+                SHOP NOW
+              </button>
+            </div>
           </div>
 
-          <Link 
-            to="/collections" 
-            className="text-xs font-bold text-crimson hover:text-gold-zari tracking-wider uppercase flex items-center gap-1 transition-colors"
-          >
-            View All Collection →
-          </Link>
+          {/* Right Side: Large Saree Image */}
+          <div className="relative min-h-[400px] lg:min-h-[600px] bg-[#FAF8F5]">
+            <img 
+              src={sarees[0]?.images[0] || 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'} 
+              alt="Banahatti Handloom Saree" 
+              className="w-full h-full object-cover absolute inset-0"
+            />
+          </div>
+
+        </div>
+      </section>
+
+      {/* 2. LATEST COLLECTION SECTION */}
+      <section className="container-custom py-12">
+        
+        {/* Section Heading */}
+        <div className="text-center pt-[40px] pb-[35px] space-y-2">
+          <h2 className="font-serif text-3xl sm:text-4xl text-[#252525] font-normal">
+            LATEST COLLECTION
+          </h2>
+          <p className="text-[14px] text-[#77716B]">
+            Discover our handpicked handloom sarees.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 4-Column Product Grid */}
+        <div className="product-grid">
           {latestSarees.map((saree) => (
             <SareeCard key={saree.id} saree={saree} />
           ))}
         </div>
+
       </section>
 
-      {/* BEST SELLERS SECTION */}
-      <section className="bg-cream/50 py-16 border-y border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
-            <div>
-              <span className="text-xs font-bold text-gold-zari uppercase tracking-widest block mb-1">
-                CUSTOMER FAVORITES
-              </span>
-              <h2 className="font-serif text-3xl font-extrabold text-deep-charcoal">
-                BEST SELLERS
-              </h2>
+      {/* 3. BEST SELLERS SECTION */}
+      <section className="container-custom py-12">
+        
+        {/* Section Heading */}
+        <div className="text-center pt-[40px] pb-[35px] space-y-2">
+          <h2 className="font-serif text-3xl sm:text-4xl text-[#252525] font-normal">
+            BEST SELLERS
+          </h2>
+          <p className="text-[14px] text-[#77716B]">
+            Our most popular and highly rated handloom saree designs.
+          </p>
+        </div>
+
+        {/* 4-Column Product Grid */}
+        <div className="product-grid">
+          {bestSellerSarees.map((saree) => (
+            <SareeCard key={saree.id} saree={saree} />
+          ))}
+        </div>
+
+      </section>
+
+      {/* 4. FEATURE SECTION (3 Equal Columns) */}
+      <section className="bg-white border-t border-b border-[#E5DED7] py-[60px] my-12">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            
+            <div className="space-y-3 p-4">
+              <ShieldCheck className="w-8 h-8 mx-auto text-[#252525] stroke-[1.25]" />
+              <h3 className="font-sans text-xs font-bold text-[#252525] uppercase tracking-[1.5px]">
+                AUTHENTIC HANDLOOM
+              </h3>
+              <p className="text-xs text-[#77716B]">
+                Beautiful handloom sarees from Banahatti.
+              </p>
             </div>
 
-            <Link 
-              to="/collections" 
-              className="text-xs font-bold text-crimson hover:text-gold-zari tracking-wider uppercase flex items-center gap-1 transition-colors"
-            >
-              Shop Best Sellers →
-            </Link>
-          </div>
+            <div className="space-y-3 p-4">
+              <ShoppingBag className="w-8 h-8 mx-auto text-[#252525] stroke-[1.25]" />
+              <h3 className="font-sans text-xs font-bold text-[#252525] uppercase tracking-[1.5px]">
+                EASY ORDERING
+              </h3>
+              <p className="text-xs text-[#77716B]">
+                Simple and convenient online shopping.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {bestSellerSarees.map((saree) => (
-              <SareeCard key={saree.id} saree={saree} />
-            ))}
+            <div className="space-y-3 p-4">
+              <Headphones className="w-8 h-8 mx-auto text-[#252525] stroke-[1.25]" />
+              <h3 className="font-sans text-xs font-bold text-[#252525] uppercase tracking-[1.5px]">
+                CUSTOMER SUPPORT
+              </h3>
+              <p className="text-xs text-[#77716B]">
+                We're here to help.
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* THREE-FEATURE SECTION */}
-      <section className="max-w-7xl mx-auto px-4 lg:px-8 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm text-center space-y-3 hover:border-gold-zari transition-all">
-            <div className="w-14 h-14 mx-auto rounded-full bg-crimson/10 text-crimson flex items-center justify-center">
-              <ShieldCheck className="w-7 h-7" />
-            </div>
-            <h3 className="font-serif text-lg font-bold text-deep-charcoal uppercase tracking-wide">
-              AUTHENTIC HANDLOOM
-            </h3>
-            <p className="text-xs text-gray-500">
-              Quality sarees woven direct from Banahatti, Karnataka pit-looms.
-            </p>
-          </div>
+      {/* 5. NEWSLETTER SECTION */}
+      <section className="container-custom py-16 text-center space-y-3">
+        <h3 className="font-serif text-2xl sm:text-3xl text-[#252525]">
+          Stay in the Weave
+        </h3>
+        <p className="text-xs text-[#77716B]">
+          Get updates about our latest sarees and collections.
+        </p>
 
-          <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm text-center space-y-3 hover:border-gold-zari transition-all">
-            <div className="w-14 h-14 mx-auto rounded-full bg-gold-zari/10 text-gold-zari flex items-center justify-center">
-              <ShoppingBag className="w-7 h-7" />
-            </div>
-            <h3 className="font-serif text-lg font-bold text-deep-charcoal uppercase tracking-wide">
-              EASY SHOPPING
-            </h3>
-            <p className="text-xs text-gray-500">
-              Simple, secure, and convenient online ordering process.
-            </p>
-          </div>
-
-          <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm text-center space-y-3 hover:border-gold-zari transition-all">
-            <div className="w-14 h-14 mx-auto rounded-full bg-teal/10 text-teal flex items-center justify-center">
-              <Headphones className="w-7 h-7" />
-            </div>
-            <h3 className="font-serif text-lg font-bold text-deep-charcoal uppercase tracking-wide">
-              CUSTOMER SUPPORT
-            </h3>
-            <p className="text-xs text-gray-500">
-              We're here to help you with your order and customization queries.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      {/* NEWSLETTER SECTION */}
-      <section className="max-w-7xl mx-auto px-4 lg:px-8">
-        <div className="bg-deep-charcoal text-white rounded-3xl p-8 lg:p-12 text-center max-w-4xl mx-auto space-y-6 relative overflow-hidden border border-gold-zari/30">
-          <div className="max-w-xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-gold-zari">
-              JOIN THE HANDLOOM LOVERS CLUB
-            </span>
-            <h3 className="font-serif text-2xl lg:text-3xl font-bold">
-              Subscribe for Fresh Weave Drops & Offers
-            </h3>
-            <p className="text-xs text-gray-400 font-light">
-              Get notified when new Banahatti cotton and silk sarees come off the pit-looms.
-            </p>
-          </div>
-
-          <form 
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert('Thank you for subscribing to Banahatti Weaves newsletter!');
-            }}
-            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+        <form 
+          onSubmit={(e) => {
+            e.preventDefault();
+            alert('Thank you for subscribing to Banahatti Weaves!');
+          }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-0 max-w-md mx-auto pt-4"
+        >
+          <input 
+            type="email" 
+            placeholder="Enter your email" 
+            required
+            className="w-full sm:w-80 h-[48px] px-4 text-xs text-[#252525] border border-[#E5DED7] focus:outline-none focus:border-[#9A6863] bg-white"
+          />
+          <button 
+            type="submit"
+            className="w-full sm:w-auto h-[48px] bg-[#252525] hover:bg-[#9A6863] text-white font-bold text-xs uppercase tracking-[1.5px] px-[30px] transition-colors"
           >
-            <input 
-              type="email" 
-              placeholder="Enter your email address" 
-              required
-              className="flex-1 px-4 py-3 rounded-xl bg-white/10 text-white text-xs border border-gray-700 focus:outline-none focus:border-gold-zari placeholder:text-gray-400"
-            />
-            <button 
-              type="submit"
-              className="bg-crimson hover:bg-gold-zari text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition-colors shadow-lg"
-            >
-              Subscribe
-            </button>
-          </form>
-        </div>
+            SUBSCRIBE
+          </button>
+        </form>
       </section>
 
     </div>

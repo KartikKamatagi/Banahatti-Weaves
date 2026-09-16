@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import { ShoppingBag, User, Search, Heart, LogOut, ShieldCheck, ShieldAlert } from 'lucide-react';
+import { Search, User, ShoppingBag, LogOut, Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const { cartCount, wishlist } = useCart();
+  const { cartCount } = useCart();
   const { currentUser, isAuthenticated, isAdmin, logout } = useAuth();
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -20,146 +21,177 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300">
-      
-      {/* Top Banner Ticker */}
-      <div className="bg-deep-charcoal text-cream text-[11px] py-1.5 px-4 font-sans border-b border-gold-zari/20">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <span className="truncate">
-            ✨ Authentic Banahatti Handloom Sarees Direct from Karnataka Weavers • 100% Guaranteed
-          </span>
-          <div className="flex items-center gap-4 hidden sm:flex">
-            <span>Free Shipping on Orders &gt; ₹3,000</span>
-            {isAdmin ? (
-              <Link to="/admin/dashboard" className="text-gold-zari font-bold underline">
-                Admin Panel
-              </Link>
-            ) : (
-              <Link to="/admin/login" className="text-gray-400 hover:text-white transition">
-                Admin Access
-              </Link>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 h-20 flex items-center justify-between gap-6">
+    <header className="sticky top-0 z-40 w-full bg-[#FAF8F5] border-b border-[#E5DED7] transition-all">
+      <div className="container-custom h-[75px] flex items-center justify-between gap-6">
         
-        {/* Logo */}
-        <Link to="/" className="flex flex-col group">
-          <span className="font-serif text-2xl lg:text-3xl font-extrabold tracking-wider text-deep-charcoal group-hover:text-crimson transition-colors">
-            BANAHATTI <span className="text-crimson">WEAVES</span>
-          </span>
-          <span className="text-[9px] uppercase tracking-[0.25em] text-gold-zari font-bold -mt-1">
-            Handloom Heritage • Est. 1952
+        {/* Mobile Hamburger Menu Icon */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden p-2 text-[#252525]"
+          aria-label="Toggle Menu"
+        >
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+
+        {/* Brand Logo */}
+        <Link to="/" className="flex items-center">
+          <span className="font-serif text-[22px] font-semibold tracking-[1px] text-[#252525]">
+            BANAHATTI <span className="text-[#9A6863]">WEAVES</span>
           </span>
         </Link>
 
-        {/* Center Menu Links */}
-        <nav className="hidden md:flex items-center gap-8 font-sans text-xs font-bold uppercase tracking-widest text-deep-charcoal">
+        {/* Center Desktop Navigation Links */}
+        <nav className="hidden md:flex items-center gap-8 font-sans text-[13px] tracking-[0.5px] uppercase font-medium">
           <NavLink 
             to="/" 
-            className={({ isActive }) => `py-2 transition-colors border-b-2 ${isActive ? 'border-crimson text-crimson' : 'border-transparent hover:text-crimson'}`}
+            className={({ isActive }) => 
+              `py-1.5 transition-colors text-[#252525] hover:text-[#9A6863] ${isActive ? 'border-b-2 border-[#9A6863] text-[#9A6863] font-semibold' : 'border-b-2 border-transparent'}`
+            }
           >
             HOME
           </NavLink>
           <NavLink 
             to="/collections" 
-            className={({ isActive }) => `py-2 transition-colors border-b-2 ${isActive ? 'border-crimson text-crimson' : 'border-transparent hover:text-crimson'}`}
+            className={({ isActive }) => 
+              `py-1.5 transition-colors text-[#252525] hover:text-[#9A6863] ${isActive ? 'border-b-2 border-[#9A6863] text-[#9A6863] font-semibold' : 'border-b-2 border-transparent'}`
+            }
           >
             COLLECTIONS
           </NavLink>
           <NavLink 
             to="/about" 
-            className={({ isActive }) => `py-2 transition-colors border-b-2 ${isActive ? 'border-crimson text-crimson' : 'border-transparent hover:text-crimson'}`}
+            className={({ isActive }) => 
+              `py-1.5 transition-colors text-[#252525] hover:text-[#9A6863] ${isActive ? 'border-b-2 border-[#9A6863] text-[#9A6863] font-semibold' : 'border-b-2 border-transparent'}`
+            }
           >
             ABOUT
           </NavLink>
           <NavLink 
             to="/contact" 
-            className={({ isActive }) => `py-2 transition-colors border-b-2 ${isActive ? 'border-crimson text-crimson' : 'border-transparent hover:text-crimson'}`}
+            className={({ isActive }) => 
+              `py-1.5 transition-colors text-[#252525] hover:text-[#9A6863] ${isActive ? 'border-b-2 border-[#9A6863] text-[#9A6863] font-semibold' : 'border-b-2 border-transparent'}`
+            }
           >
             CONTACT
           </NavLink>
         </nav>
 
-        {/* Right Action Icons */}
-        <div className="flex items-center gap-4">
+        {/* Right Actions: Search, User, Cart */}
+        <div className="flex items-center gap-4 text-[#252525]">
 
-          {/* Search Trigger / Form */}
+          {/* Search Bar */}
           {isSearchOpen ? (
-            <form onSubmit={handleSearchSubmit} className="relative animate-fadeIn">
+            <form onSubmit={handleSearchSubmit} className="relative flex items-center">
               <input 
                 type="text" 
-                placeholder="Search sarees..." 
+                placeholder="Search..." 
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 autoFocus
-                className="w-48 sm:w-64 text-xs py-1.5 px-3 rounded-full border border-gold-zari focus:outline-none bg-cream/50"
+                className="w-36 sm:w-48 text-xs py-1 px-3 border-b border-[#252525] focus:outline-none bg-transparent"
               />
-              <button type="submit" className="absolute right-2 top-1.5 text-gray-500 hover:text-crimson">
+              <button type="submit" className="p-1 text-[#252525]">
                 <Search className="w-4 h-4" />
               </button>
             </form>
           ) : (
             <button 
               onClick={() => setIsSearchOpen(true)}
-              className="p-2 text-deep-charcoal hover:text-crimson transition-colors"
+              className="p-1.5 hover:text-[#9A6863] transition-colors"
               title="Search"
             >
-              <Search className="w-5 h-5" />
+              <Search className="w-5 h-5 stroke-[1.5]" />
             </button>
           )}
 
-          {/* User / Profile Icon */}
+          {/* User Icon */}
           {isAuthenticated ? (
             <div className="flex items-center gap-2">
               <Link 
                 to={isAdmin ? "/admin/dashboard" : "/profile"} 
-                className="flex items-center gap-1.5 p-2 rounded-full hover:bg-cream transition-colors text-deep-charcoal"
+                className="p-1.5 hover:text-[#9A6863] transition-colors flex items-center gap-1"
                 title={currentUser.name}
               >
-                <User className="w-5 h-5 text-crimson" />
-                <span className="text-xs font-bold hidden lg:inline max-w-[100px] truncate">
+                <User className="w-5 h-5 stroke-[1.5]" />
+                <span className="text-[12px] font-medium hidden lg:inline max-w-[90px] truncate">
                   {currentUser.name.split(' ')[0]}
                 </span>
               </Link>
               <button 
                 onClick={logout}
-                className="p-2 text-gray-400 hover:text-crimson transition-colors"
+                className="p-1.5 text-[#77716B] hover:text-[#9A6863] transition-colors"
                 title="Logout"
               >
-                <LogOut className="w-4 h-4" />
+                <LogOut className="w-4 h-4 stroke-[1.5]" />
               </button>
             </div>
           ) : (
             <Link 
               to="/login"
-              className="p-2 text-deep-charcoal hover:text-crimson transition-colors"
-              title="Login / Register"
+              className="p-1.5 hover:text-[#9A6863] transition-colors"
+              title="Login"
             >
-              <User className="w-5 h-5" />
+              <User className="w-5 h-5 stroke-[1.5]" />
             </Link>
           )}
 
-          {/* Cart Icon with Item Count */}
+          {/* Cart Icon with Item Counter Badge */}
           <Link 
             to="/cart"
-            className="relative p-2.5 bg-crimson hover:bg-gold-zari text-white rounded-full transition-colors shadow-md flex items-center justify-center"
+            className="relative p-1.5 hover:text-[#9A6863] transition-colors"
             title="Shopping Cart"
           >
-            <ShoppingBag className="w-4 h-4" />
-            {cartCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-gold-zari text-black text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow">
-                {cartCount}
-              </span>
-            )}
+            <ShoppingBag className="w-5 h-5 stroke-[1.5]" />
+            <span className="absolute -top-1 -right-1 bg-[#9A6863] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+              {cartCount}
+            </span>
+          </Link>
+
+          {/* Hidden Admin Trigger */}
+          <Link
+            to={isAdmin ? "/admin/dashboard" : "/admin/login"}
+            className="text-[10px] font-bold uppercase text-[#77716B] hover:text-[#9A6863] hidden xl:inline ml-2"
+          >
+            {isAdmin ? '[Admin]' : '[Admin]'}
           </Link>
 
         </div>
 
       </div>
+
+      {/* Mobile Drawer Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-[#FAF8F5] border-b border-[#E5DED7] px-6 py-4 space-y-3 font-sans text-xs uppercase font-medium">
+          <NavLink 
+            to="/" 
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="block py-2 text-[#252525] border-b border-gray-100"
+          >
+            HOME
+          </NavLink>
+          <NavLink 
+            to="/collections" 
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="block py-2 text-[#252525] border-b border-gray-100"
+          >
+            COLLECTIONS
+          </NavLink>
+          <NavLink 
+            to="/about" 
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="block py-2 text-[#252525] border-b border-gray-100"
+          >
+            ABOUT
+          </NavLink>
+          <NavLink 
+            to="/contact" 
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="block py-2 text-[#252525]"
+          >
+            CONTACT
+          </NavLink>
+        </div>
+      )}
     </header>
   );
 }

@@ -1,88 +1,81 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, ShieldCheck, Heart } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-deep-charcoal text-white pt-16 pb-12 border-t border-gold-zari/30">
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 font-sans">
+    <footer className="bg-[#242424] text-white pt-16 pb-8 border-t border-[#333] font-sans">
+      <div className="container-custom space-y-12">
         
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-gray-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-xs">
           
-          {/* Brand Info */}
-          <div className="md:col-span-5 space-y-4">
+          {/* Col 1: Brand Info */}
+          <div className="space-y-3">
             <Link to="/" className="inline-block">
-              <span className="font-serif text-2xl font-extrabold tracking-wider text-white">
-                BANAHATTI <span className="text-gold-zari">WEAVES</span>
+              <span className="font-serif text-xl font-bold tracking-wider text-white">
+                BANAHATTI <span className="text-[#9A6863]">WEAVES</span>
               </span>
             </Link>
-
-            <p className="text-xs text-gray-400 leading-relaxed max-w-md font-light">
-              Banahatti Weaves is an exclusive online handloom boutique bringing authentic pit-loom sarees direct from the master weavers of Banahatti, Karnataka to your doorstep.
+            <p className="text-[#C9C4BE] text-xs leading-relaxed font-light">
+              Banahatti Weaves is an online saree boutique showcasing authentic pit-loom handloom sarees directly from Banahatti weavers.
             </p>
-
-            <div className="flex items-center gap-2 text-xs text-gold-zari font-medium pt-2">
-              <ShieldCheck className="w-4 h-4" />
-              <span>100% Certified Handloom Mark • GI Protected #84</span>
-            </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="md:col-span-3 space-y-3">
-            <h4 className="font-serif text-sm font-bold uppercase tracking-wider text-gold-zari">
-              Quick Links
+          {/* Col 2: Quick Links */}
+          <div className="space-y-3">
+            <h4 className="font-sans text-xs font-bold uppercase tracking-[1px] text-white">
+              QUICK LINKS
             </h4>
-            <ul className="space-y-2 text-xs text-gray-300">
+            <ul className="space-y-2 text-[#C9C4BE]">
               <li>
-                <Link to="/" className="hover:text-gold-zari transition-colors">Home</Link>
+                <Link to="/" className="hover:text-white transition-colors">Home</Link>
               </li>
               <li>
-                <Link to="/collections" className="hover:text-gold-zari transition-colors">Collections</Link>
+                <Link to="/collections" className="hover:text-white transition-colors">Collections</Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-gold-zari transition-colors">About Us</Link>
+                <Link to="/about" className="hover:text-white transition-colors">About</Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-gold-zari transition-colors">Contact</Link>
-              </li>
-              <li>
-                <span className="text-gray-500 cursor-not-allowed">Privacy Policy</span>
+                <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact Details */}
-          <div className="md:col-span-4 space-y-3">
-            <h4 className="font-serif text-sm font-bold uppercase tracking-wider text-gold-zari">
-              Contact Us
+          {/* Col 3: Customer Links */}
+          <div className="space-y-3">
+            <h4 className="font-sans text-xs font-bold uppercase tracking-[1px] text-white">
+              CUSTOMER
             </h4>
+            <ul className="space-y-2 text-[#C9C4BE]">
+              <li>
+                <Link to="/profile" className="hover:text-white transition-colors">My Account</Link>
+              </li>
+              <li>
+                <Link to="/orders" className="hover:text-white transition-colors">My Orders</Link>
+              </li>
+              <li>
+                <Link to="/cart" className="hover:text-white transition-colors">Cart</Link>
+              </li>
+            </ul>
+          </div>
 
-            <div className="space-y-3 text-xs text-gray-300">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-crimson flex-shrink-0 mt-0.5" />
-                <span>Handloom Weavers Colony, Main Road, Banahatti, Bagalkot District, Karnataka - 587311</span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-crimson flex-shrink-0" />
-                <span>+91 98765 43210 / +91 8353 220194</span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-crimson flex-shrink-0" />
-                <span>support@banahattiweaves.com</span>
-              </div>
+          {/* Col 4: Contact */}
+          <div className="space-y-3">
+            <h4 className="font-sans text-xs font-bold uppercase tracking-[1px] text-white">
+              CONTACT
+            </h4>
+            <div className="space-y-2 text-[#C9C4BE]">
+              <p>+91 98765 43210</p>
+              <p>support@banahattiweaves.com</p>
+              <p className="text-gray-400 text-[11px] pt-1">Main Road, Banahatti, Bagalkot, KA - 587311</p>
             </div>
           </div>
 
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
-          <p>© {new Date().getFullYear()} Banahatti Weaves. All Rights Reserved.</p>
-          <p className="flex items-center gap-1">
-            Handcrafted with <Heart className="w-3.5 h-3.5 text-crimson fill-crimson" /> in Banahatti, KA
-          </p>
+        {/* Copyright */}
+        <div className="pt-6 border-t border-[#333] text-center text-[11px] text-[#C9C4BE] font-light">
+          © {new Date().getFullYear()} banahattiweaves.com - All Rights Reserved
         </div>
 
       </div>
