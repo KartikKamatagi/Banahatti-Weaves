@@ -138,11 +138,12 @@ export default function Navbar() {
           {/* Cart Icon with Item Counter Badge */}
           <Link 
             to="/cart"
-            className="relative p-1.5 hover:text-[#9A6863] transition-colors"
+            className="cart-link"
             title="Shopping Cart"
+            aria-label={`Shopping bag with ${cartCount} items`}
           >
             <ShoppingBag className="w-5 h-5 stroke-[1.5]" />
-            <span className="absolute -top-1 -right-1 bg-[#9A6863] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+            <span className="cart-count" aria-hidden="true">
               {cartCount}
             </span>
           </Link>
