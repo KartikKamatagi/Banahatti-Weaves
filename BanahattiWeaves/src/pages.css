@@ -43,6 +43,11 @@
 .auth-footer a { color: var(--wine); font-weight: 700; }.auth-footer a:hover { color: var(--forest); text-decoration: underline; }
 .admin-link { display: inline-flex; align-items: center; gap: 6px; color: #6f796f !important; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
 
+/* The cart total sits directly over the bag rather than taking space in the navbar. */
+.cart-link { position: relative; display: grid; width: 31px; height: 31px; place-items: center; color: var(--ink); transition: color .2s; }
+.cart-link:hover { color: var(--wine); }
+.cart-count { position: absolute; top: -3px; right: -4px; z-index: 1; display: grid; min-width: 16px; height: 16px; padding: 0 3px; place-items: center; border: 1.5px solid var(--cream); border-radius: 999px; background: var(--wine); color: #fff; font-size: 9px; font-weight: 700; line-height: 1; }
+
 .contact-page { padding-top: 73px; padding-bottom: 105px; }
 .contact-heading { max-width: 620px; margin: 0 auto 52px; text-align: center; }.contact-heading > p:last-child { color: #6f796f; font-size: 14px; line-height: 1.7; }
 .contact-layout { display: grid; grid-template-columns: .84fr 1.16fr; align-items: stretch; }.contact-details { display: flex; flex-direction: column; justify-content: space-between; gap: 50px; padding: 44px; background: var(--forest); color: white; }.contact-details h2, .contact-form-card h2 { font: 400 35px/1 var(--font-serif); letter-spacing: -.04em; }.contact-details h2 { color: #fff; margin: 14px 0 17px; }.contact-details > div > p:last-child { color: #c0cbc3; max-width: 330px; font-size: 13px; line-height: 1.7; }.contact-kicker { color: #e4b783; }.contact-list { display: grid; gap: 26px; }.contact-item { display: grid; grid-template-columns: 37px 1fr; gap: 12px; color: #e4b783; }.contact-item > div { color: #c5cec8; }.contact-item h3 { color: #fff; font: 700 10px/1.2 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; margin: 2px 0 6px; }.contact-item p { font-size: 12px; line-height: 1.55; }
