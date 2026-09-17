@@ -1,176 +1,48 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import { User, Mail, Phone, Lock, ArrowRight } from 'lucide-react';
 
 export default function Register() {
   const navigate = useNavigate();
   const { register, returnUrl, setReturnUrl } = useAuth();
-
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    password: '',
-    confirmPassword: ''
-  });
-
+  const [formData, setFormData] = useState({ fullName: '', email: '', phone: '', password: '', confirmPassword: '' });
   const [errorMsg, setErrorMsg] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const updateField = (field) => (event) => setFormData({ ...formData, [field]: event.target.value });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      setErrorMsg('Passwords do not match.');
-      return;
-    }
-
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (formData.password !== formData.confirmPassword) { setErrorMsg('The passwords do not match.'); return; }
     setIsLoading(true);
     setErrorMsg('');
-
     const res = await register(formData);
     setIsLoading(false);
-
-    if (res.success) {
-      const dest = returnUrl || '/collections';
-      setReturnUrl(null);
-      navigate(dest);
-    } else {
-      setErrorMsg(res.error || 'Failed to create account.');
-    }
+    if (res.success) { const destination = returnUrl || '/collections'; setReturnUrl(null); navigate(destination); }
+    else setErrorMsg(res.error || 'We could not create your account.');
   };
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center px-4 py-12 bg-cream/30 font-sans">
-      <div className="w-full max-w-md bg-white rounded-3xl p-8 border border-gold-zari/30 shadow-2xl space-y-6">
-        
-        {/* Header */}
-        <div className="text-center space-y-1">
-          <span className="text-[10px] uppercase font-bold tracking-widest text-gold-zari">
-            BANAHATTI WEAVES
-          </span>
-          <h2 className="font-serif text-3xl font-extrabold text-deep-charcoal">
-            CREATE ACCOUNT
-          </h2>
-          <p className="text-xs text-gray-500">
-            Join Banahatti Weaves to order authentic handloom sarees.
-          </p>
-        </div>
-
-        {errorMsg && (
-          <div className="p-3 bg-red-50 text-red-700 text-xs rounded-xl font-medium border border-red-200">
-            {errorMsg}
+    <section className="auth-page register-page">
+      <div className="auth-panel register-panel">
+        <p className="auth-eyebrow">Become part of the story</p>
+        <h1>Create your account</h1>
+        <p className="auth-intro">Create an account for a more personal handloom shopping experience.</p>
+        {errorMsg && <p className="form-alert" role="alert">{errorMsg}</p>}
+        <form className="auth-form" onSubmit={handleSubmit}>
+          <div className="form-grid">
+            <label><span>Full name</span><input type="text" required value={formData.fullName} onChange={updateField('fullName')} placeholder="Your full name" autoComplete="name" /></label>
+            <label><span>Phone number</span><input type="tel" required value={formData.phone} onChange={updateField('phone')} placeholder="+91 98765 43210" autoComplete="tel" /></label>
           </div>
-        )}
-
-        <form onSubmit={handleSubmit} className="space-y-4 text-xs">
-          
-          <div>
-            <label className="block uppercase font-bold text-deep-charcoal mb-1">
-              Full Name *
-            </label>
-            <div className="relative">
-              <input 
-                type="text" 
-                required
-                value={formData.fullName}
-                onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                placeholder="Enter your full name"
-                className="w-full py-3 pl-10 pr-3 rounded-xl border border-gray-200 focus:outline-none focus:border-crimson"
-              />
-              <User className="w-4 h-4 text-gray-400 absolute left-3 top-3.5" />
-            </div>
+          <label><span>Email address</span><input type="email" required value={formData.email} onChange={updateField('email')} placeholder="name@example.com" autoComplete="email" /></label>
+          <div className="form-grid">
+            <label><span>Password</span><input type="password" required value={formData.password} onChange={updateField('password')} placeholder="At least 8 characters" autoComplete="new-password" /></label>
+            <label><span>Confirm password</span><input type="password" required value={formData.confirmPassword} onChange={updateField('confirmPassword')} placeholder="Repeat your password" autoComplete="new-password" /></label>
           </div>
-
-          <div>
-            <label className="block uppercase font-bold text-deep-charcoal mb-1">
-              Email Address *
-            </label>
-            <div className="relative">
-              <input 
-                type="email" 
-                required
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                placeholder="name@example.com"
-                className="w-full py-3 pl-10 pr-3 rounded-xl border border-gray-200 focus:outline-none focus:border-crimson"
-              />
-              <Mail className="w-4 h-4 text-gray-400 absolute left-3 top-3.5" />
-            </div>
-          </div>
-
-          <div>
-            <label className="block uppercase font-bold text-deep-charcoal mb-1">
-              Phone Number *
-            </label>
-            <div className="relative">
-              <input 
-                type="tel" 
-                required
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                placeholder="+91 98765 43210"
-                className="w-full py-3 pl-10 pr-3 rounded-xl border border-gray-200 focus:outline-none focus:border-crimson"
-              />
-              <Phone className="w-4 h-4 text-gray-400 absolute left-3 top-3.5" />
-            </div>
-          </div>
-
-          <div>
-            <label className="block uppercase font-bold text-deep-charcoal mb-1">
-              Password *
-            </label>
-            <div className="relative">
-              <input 
-                type="password" 
-                required
-                value={formData.password}
-                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                placeholder="••••••••"
-                className="w-full py-3 pl-10 pr-3 rounded-xl border border-gray-200 focus:outline-none focus:border-crimson"
-              />
-              <Lock className="w-4 h-4 text-gray-400 absolute left-3 top-3.5" />
-            </div>
-          </div>
-
-          <div>
-            <label className="block uppercase font-bold text-deep-charcoal mb-1">
-              Confirm Password *
-            </label>
-            <div className="relative">
-              <input 
-                type="password" 
-                required
-                value={formData.confirmPassword}
-                onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
-                placeholder="••••••••"
-                className="w-full py-3 pl-10 pr-3 rounded-xl border border-gray-200 focus:outline-none focus:border-crimson"
-              />
-              <Lock className="w-4 h-4 text-gray-400 absolute left-3 top-3.5" />
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="w-full bg-crimson hover:bg-gold-zari text-white py-3.5 rounded-xl font-bold uppercase tracking-widest text-xs shadow-lg shadow-crimson/20 transition-all flex items-center justify-center gap-2 mt-2"
-          >
-            {isLoading ? 'CREATING ACCOUNT...' : 'CREATE ACCOUNT'}
-            <ArrowRight className="w-4 h-4" />
-          </button>
-
+          <button className="form-submit" type="submit" disabled={isLoading}>{isLoading ? 'Creating account…' : <>Create account <ArrowRight size={17} aria-hidden="true" /></>}</button>
         </form>
-
-        <div className="pt-4 border-t border-gray-100 text-center">
-          <p className="text-xs text-gray-600">
-            Already have an account?{' '}
-            <Link to="/login" className="font-bold text-crimson hover:underline">
-              LOGIN
-            </Link>
-          </p>
-        </div>
-
+        <div className="auth-footer"><p>Already have an account? <Link to="/login">Sign in</Link></p></div>
       </div>
-    </div>
+    </section>
   );
 }
