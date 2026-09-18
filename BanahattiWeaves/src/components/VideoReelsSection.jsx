@@ -13,7 +13,7 @@ export default function VideoReelsSection() {
       influencer: '@shreya_ethnic_style',
       likes: '14.2k',
       product: products[0] || products[0],
-      videoPoster: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80',
+      videoPoster: '/images/sarees/saree_model_maroon_1789668365104.png',
     },
     {
       id: 'reel-2',
@@ -21,7 +21,7 @@ export default function VideoReelsSection() {
       influencer: '@banahatti_vibes',
       likes: '9.8k',
       product: products[1] || products[0],
-      videoPoster: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80',
+      videoPoster: '/images/sarees/saree_model_emerald_green_1789755773551.jpg',
     },
     {
       id: 'reel-3',
@@ -29,7 +29,7 @@ export default function VideoReelsSection() {
       influencer: '@weaving_stories_india',
       likes: '22.5k',
       product: products[2] || products[0],
-      videoPoster: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=600&q=80',
+      videoPoster: '/images/sarees/saree_model_blue_1789668405492.png',
     },
     {
       id: 'reel-4',
@@ -37,7 +37,7 @@ export default function VideoReelsSection() {
       influencer: '@saree_drape_diaries',
       likes: '18.1k',
       product: products[3] || products[0],
-      videoPoster: 'https://images.unsplash.com/photo-1610030469668-98e550d6193c?auto=format&fit=crop&w=600&q=80',
+      videoPoster: '/images/sarees/saree_model_purple_1789668387478.png',
     }
   ];
 

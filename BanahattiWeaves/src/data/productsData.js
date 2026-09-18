@@ -236,8 +236,8 @@ export const productsData = [
     artisanGuild: 'Banahatti Guild #04',
     artisanLocation: 'Banahatti Town, Bagalkot District',
     images: [
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_maroon_1789668365104.png',
+      '/images/sarees/media__1789668269619.jpg'
     ],
     description: 'A signature Banahatti masterpiece featuring hand-woven double-warp Chikki Paras checks with a rich crimson body and gold dipped zari borders. Woven on traditional pit-looms using 100% natural dyed organic combed cotton.'
   },
@@ -266,8 +266,8 @@ export const productsData = [
     artisanGuild: 'Banahatti Guild #09',
     artisanLocation: 'Rabkavi Weaver Colony',
     images: [
-      'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_blue_1789668405492.png',
+      '/images/sarees/media__1789668269757.jpg'
     ],
     description: 'Crafted using natural indigo vegetable dye vats in Banahatti village, this lightweight breathable saree features subtle geometric checks and traditional temple border lines.'
   },
@@ -296,8 +296,8 @@ export const productsData = [
     artisanGuild: 'Banahatti Guild #14',
     artisanLocation: 'Banahatti Artisan Sector',
     images: [
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_emerald_green_1789755773551.jpg',
+      '/images/sarees/media__1789668482974.jpg'
     ],
     description: 'Showcases the revered Gomi (grain arrowhead) motif symbolic of agricultural abundance and prosperity in northern Karnataka handloom traditions.'
   },
@@ -326,8 +326,8 @@ export const productsData = [
     artisanGuild: 'Banahatti Guild #01',
     artisanLocation: 'Banahatti Main Loom Sector',
     images: [
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_magenta_grid_1789755709147.jpg',
+      '/images/sarees/media__1789668463626.jpg'
     ],
     description: 'Centuries-old Karnataka Kasuti embroidery motifs woven directly into the fabric using extra-weft shuttle technique. Features iconic peacock (Navilu) and chariot motifs.'
   },
@@ -356,8 +356,8 @@ export const productsData = [
     artisanGuild: 'Banahatti Guild #12',
     artisanLocation: 'Rabkavi Master Loom Facility',
     images: [
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_purple_1789668387478.png',
+      '/images/sarees/media__1789668269630.jpg'
     ],
     description: 'Exquisite 100% pure mulberry silk handloom with three-shuttle interlocking Topeni border in contrast magenta and fine gold dipped zari pallu.'
   },
@@ -386,8 +386,8 @@ export const productsData = [
     artisanGuild: 'Master Loom Studio #01',
     artisanLocation: 'Banahatti Master Loom Facility',
     images: [
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_maroon_1789668365104.png',
+      '/images/sarees/media__1789668269619.jpg'
     ],
     description: 'Regal wedding heirloom saree woven over 14 dedicated weaving days. Features solid maroon silk body adorned with intricate gold zari gopura temple architecture.'
   },
@@ -416,8 +416,8 @@ export const productsData = [
     artisanGuild: 'Banahatti Guild #01',
     artisanLocation: 'Banahatti Main Loom Sector',
     images: [
-      'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_purple_1789668387478.png',
+      '/images/sarees/media__1789668269630.jpg'
     ],
     description: 'Dramatic black combed cotton saree featuring chariot (Ratha) motifs woven with extra-weft red shuttle threads across the entire pallu.'
   },
@@ -446,8 +446,8 @@ export const productsData = [
     artisanGuild: 'Banahatti Guild #12',
     artisanLocation: 'Rabkavi Weaver Sector',
     images: [
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/media__1789668515110.jpg',
+      '/images/sarees/media__1789668291855.jpg'
     ],
     description: 'Vibrant peacock teal silk-cotton blend with shimmering gold zari stripes on the pallu and traditional Chikki Paras checks.'
   },
@@ -476,8 +476,8 @@ export const productsData = [
     artisanGuild: 'Banahatti Guild #04',
     artisanLocation: 'Banahatti Town',
     images: [
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_blue_gingham_1789755799573.jpg',
+      '/images/sarees/media__1789668499029.jpg'
     ],
     description: 'Simple, elegant organic unbleached cotton saree celebrating raw handloom texture with minimal maroon selvage borders.'
   },
@@ -506,8 +506,8 @@ export const productsData = [
     artisanGuild: 'Banahatti Guild #09',
     artisanLocation: 'Rabkavi Weaver Sector',
     images: [
-      'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_maroon_1789668365104.png',
+      '/images/sarees/media__1789668269619.jpg'
     ],
     description: 'Features a sunset crimson hue created by weaving red warp yarns with subtle mustard weft threads on traditional pit looms.'
   },
@@ -536,8 +536,8 @@ export const productsData = [
     artisanGuild: 'Banahatti Guild #12',
     artisanLocation: 'Rabkavi Weaver Colony',
     images: [
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_purple_1789668387478.png',
+      '/images/sarees/media__1789668269630.jpg'
     ],
     description: 'Luxurious midnight purple mulberry silk with traditional temple spire woven border in rich yellow gold zari.'
   },
@@ -566,8 +566,8 @@ export const productsData = [
     artisanGuild: 'Banahatti Guild #04',
     artisanLocation: 'Banahatti Town',
     images: [
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_magenta_grid_1789755709147.jpg',
+      '/images/sarees/media__1789668463626.jpg'
     ],
     description: 'Bright ochre yellow cotton handloom perfect for puja ceremonies and festive celebrations, featuring classic Chikki Paras borders.'
   },
@@ -596,8 +596,8 @@ export const productsData = [
     artisanGuild: 'Banahatti Guild #01',
     artisanLocation: 'Banahatti Weaver Colony',
     images: [
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_maroon_1789668365104.png',
+      '/images/sarees/media__1789668269619.jpg'
     ],
     description: 'Intricately embroidered with sacred lotus (Kamala) motifs woven into the maroon silk-cotton fabric using pure gold thread extra-wefts.'
   },
@@ -626,8 +626,8 @@ export const productsData = [
     artisanGuild: 'Banahatti Guild #14',
     artisanLocation: 'Banahatti Artisan Sector',
     images: [
-      'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_emerald_green_1789755773551.jpg',
+      '/images/sarees/media__1789668482974.jpg'
     ],
     description: 'Cool peacock green shade accented by deep indigo Topeni interlocking border and fine zari line details in the pallu.'
   },
@@ -656,8 +656,8 @@ export const productsData = [
     artisanGuild: 'Banahatti Guild #04',
     artisanLocation: 'Banahatti Town',
     images: [
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_blue_gingham_1789755799573.jpg',
+      '/images/sarees/media__1789668499029.jpg'
     ],
     description: 'Warm terracotta orange body with subtle horizontal stripes woven from hand-dyed natural vegetable cotton yarns.'
   },
@@ -686,8 +686,8 @@ export const productsData = [
     artisanGuild: 'Master Loom Studio #01',
     artisanLocation: 'Banahatti Master Loom Facility',
     images: [
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_blue_1789668405492.png',
+      '/images/sarees/media__1789668269757.jpg'
     ],
     description: 'Stunning navy blue bridal silk saree featuring a dense, heavy gold zari woven pallu depicting temple peacocks and sacredlotus motifs.'
   },
@@ -716,8 +716,8 @@ export const productsData = [
     artisanGuild: 'Banahatti Guild #14',
     artisanLocation: 'Banahatti Artisan Sector',
     images: [
-      'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_purple_1789668387478.png',
+      '/images/sarees/media__1789668269630.jpg'
     ],
     description: 'Soft rose pink cotton saree woven with fine silver zari border lines, ideal for daytime occasions and festive gatherings.'
   },
@@ -746,8 +746,8 @@ export const productsData = [
     artisanGuild: 'Banahatti Guild #09',
     artisanLocation: 'Rabkavi Weaver Colony',
     images: [
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_emerald_green_1789755773551.jpg',
+      '/images/sarees/media__1789668482974.jpg'
     ],
     description: 'Contemporary organic linen saree woven in olive green with subtle dobby geometric border motifs.'
   },
@@ -776,8 +776,8 @@ export const productsData = [
     artisanGuild: 'Master Loom Studio #01',
     artisanLocation: 'Banahatti Master Loom Facility',
     images: [
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_maroon_1789668365104.png',
+      '/images/sarees/media__1789668269619.jpg'
     ],
     description: 'The pinnacle of Banahatti silk weaving craft. Features rich crimson silk body with hand-woven gold zari motifs and custom bride-groom monogram weaving option in the pallu.'
   },
@@ -806,8 +806,8 @@ export const productsData = [
     artisanGuild: 'Banahatti Guild #01',
     artisanLocation: 'Banahatti Weaver Sector',
     images: [
-      'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_blue_1789668405492.png',
+      '/images/sarees/media__1789668269757.jpg'
     ],
     description: 'Deep indigo handloom cotton with intricate temple spire (Gopura) Kasuti motifs woven into the border and pallu.'
   }

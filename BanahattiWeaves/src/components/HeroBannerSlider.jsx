@@ -15,7 +15,7 @@ export default function HeroBannerSlider({ sarees }) {
       subtitle: 'Discover beautiful handloom cotton sarees woven with century-old Chikki Paras borders by Bagalkot master artisans.',
       primaryBtn: 'SHOP NOW',
       secondaryBtn: 'EXPLORE COTTONS',
-      image: sarees[0]?.images[0] || 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
+      image: sarees[0]?.images[0] || '/images/sarees/saree_model_maroon_1789668365104.png',
       sareeName: sarees[0]?.name || 'Crimson Red Chikki Paras Cotton Saree',
       sareePrice: sarees[0]?.price || 3499,
       bgGradient: 'from-[#FAF8F5] via-[#FFF] to-[#F5F2EB]'
@@ -27,7 +27,7 @@ export default function HeroBannerSlider({ sarees }) {
       subtitle: 'Adorn yourself in heavy gold zari borders and lustrous mulberry silk drapes handcrafted for lifetime celebrations.',
       primaryBtn: 'SHOP BRIDAL SILK',
       secondaryBtn: 'VIEW BESTSELLERS',
-      image: sarees[2]?.images[0] || 'https://images.unsplash.com/photo-1610030469668-98e550d6193c?auto=format&fit=crop&w=800&q=80',
+      image: sarees[2]?.images[0] || '/images/sarees/saree_model_purple_1789668387478.png',
       sareeName: sarees[2]?.name || 'Mustard Gold Handwoven Silk Saree',
       sareePrice: sarees[2]?.price || 7999,
       bgGradient: 'from-[#FDFBF7] via-[#FFF] to-[#FAF6ED]'
@@ -39,7 +39,7 @@ export default function HeroBannerSlider({ sarees }) {
       subtitle: 'Experience intricate hand-embroidered Karnataka temple chariots, peacocks, and lotus motifs in vivid jewel tones.',
       primaryBtn: 'EXPLORE KASUTI',
       secondaryBtn: 'SHOP TRADITIONAL',
-      image: sarees[1]?.images[0] || 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80',
+      image: sarees[1]?.images[0] || '/images/sarees/saree_model_blue_1789668405492.png',
       sareeName: sarees[1]?.name || 'Royal Peacock Blue Kasuti Motif Saree',
       sareePrice: sarees[1]?.price || 4899,
       bgGradient: 'from-[#F5F8F8] via-[#FFF] to-[#EBF2F3]'

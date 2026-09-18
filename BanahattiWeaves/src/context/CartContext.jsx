@@ -110,7 +110,7 @@ export const CartProvider = ({ children }) => {
       isLatest: true,
       images: newSareeData.images && newSareeData.images.length > 0 
         ? newSareeData.images 
-        : ['https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80']
+        : ['/images/sarees/saree_model_maroon_1789668365104.png']
     };
     setSarees((prev) => [formatted, ...prev]);
     showToast('✨ Saree successfully added to store!');

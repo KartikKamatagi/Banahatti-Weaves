@@ -15,8 +15,8 @@ export const initialSarees = [
     isBestSeller: true,
     description: 'Authentic Banahatti handloom cotton saree featuring the traditional Chikki Paras temple border in gold thread. Hand-woven on pit looms by master weavers of Bagalkot.',
     images: [
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_maroon_1789668365104.png',
+      '/images/sarees/media__1789668269619.jpg'
     ]
   },
   {
@@ -35,8 +35,8 @@ export const initialSarees = [
     isBestSeller: true,
     description: 'Vibrant peacock teal Banahatti saree adorned with intricate hand-embroidered Kasuti motifs representing Karnataka temple chariots.',
     images: [
-      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1610030469668-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_blue_1789668405492.png',
+      '/images/sarees/media__1789668269757.jpg'
     ]
   },
   {
@@ -55,8 +55,8 @@ export const initialSarees = [
     isBestSeller: true,
     description: 'Radiant mustard gold silk saree handcrafted with rich woven maroon borders. Designed for festive celebrations and wedding ceremonies.',
     images: [
-      'https://images.unsplash.com/photo-1610030469668-98e550d6193c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_emerald_green_1789755773551.jpg',
+      '/images/sarees/media__1789668269630.jpg'
     ]
   },
   {
@@ -75,8 +75,8 @@ export const initialSarees = [
     isBestSeller: false,
     description: 'Classic emerald green daily wear cotton saree featuring traditional Gomi grain weave borders. Extremely comfortable for all-day wear.',
     images: [
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_emerald_green_1789755773551.jpg',
+      '/images/sarees/media__1789668482974.jpg'
     ]
   },
   {
@@ -95,8 +95,8 @@ export const initialSarees = [
     isBestSeller: true,
     description: 'Heavy gold zari bridal Banahatti silk saree. Features traditional double-warp weave with ornate temple pallu.',
     images: [
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1610030469668-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_maroon_1789668365104.png',
+      '/images/sarees/media__1789668269619.jpg'
     ]
   },
   {
@@ -115,8 +115,8 @@ export const initialSarees = [
     isBestSeller: true,
     description: 'Subtle and elegant ivory cream cotton saree accented with thin maroon selvedge borders. Perfect for formal and office wear.',
     images: [
-      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_blue_gingham_1789755799573.jpg',
+      '/images/sarees/media__1789668499029.jpg'
     ]
   },
   {
@@ -135,8 +135,8 @@ export const initialSarees = [
     isBestSeller: false,
     description: 'Shimmering tissue silk saree woven with dual-tone purple thread work. Light and comfortable for evening gatherings.',
     images: [
-      'https://images.unsplash.com/photo-1610030469668-98e550d6193c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_purple_1789668387478.png',
+      '/images/sarees/media__1789668269630.jpg'
     ]
   },
   {
@@ -155,8 +155,8 @@ export const initialSarees = [
     isBestSeller: false,
     description: 'Traditional check pattern Banahatti saree inspired by Bagalkot folklore weaving styles.',
     images: [
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_magenta_grid_1789755709147.jpg',
+      '/images/sarees/media__1789668463626.jpg'
     ]
   },
   {
@@ -175,8 +175,8 @@ export const initialSarees = [
     isBestSeller: false,
     description: 'Earthy terracotta shade saree with gold zari motifs. Handcrafted by Bagalkot weaver cooperative.',
     images: [
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1610030469668-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_maroon_1789668365104.png',
+      '/images/sarees/media__1789668269619.jpg'
     ]
   },
   {
@@ -195,8 +195,8 @@ export const initialSarees = [
     isBestSeller: true,
     description: 'Regal royal blue silk saree woven with dense gold zari brocade work along the pallu and border.',
     images: [
-      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_blue_1789668405492.png',
+      '/images/sarees/media__1789668269757.jpg'
     ]
   },
   {
@@ -215,8 +215,8 @@ export const initialSarees = [
     isBestSeller: false,
     description: 'Bright yellow cotton saree ideal for auspicious rituals, morning poojas, and cultural festivals.',
     images: [
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/media__1789668515110.jpg',
+      '/images/sarees/media__1789668291855.jpg'
     ]
   },
   {
@@ -235,8 +235,8 @@ export const initialSarees = [
     isBestSeller: false,
     description: 'Striking midnight black saree embellished with antique gold zari temple patterns.',
     images: [
-      'https://images.unsplash.com/photo-1610030469668-98e550d6193c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80'
+      '/images/sarees/saree_model_purple_1789668387478.png',
+      '/images/sarees/media__1789668269630.jpg'
     ]
   }
 ];
@@ -250,7 +250,7 @@ export const initialOrders = [
     customerPhone: '+91 98765 43210',
     address: '42 Heritage Enclave, Indiranagar, Bengaluru, KA - 560038',
     items: [
-      { sareeId: 'saree-1', name: 'Crimson Red Chikki Paras Cotton Saree', price: 3499, quantity: 1, image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80' }
+      { sareeId: 'saree-1', name: 'Crimson Red Chikki Paras Cotton Saree', price: 3499, quantity: 1, image: '/images/sarees/saree_model_maroon_1789668365104.png' }
     ],
     totalAmount: 3499,
     status: 'Delivered'
@@ -263,7 +263,7 @@ export const initialOrders = [
     customerPhone: '+91 98123 45678',
     address: '15 Silk Board Junction, Jayanagar, Bengaluru, KA - 560041',
     items: [
-      { sareeId: 'saree-3', name: 'Mustard Gold Handwoven Silk Saree', price: 7999, quantity: 1, image: 'https://images.unsplash.com/photo-1610030469668-98e550d6193c?auto=format&fit=crop&w=800&q=80' }
+      { sareeId: 'saree-3', name: 'Mustard Gold Handwoven Silk Saree', price: 7999, quantity: 1, image: '/images/sarees/saree_model_purple_1789668387478.png' }
     ],
     totalAmount: 7999,
     status: 'Shipped'
@@ -276,7 +276,7 @@ export const initialOrders = [
     customerPhone: '+91 97400 11223',
     address: '77 Weavers Colony, Bagalkot Road, Banahatti, KA - 587311',
     items: [
-      { sareeId: 'saree-2', name: 'Royal Peacock Blue Kasuti Motif Saree', price: 4899, quantity: 1, image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80' }
+      { sareeId: 'saree-2', name: 'Royal Peacock Blue Kasuti Motif Saree', price: 4899, quantity: 1, image: '/images/sarees/saree_model_blue_1789668405492.png' }
     ],
     totalAmount: 4899,
     status: 'Pending'

@@ -21,7 +21,7 @@ export default function AddSaree() {
   });
 
   const [imageUrls, setImageUrls] = useState([
-    'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'
+    '/images/sarees/saree_model_maroon_1789668365104.png'
   ]);
 
   const handleAddImageUrl = () => {
@@ -44,7 +44,7 @@ export default function AddSaree() {
 
     addSaree({
       ...formData,
-      images: imageUrls.length > 0 ? imageUrls : ['https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80']
+      images: imageUrls.length > 0 ? imageUrls : ['/images/sarees/saree_model_maroon_1789668365104.png']
     });
 
     navigate('/admin/sarees');

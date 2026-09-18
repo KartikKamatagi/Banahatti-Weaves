@@ -30,7 +30,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-visual">
-            <img src={sarees[0]?.images[0] || 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85'} alt="Banahatti handloom saree" />
+            <img src={sarees[0]?.images[0] || '/images/sarees/saree_model_maroon_1789668365104.png'} alt="Banahatti handloom saree" />
             <div className="hero-stamp"><span>Authentically</span><strong>HANDWOVEN</strong><span>in Banahatti</span></div>
             <div className="hero-caption"><span>01</span> The heirloom collection</div>
           </div>

@@ -13,7 +13,7 @@ export default function OccasionSection() {
       name: 'Bridal & Grand Wedding',
       subtitle: 'Heavy Gold Zari Borders & Festive Silk',
       tag: 'Royalty Pick',
-      image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
+      image: '/images/sarees/saree_model_maroon_1789668365104.png',
       itemCount: '8 Styles'
     },
     {
@@ -21,7 +21,7 @@ export default function OccasionSection() {
       name: 'Pooja & Cultural Festivals',
       subtitle: 'Temple Motifs in Peacock Blue & Maroons',
       tag: 'Trending',
-      image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80',
+      image: '/images/sarees/saree_model_emerald_green_1789755773551.jpg',
       itemCount: '12 Styles'
     },
     {
@@ -29,7 +29,7 @@ export default function OccasionSection() {
       name: 'Heritage Office Luxe',
       subtitle: 'Lightweight Pure Breathable Banahatti Cotton',
       tag: 'Daily Comfort',
-      image: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80',
+      image: '/images/sarees/saree_model_blue_gingham_1789755799573.jpg',
       itemCount: '6 Styles'
     },
     {
@@ -37,7 +37,7 @@ export default function OccasionSection() {
       name: 'Evening Soiree & Gifting',
       subtitle: 'Tissue Silk & Metallic Soft Weaves',
       tag: 'Bestselling Gift',
-      image: 'https://images.unsplash.com/photo-1610030469668-98e550d6193c?auto=format&fit=crop&w=800&q=80',
+      image: '/images/sarees/saree_model_purple_1789668387478.png',
       itemCount: '10 Styles'
     }
   ];
