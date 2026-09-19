@@ -28,7 +28,12 @@ import Dashboard from './admin/Dashboard';
 import SareeList from './admin/SareeList';
 import AddSaree from './admin/AddSaree';
 import EditSaree from './admin/EditSaree';
+import AdminCategories from './admin/AdminCategories';
 import AdminOrders from './admin/AdminOrders';
+import AdminCustomers from './admin/AdminCustomers';
+import AdminInventory from './admin/AdminInventory';
+import AdminMessages from './admin/AdminMessages';
+import AdminSettings from './admin/AdminSettings';
 
 import { Sparkles } from 'lucide-react';
 
@@ -126,7 +131,12 @@ export default function App() {
               <Route path="sarees" element={<SareeList />} />
               <Route path="sarees/add" element={<AddSaree />} />
               <Route path="sarees/edit/:id" element={<EditSaree />} />
+              <Route path="categories" element={<AdminCategories />} />
               <Route path="orders" element={<AdminOrders />} />
+              <Route path="customers" element={<AdminCustomers />} />
+              <Route path="inventory" element={<AdminInventory />} />
+              <Route path="messages" element={<AdminMessages />} />
+              <Route path="settings" element={<AdminSettings />} />
             </Route>
 
             {/* Customer Website Routes */}
