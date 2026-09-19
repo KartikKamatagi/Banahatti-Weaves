@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './admin.css';
 import { Outlet, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { 
@@ -56,19 +57,19 @@ export default function AdminLayout() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F7F5F1] text-[#242424] font-sans flex flex-col md:flex-row antialiased">
+    <div className="min-h-screen bg-[#F7F5F1] text-[#242424] font-sans antialiased">
       
-      {/* MOBILE DRAWER BACKDROP */}
+      {/* MOBILE DRAWER BACKDROP (z-30) */}
       {isMobileMenuOpen && (
         <div 
           onClick={() => setIsMobileMenuOpen(false)}
-          className="fixed inset-0 bg-black/50 z-40 md:hidden backdrop-blur-xs"
+          className="fixed inset-0 bg-black/50 z-30 md:hidden backdrop-blur-xs"
         />
       )}
 
-      {/* LEFT SIDEBAR (Desktop 240px, Mobile Drawer) */}
+      {/* LEFT SIDEBAR (Desktop 240px, z-40) */}
       <aside 
-        className={`fixed top-0 bottom-0 left-0 z-50 w-[240px] bg-[#1E2D29] text-white flex flex-col justify-between transition-transform duration-300 ease-in-out border-r border-[#1E2D29] ${
+        className={`fixed top-0 bottom-0 left-0 z-40 w-[240px] bg-[#1E2D29] text-white flex flex-col justify-between transition-transform duration-300 ease-in-out border-r border-[#1E2D29] ${
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
@@ -91,7 +92,7 @@ export default function AdminLayout() {
             </button>
           </div>
 
-          {/* Navigation Items (44-48px height each) */}
+          {/* Navigation Items */}
           <nav className="p-3 space-y-1 overflow-y-auto max-h-[calc(100vh-180px)] admin-scrollbar">
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -138,11 +139,11 @@ export default function AdminLayout() {
         </div>
       </aside>
 
-      {/* MAIN CONTAINER */}
-      <div className="flex-1 md:ml-[240px] flex flex-col min-h-screen">
+      {/* MAIN LAYOUT WRAPPER (Padded left 240px on desktop) */}
+      <div className="md:pl-[240px] flex flex-col min-h-screen w-full">
         
-        {/* TOP HEADER (Height: 72px) */}
-        <header className="sticky top-0 z-30 bg-white border-b border-[#E5E0D9] h-[72px] px-6 md:px-10 flex items-center justify-between">
+        {/* TOP HEADER (Height: 72px, z-20) */}
+        <header className="sticky top-0 z-20 bg-white border-b border-[#E5E0D9] h-[72px] px-6 md:px-10 flex items-center justify-between w-full">
           
           {/* Left: Mobile Drawer Button & Page Title (28px) */}
           <div className="flex items-center gap-4">
@@ -176,7 +177,7 @@ export default function AdminLayout() {
               </button>
 
               {isNotificationOpen && (
-                <div className="absolute right-0 mt-2 w-72 bg-white rounded-md shadow-lg border border-[#E5E0D9] py-2 z-50 animate-fade-in text-xs">
+                <div className="absolute right-0 mt-2 w-72 bg-white rounded-md shadow-lg border border-[#E5E0D9] py-2 z-30 animate-fade-in text-xs">
                   <div className="px-4 py-2 border-b border-[#E5E0D9] font-semibold text-[#242424]">
                     Notifications
                   </div>
@@ -202,7 +203,7 @@ export default function AdminLayout() {
 
         </header>
 
-        {/* MAIN CONTENT (Max Width 1400px, Padding 32px 40px) */}
+        {/* MAIN CONTENT AREA */}
         <main className="flex-1 w-full max-w-[1400px] mx-auto p-6 md:px-[40px] md:py-[32px]">
           <Outlet />
         </main>

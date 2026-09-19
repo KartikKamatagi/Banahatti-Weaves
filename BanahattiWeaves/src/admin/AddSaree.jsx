@@ -4,13 +4,9 @@ import { useCart } from '../context/CartContext';
 import { 
   UploadCloud, 
   Trash2, 
-  Star, 
   ArrowLeft, 
   Check, 
-  Sparkles, 
-  Image as ImageIcon,
-  ArrowUp,
-  ArrowDown
+  Star 
 } from 'lucide-react';
 
 export default function AddSaree() {
@@ -28,9 +24,8 @@ export default function AddSaree() {
     length: '6.3 Meters (Includes 0.8m Blouse Piece)',
     stock: '10',
     description: '',
-    isFeatured: true,
+    isFeatured: false,
     isNewArrival: true,
-    isBestSeller: false,
     isActive: true,
     urlInput: ''
   });
@@ -57,16 +52,6 @@ export default function AddSaree() {
     setImages([main, ...rest]);
   };
 
-  const handleMoveImage = (index, direction) => {
-    const updated = [...images];
-    const targetIdx = index + direction;
-    if (targetIdx < 0 || targetIdx >= updated.length) return;
-    const temp = updated[index];
-    updated[index] = updated[targetIdx];
-    updated[targetIdx] = temp;
-    setImages(updated);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.price) {
@@ -87,53 +72,50 @@ export default function AddSaree() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto space-y-6 font-sans">
+    <div className="space-y-6 font-sans">
       
-      {/* Page Header */}
-      <div className="bg-white p-6 rounded-xl border border-[#E5E1DB] shadow-xs flex items-center justify-between">
+      {/* Top Action Header */}
+      <div className="flex items-center justify-between">
+        <button
+          onClick={() => navigate('/admin/sarees')}
+          className="inline-flex items-center gap-2 text-[13px] font-medium text-[#77716B] hover:text-[#242424]"
+        >
+          <ArrowLeft className="w-4 h-4" /> Back to Sarees
+        </button>
+
         <div className="flex items-center gap-3">
           <button
+            type="button"
             onClick={() => navigate('/admin/sarees')}
-            className="p-2 rounded-lg border border-[#E5E1DB] text-[#77716B] hover:text-[#242424] hover:bg-[#F7F6F3]"
+            className="btn-admin-secondary"
           >
-            <ArrowLeft className="w-4 h-4" />
-          </button>
-          <div>
-            <h1 className="font-serif text-2xl font-bold text-[#242424]">Add New Saree</h1>
-            <p className="text-xs text-[#77716B] mt-0.5">Create a new Banahatti handloom saree product entry</p>
-          </div>
-        </div>
-        <div className="flex gap-3">
-          <button
-            onClick={() => navigate('/admin/sarees')}
-            className="px-4 py-2 text-xs font-semibold text-[#77716B] bg-white border border-[#E5E1DB] rounded-lg hover:bg-[#F7F6F3]"
-          >
-            CANCEL
+            Cancel
           </button>
           <button
+            type="button"
             onClick={handleSubmit}
-            className="px-5 py-2 text-xs font-semibold text-white bg-[#1F2926] rounded-lg hover:bg-[#2A3733] shadow-xs cursor-pointer"
+            className="btn-admin-primary"
           >
-            SAVE SAREE
+            Save Saree
           </button>
         </div>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         
-        {/* TWO COLUMN LAYOUT */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* DESKTOP TWO COLUMN LAYOUT */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
-          {/* LEFT COLUMN: SAREE INFORMATION */}
-          <div className="bg-white p-6 rounded-xl border border-[#E5E1DB] shadow-xs space-y-4">
-            <h2 className="font-serif text-base font-bold text-[#242424] border-b border-[#E5E1DB] pb-3">
-              Saree Information
+          {/* LEFT: PRODUCT INFORMATION CARD */}
+          <div className="card-admin space-y-4">
+            <h2 className="text-[18px] font-bold text-[#242424] border-b border-[#E5E0D9] pb-3">
+              Product Information
             </h2>
 
-            {/* Name */}
+            {/* Saree Name */}
             <div>
-              <label className="block text-xs font-semibold text-[#77716B] mb-1">
-                SAREE NAME *
+              <label className="block text-[13px] font-semibold text-[#242424] mb-1">
+                Saree Name *
               </label>
               <input
                 type="text"
@@ -141,30 +123,34 @@ export default function AddSaree() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="e.g. Banahatti Crimson Red Chikki Paras Saree"
-                className="w-full px-3 py-2 text-xs bg-[#F7F6F3] border border-[#E5E1DB] rounded-lg text-[#242424] focus:outline-none focus:border-[#1F2926]"
+                className="input-admin w-full"
               />
             </div>
 
-            {/* SKU & Price */}
+            {/* SKU & Stock */}
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-[#77716B] mb-1">SKU ID</label>
+                <label className="block text-[13px] font-semibold text-[#242424] mb-1">
+                  SKU
+                </label>
                 <input
                   type="text"
                   value={formData.sku}
                   onChange={(e) => setFormData({ ...formData, sku: e.target.value })}
-                  className="w-full px-3 py-2 text-xs bg-[#F7F6F3] border border-[#E5E1DB] rounded-lg font-mono text-[#242424]"
+                  className="input-admin w-full font-mono"
                 />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-[#77716B] mb-1">STOCK QUANTITY *</label>
+                <label className="block text-[13px] font-semibold text-[#242424] mb-1">
+                  Stock *
+                </label>
                 <input
                   type="number"
                   required
                   min="0"
                   value={formData.stock}
                   onChange={(e) => setFormData({ ...formData, stock: e.target.value })}
-                  className="w-full px-3 py-2 text-xs bg-[#F7F6F3] border border-[#E5E1DB] rounded-lg text-[#242424]"
+                  className="input-admin w-full font-medium"
                 />
               </div>
             </div>
@@ -172,24 +158,28 @@ export default function AddSaree() {
             {/* Price & Discount Price */}
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-[#77716B] mb-1">SELLING PRICE (₹) *</label>
+                <label className="block text-[13px] font-semibold text-[#242424] mb-1">
+                  Selling Price (₹) *
+                </label>
                 <input
                   type="number"
                   required
                   placeholder="3499"
                   value={formData.price}
                   onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-                  className="w-full px-3 py-2 text-xs bg-[#F7F6F3] border border-[#E5E1DB] rounded-lg text-[#242424] font-semibold"
+                  className="input-admin w-full font-semibold"
                 />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-[#77716B] mb-1">ORIGINAL MRP (₹)</label>
+                <label className="block text-[13px] font-semibold text-[#242424] mb-1">
+                  Discount Price / MRP (₹)
+                </label>
                 <input
                   type="number"
                   placeholder="4499"
                   value={formData.originalPrice}
                   onChange={(e) => setFormData({ ...formData, originalPrice: e.target.value })}
-                  className="w-full px-3 py-2 text-xs bg-[#F7F6F3] border border-[#E5E1DB] rounded-lg text-[#242424]"
+                  className="input-admin w-full"
                 />
               </div>
             </div>
@@ -197,11 +187,13 @@ export default function AddSaree() {
             {/* Category & Fabric */}
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-[#77716B] mb-1">CATEGORY</label>
+                <label className="block text-[13px] font-semibold text-[#242424] mb-1">
+                  Category
+                </label>
                 <select
                   value={formData.category}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  className="w-full px-3 py-2 text-xs bg-[#F7F6F3] border border-[#E5E1DB] rounded-lg text-[#242424]"
+                  className="input-admin w-full cursor-pointer"
                 >
                   <option value="COTTON">Cotton Sarees</option>
                   <option value="SILK">Silk Sarees</option>
@@ -209,11 +201,13 @@ export default function AddSaree() {
                 </select>
               </div>
               <div>
-                <label className="block text-xs font-semibold text-[#77716B] mb-1">FABRIC TYPE</label>
+                <label className="block text-[13px] font-semibold text-[#242424] mb-1">
+                  Fabric
+                </label>
                 <select
                   value={formData.fabric}
                   onChange={(e) => setFormData({ ...formData, fabric: e.target.value })}
-                  className="w-full px-3 py-2 text-xs bg-[#F7F6F3] border border-[#E5E1DB] rounded-lg text-[#242424]"
+                  className="input-admin w-full cursor-pointer"
                 >
                   <option value="Pure Cotton">Pure Cotton</option>
                   <option value="Silk Cotton">Silk Cotton</option>
@@ -226,197 +220,148 @@ export default function AddSaree() {
             {/* Color & Length */}
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-[#77716B] mb-1">COLOR PALETTE</label>
+                <label className="block text-[13px] font-semibold text-[#242424] mb-1">
+                  Color
+                </label>
                 <input
                   type="text"
                   value={formData.color}
                   onChange={(e) => setFormData({ ...formData, color: e.target.value })}
-                  placeholder="Crimson Red & Gold"
-                  className="w-full px-3 py-2 text-xs bg-[#F7F6F3] border border-[#E5E1DB] rounded-lg text-[#242424]"
+                  placeholder="Red & Gold"
+                  className="input-admin w-full"
                 />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-[#77716B] mb-1">SAREE LENGTH</label>
+                <label className="block text-[13px] font-semibold text-[#242424] mb-1">
+                  Length
+                </label>
                 <input
                   type="text"
                   value={formData.length}
                   onChange={(e) => setFormData({ ...formData, length: e.target.value })}
-                  className="w-full px-3 py-2 text-xs bg-[#F7F6F3] border border-[#E5E1DB] rounded-lg text-[#242424]"
+                  className="input-admin w-full"
                 />
               </div>
             </div>
 
-          </div>
-
-          {/* RIGHT COLUMN: SAREE IMAGES */}
-          <div className="bg-white p-6 rounded-xl border border-[#E5E1DB] shadow-xs space-y-4">
-            <h2 className="font-serif text-base font-bold text-[#242424] border-b border-[#E5E1DB] pb-3">
-              Saree Images
-            </h2>
-
-            {/* Drag & Drop Area */}
-            <div className="border-2 border-dashed border-[#E5E1DB] bg-[#F7F6F3] rounded-xl p-6 text-center space-y-2">
-              <UploadCloud className="w-8 h-8 text-[#9A6863] mx-auto" />
-              <p className="text-xs font-semibold text-[#242424]">Drag & drop images here or browse</p>
-              <p className="text-[10px] text-[#77716B]">Supports JPG, PNG or WebP files</p>
+            {/* Description */}
+            <div>
+              <label className="block text-[13px] font-semibold text-[#242424] mb-1">
+                Description
+              </label>
+              <textarea
+                rows="4"
+                value={formData.description}
+                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                placeholder="Authentic Banahatti handloom cotton saree..."
+                className="textarea-admin w-full"
+              />
             </div>
 
-            {/* Add Image URL Input */}
+          </div>
+
+          {/* RIGHT: IMAGE UPLOAD CARD */}
+          <div className="card-admin space-y-4">
+            <h2 className="text-[18px] font-bold text-[#242424] border-b border-[#E5E0D9] pb-3">
+              Image Upload
+            </h2>
+
+            {/* Dashed Upload Box */}
+            <div className="border-2 border-dashed border-[#DCD6CE] bg-[#FAF8F5] rounded-[6px] p-8 text-center space-y-3">
+              <UploadCloud className="w-10 h-10 text-[#9A6863] mx-auto stroke-1" />
+              <div>
+                <p className="text-[14px] font-semibold text-[#242424]">Upload saree images</p>
+                <p className="text-[12px] text-[#77716B] mt-0.5">PNG, JPG or WEBP</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  const url = prompt('Enter image URL (/images/sarees/...):');
+                  if (url) setImages([...images, url]);
+                }}
+                className="btn-admin-secondary h-[38px] text-[13px] inline-flex items-center"
+              >
+                Choose Images
+              </button>
+            </div>
+
+            {/* URL Input Helper */}
             <div className="flex gap-2">
               <input
                 type="text"
                 value={formData.urlInput}
                 onChange={(e) => setFormData({ ...formData, urlInput: e.target.value })}
-                placeholder="Or paste image URL (/images/sarees/...)"
-                className="flex-1 px-3 py-2 text-xs bg-[#F7F6F3] border border-[#E5E1DB] rounded-lg text-[#242424]"
+                placeholder="Or paste image URL..."
+                className="input-admin flex-1 text-[13px]"
               />
               <button
                 type="button"
                 onClick={handleAddImageUrl}
-                className="px-3 py-2 bg-[#1F2926] text-white text-xs font-semibold rounded-lg hover:bg-[#2A3733]"
+                className="btn-admin-secondary h-[46px] text-[13px]"
               >
-                + ADD
+                + Add
               </button>
             </div>
 
-            {/* Images List Previews */}
-            <div className="space-y-2 pt-2">
-              <span className="text-[11px] font-semibold text-[#77716B] uppercase tracking-wider block">
+            {/* Clean Grid of Uploaded Images (3/4 aspect ratio) */}
+            <div>
+              <span className="text-[13px] font-semibold text-[#77716B] block mb-3">
                 IMAGE PREVIEWS ({images.length})
               </span>
-              {images.map((img, idx) => (
-                <div 
-                  key={idx} 
-                  className="flex items-center justify-between p-2.5 rounded-lg border border-[#E5E1DB] bg-white shadow-2xs"
-                >
-                  <div className="flex items-center gap-3 min-w-0">
-                    <img src={img} alt="preview" className="w-10 h-12 object-cover rounded border border-[#E5E1DB]" />
-                    <div className="min-w-0">
-                      <p className="text-xs font-mono text-[#242424] truncate max-w-[180px]">{img}</p>
-                      {idx === 0 && (
-                        <span className="text-[9px] font-bold text-[#3D8065] bg-[#3D8065]/10 px-1.5 py-0.5 rounded">
+              
+              <div className="grid grid-cols-3 gap-3">
+                {images.map((img, idx) => (
+                  <div key={idx} className="relative aspect-[3/4] border border-[#E5E0D9] rounded-[4px] overflow-hidden group">
+                    <img src={img} alt="preview" className="w-full h-full object-cover" />
+                    
+                    {/* Controls Overlay */}
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity p-2 flex flex-col justify-between items-end">
+                      <button
+                        type="button"
+                        onClick={() => handleRemoveImage(idx)}
+                        className="p-1 bg-[#B45454] text-white rounded hover:bg-[#B45454]/90"
+                        title="Remove Image"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+
+                      {idx === 0 ? (
+                        <span className="text-[10px] font-bold bg-[#4F806B] text-white px-2 py-0.5 rounded shadow">
                           MAIN IMAGE
                         </span>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => handleSetMainImage(idx)}
+                          className="text-[10px] font-semibold bg-white text-[#242424] px-2 py-0.5 rounded hover:bg-[#FAF8F5]"
+                        >
+                          Set Main
+                        </button>
                       )}
                     </div>
                   </div>
-                  <div className="flex items-center gap-1">
-                    {idx !== 0 && (
-                      <button
-                        type="button"
-                        onClick={() => handleSetMainImage(idx)}
-                        className="px-2 py-1 text-[10px] font-semibold text-[#9A6863] border border-[#9A6863]/30 rounded hover:bg-[#9A6863]/10"
-                      >
-                        Set Main
-                      </button>
-                    )}
-                    <button
-                      type="button"
-                      onClick={() => handleMoveImage(idx, -1)}
-                      disabled={idx === 0}
-                      className="p-1 text-[#77716B] hover:text-[#242424] disabled:opacity-30"
-                    >
-                      <ArrowUp className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => handleMoveImage(idx, 1)}
-                      disabled={idx === images.length - 1}
-                      className="p-1 text-[#77716B] hover:text-[#242424] disabled:opacity-30"
-                    >
-                      <ArrowDown className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => handleRemoveImage(idx)}
-                      className="p-1 text-[#B84A4A] hover:bg-[#B84A4A]/10 rounded"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
           </div>
 
         </div>
 
-        {/* BOTTOM SECTION: DESCRIPTION & CHECKBOXES */}
-        <div className="bg-white p-6 rounded-xl border border-[#E5E1DB] shadow-xs space-y-4">
-          <h2 className="font-serif text-base font-bold text-[#242424] border-b border-[#E5E1DB] pb-3">
-            Description & Store Visibility
-          </h2>
-
-          <div>
-            <label className="block text-xs font-semibold text-[#77716B] mb-1">
-              PRODUCT DESCRIPTION
-            </label>
-            <textarea
-              rows="4"
-              value={formData.description}
-              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              placeholder="Authentic Banahatti handloom cotton saree featuring traditional Chikki Paras checks..."
-              className="w-full p-3 text-xs bg-[#F7F6F3] border border-[#E5E1DB] rounded-lg text-[#242424] focus:outline-none focus:border-[#1F2926]"
-            />
-          </div>
-
-          {/* Visibility Checkboxes */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
-            <label className="flex items-center gap-2 text-xs font-semibold text-[#242424] cursor-pointer">
-              <input
-                type="checkbox"
-                checked={formData.isFeatured}
-                onChange={(e) => setFormData({ ...formData, isFeatured: e.target.checked })}
-                className="w-4 h-4 accent-[#1F2926]"
-              />
-              Featured Saree
-            </label>
-            <label className="flex items-center gap-2 text-xs font-semibold text-[#242424] cursor-pointer">
-              <input
-                type="checkbox"
-                checked={formData.isNewArrival}
-                onChange={(e) => setFormData({ ...formData, isNewArrival: e.target.checked })}
-                className="w-4 h-4 accent-[#1F2926]"
-              />
-              New Arrival
-            </label>
-            <label className="flex items-center gap-2 text-xs font-semibold text-[#242424] cursor-pointer">
-              <input
-                type="checkbox"
-                checked={formData.isBestSeller}
-                onChange={(e) => setFormData({ ...formData, isBestSeller: e.target.checked })}
-                className="w-4 h-4 accent-[#1F2926]"
-              />
-              Bestseller
-            </label>
-            <label className="flex items-center gap-2 text-xs font-semibold text-[#242424] cursor-pointer">
-              <input
-                type="checkbox"
-                checked={formData.isActive}
-                onChange={(e) => setFormData({ ...formData, isActive: e.target.checked })}
-                className="w-4 h-4 accent-[#1F2926]"
-              />
-              Active Listing
-            </label>
-          </div>
-
-        </div>
-
-        {/* Action Buttons */}
-        <div className="flex justify-end gap-3 pb-8">
+        {/* Bottom Save Bar */}
+        <div className="flex justify-end gap-3 pt-4 border-t border-[#E5E0D9]">
           <button
             type="button"
             onClick={() => navigate('/admin/sarees')}
-            className="px-6 py-2.5 text-xs font-semibold text-[#77716B] bg-white border border-[#E5E1DB] rounded-lg hover:bg-[#F7F6F3]"
+            className="btn-admin-secondary"
           >
-            CANCEL
+            Cancel
           </button>
           <button
             type="submit"
-            className="px-6 py-2.5 text-xs font-semibold text-white bg-[#1F2926] rounded-lg hover:bg-[#2A3733] shadow-xs cursor-pointer"
+            className="btn-admin-primary"
           >
-            SAVE SAREE
+            Save Saree
           </button>
         </div>
 

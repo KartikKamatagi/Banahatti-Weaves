@@ -231,7 +231,7 @@ export default function SareeList() {
 
       {/* SAREE DETAILS MODAL */}
       {selectedSareeView && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-xs animate-fade-in">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-4 backdrop-blur-xs animate-fade-in">
           <div className="bg-white rounded-[8px] border border-[#E5E0D9] shadow-lg max-w-lg w-full overflow-hidden text-sm">
             
             <div className="p-5 border-b border-[#E5E0D9] flex justify-between items-center bg-[#F7F5F1]">

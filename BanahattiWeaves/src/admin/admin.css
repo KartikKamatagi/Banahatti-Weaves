@@ -1,0 +1,242 @@
+/* ==================================================
+   BANAHATTI WEAVES ADMIN PANEL DEDICATED STYLESHEET
+   ================================================== */
+
+:root {
+  --admin-bg: #F7F5F1;
+  --admin-surface: #FFFFFF;
+  --admin-sidebar: #1E2D29;
+  --admin-primary: #1E2D29;
+  --admin-accent: #9A6863;
+  --admin-text: #242424;
+  --admin-muted: #77716B;
+  --admin-border: #E5E0D9;
+  --admin-success: #4F806B;
+  --admin-warning: #B9823B;
+  --admin-danger: #B45454;
+}
+
+/* Base Font Override for Admin */
+.admin-body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--admin-bg);
+  color: var(--admin-text);
+}
+
+/* Page Heading: 28px */
+.admin-page-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--admin-text);
+  letter-spacing: -0.02em;
+}
+
+/* Section Heading: 18–20px */
+.admin-section-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--admin-text);
+}
+
+/* Card Utility: 6px border radius, 22px padding, 0 2px 8px rgba(0,0,0,0.03) shadow */
+.card-admin {
+  background-color: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  padding: 22px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+/* Button Utilities */
+.btn-admin-primary {
+  height: 42px;
+  padding: 0 18px;
+  background-color: var(--admin-primary);
+  color: #FFFFFF;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+.btn-admin-primary:hover {
+  background-color: #273934;
+}
+
+.btn-admin-secondary {
+  height: 42px;
+  padding: 0 18px;
+  background-color: #FFFFFF;
+  color: var(--admin-text);
+  border: 1px solid #D8D2CA;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+.btn-admin-secondary:hover {
+  background-color: #FAF8F5;
+  border-color: #C8C2BA;
+}
+
+.btn-admin-danger {
+  height: 42px;
+  padding: 0 18px;
+  background-color: var(--admin-danger);
+  color: #FFFFFF;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+.btn-admin-danger:hover {
+  opacity: 0.9;
+}
+
+/* Input & Select Utilities (46px height, 4px border-radius) */
+.input-admin {
+  height: 46px;
+  padding: 0 14px;
+  background-color: #FFFFFF;
+  border: 1px solid #DCD6CE;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--admin-text);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.input-admin:focus {
+  border-color: var(--admin-accent);
+}
+
+.textarea-admin {
+  padding: 12px 14px;
+  background-color: #FFFFFF;
+  border: 1px solid #DCD6CE;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--admin-text);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.textarea-admin:focus {
+  border-color: var(--admin-accent);
+}
+
+/* Table Utilities (64px row height, subtle borders) */
+.admin-table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  font-size: 13px;
+  color: var(--admin-text);
+}
+.admin-table th {
+  background-color: var(--admin-bg);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--admin-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--admin-border);
+}
+.admin-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--admin-border);
+  vertical-align: middle;
+}
+.admin-table tr {
+  height: 64px;
+  transition: background-color 0.2s ease;
+}
+.admin-table tr:hover {
+  background-color: #FAF8F5;
+}
+
+/* Saree Thumbnail 48px x 60px */
+.saree-thumb-48x60 {
+  width: 48px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--admin-border);
+}
+
+/* Status Badges */
+.badge-admin {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.badge-admin-pending {
+  background-color: #F5EFE6;
+  color: var(--admin-warning);
+}
+.badge-admin-confirmed, .badge-admin-delivered {
+  background-color: #E8F2ED;
+  color: var(--admin-success);
+}
+.badge-admin-shipped {
+  background-color: #ECEFF1;
+  color: #455A64;
+}
+.badge-admin-cancelled, .badge-admin-outofstock {
+  background-color: #FBEBEB;
+  color: var(--admin-danger);
+}
+
+/* Custom Scrollbar Utility */
+.admin-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.admin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.admin-scrollbar::-webkit-scrollbar-thumb {
+  background: #D5CEC4;
+  border-radius: 4px;
+}
+
+/* Modal Overlay & Container */
+.admin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 16px;
+  backdrop-filter: blur(4px);
+}
+
+.admin-modal-container {
+  background-color: #FFFFFF;
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  overflow: hidden;
+}
