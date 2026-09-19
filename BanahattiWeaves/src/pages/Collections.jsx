@@ -21,18 +21,36 @@ export default function Collections() {
 
   const categories = ['ALL', 'COTTON', 'SILK', 'TRADITIONAL'];
 
+  const isMatchCategory = (saree, cat) => {
+    if (cat === 'ALL') return true;
+    if (saree.category === cat) return true;
+    const normColl = (saree.collection || '').toUpperCase();
+    const normFab = (saree.fabric || '').toUpperCase();
+    const normWeave = (saree.weaveType || '').toUpperCase();
+
+    if (cat === 'COTTON') {
+      return normColl.includes('COTTON') || normFab.includes('COTTON');
+    }
+    if (cat === 'SILK') {
+      return normColl.includes('SILK') || normFab.includes('SILK');
+    }
+    if (cat === 'TRADITIONAL') {
+      return normColl.includes('TRADITIONAL') || normColl.includes('FESTIVE') || normColl.includes('BRIDAL') || normWeave.includes('KASUTI') || normWeave.includes('GOMI') || normWeave.includes('TEMPLE');
+    }
+    return false;
+  };
+
   const getCategoryCount = (cat) => {
-    if (cat === 'ALL') return sarees.length;
-    return sarees.filter((s) => s.category === cat).length;
+    return sarees.filter((s) => isMatchCategory(s, cat)).length;
   };
 
   const filteredSarees = sarees.filter((saree) => {
-    const matchesCategory = selectedCategory === 'ALL' || saree.category === selectedCategory;
+    const matchesCategory = isMatchCategory(saree, selectedCategory);
     const matchesSearch = 
       !searchQuery.trim() ||
       saree.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      saree.fabric.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      saree.color.toLowerCase().includes(searchQuery.toLowerCase());
+      (saree.fabric && saree.fabric.toLowerCase().includes(searchQuery.toLowerCase())) ||
+      (saree.color && saree.color.toLowerCase().includes(searchQuery.toLowerCase()));
 
     return matchesCategory && matchesSearch;
   });
