@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import SareeCard from '../components/SareeCard';
 import { ArrowRight, Headphones, ShieldCheck, ShoppingBag, Sparkles } from 'lucide-react';
+import heroImg from '../assets/hero.png';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-visual">
-            <img src={sarees[0]?.images[0] || '/images/sarees/saree_model_maroon_1789668365104.png'} alt="Banahatti handloom saree" />
+            <img src={heroImg} alt="Banahatti handloom saree" />
             <div className="hero-stamp"><span>Authentically</span><strong>HANDWOVEN</strong><span>in Banahatti</span></div>
             <div className="hero-caption"><span>01</span> The heirloom collection</div>
           </div>

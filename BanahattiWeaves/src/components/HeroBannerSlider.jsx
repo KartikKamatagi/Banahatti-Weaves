@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight, Sparkles, CheckCircle2, Award, Heart } from 'lucide-react';
+import heroImg from '../assets/hero.png';
 
 export default function HeroBannerSlider({ sarees }) {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ export default function HeroBannerSlider({ sarees }) {
       subtitle: 'Discover beautiful handloom cotton sarees woven with century-old Chikki Paras borders by Bagalkot master artisans.',
       primaryBtn: 'SHOP NOW',
       secondaryBtn: 'EXPLORE COTTONS',
-      image: sarees[0]?.images[0] || '/images/sarees/saree_model_maroon_1789668365104.png',
+      image: heroImg || sarees[0]?.images[0] || '/images/sarees/saree_model_maroon_1789668365104.png',
       sareeName: sarees[0]?.name || 'Crimson Red Chikki Paras Cotton Saree',
       sareePrice: sarees[0]?.price || 3499,
       bgGradient: 'from-[#FAF8F5] via-[#FFF] to-[#F5F2EB]'

@@ -7,7 +7,16 @@ export const CartProvider = ({ children }) => {
   // Sarees Catalog State (Admin CRUD syncs live with Customer store)
   const [sarees, setSarees] = useState(() => {
     const saved = localStorage.getItem('bw_sarees');
-    return saved ? JSON.parse(saved) : initialSarees;
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      const existingIds = new Set(parsed.map((s) => s.id));
+      const missing = initialSarees.filter((s) => !existingIds.has(s.id));
+      if (missing.length > 0) {
+        return [...parsed, ...missing];
+      }
+      return parsed;
+    }
+    return initialSarees;
   });
 
   // Cart State
