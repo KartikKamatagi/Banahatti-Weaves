@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './admin.css';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { ShieldCheck, Lock, Mail, ArrowRight } from 'lucide-react';
@@ -33,32 +34,32 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-deep-charcoal px-4 py-12 font-sans">
-      <div className="w-full max-w-md bg-white rounded-3xl p-8 border border-gold-zari shadow-2xl space-y-6">
+    <div className="admin-login-shell">
+      <div className="admin-login-card">
         
         {/* Header */}
-        <div className="text-center space-y-2">
-          <div className="w-12 h-12 rounded-2xl bg-crimson/10 text-crimson flex items-center justify-center mx-auto">
+        <div className="admin-login-header">
+          <div className="admin-login-icon">
             <ShieldCheck className="w-6 h-6" />
           </div>
-          <h2 className="font-serif text-2xl font-extrabold text-deep-charcoal">
+          <h2 className="admin-login-title">
             ADMIN PORTAL
           </h2>
-          <p className="text-xs text-gray-500">
+          <p className="admin-login-subtitle">
             Banahatti Weaves Store Management System
           </p>
         </div>
 
         {errorMsg && (
-          <div className="p-3 bg-red-50 text-red-700 text-xs rounded-xl font-medium border border-red-200">
+          <div className="admin-login-alert">
             {errorMsg}
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+        <form onSubmit={handleSubmit} className="admin-login-form">
           
-          <div>
-            <label className="block uppercase font-bold text-deep-charcoal mb-1">
+          <div className="admin-login-field">
+            <label>
               Admin Email
             </label>
             <div className="relative">
@@ -67,14 +68,13 @@ export default function AdminLogin() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full py-3 pl-10 pr-3 rounded-xl border border-gray-200 focus:outline-none focus:border-crimson"
               />
-              <Mail className="w-4 h-4 text-gray-400 absolute left-3 top-3.5" />
+              <Mail className="w-4 h-4" />
             </div>
           </div>
 
-          <div>
-            <label className="block uppercase font-bold text-deep-charcoal mb-1">
+          <div className="admin-login-field">
+            <label>
               Password
             </label>
             <div className="relative">
@@ -83,29 +83,28 @@ export default function AdminLogin() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full py-3 pl-10 pr-3 rounded-xl border border-gray-200 focus:outline-none focus:border-crimson"
               />
-              <Lock className="w-4 h-4 text-gray-400 absolute left-3 top-3.5" />
+              <Lock className="w-4 h-4" />
             </div>
           </div>
 
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-crimson hover:bg-gold-zari text-white py-3.5 rounded-xl font-bold uppercase tracking-widest text-xs shadow-lg transition-all flex items-center justify-center gap-2"
+            className="admin-login-button"
           >
             {isLoading ? 'VERIFYING...' : 'LOGIN TO DASHBOARD'}
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 inline ml-2" />
           </button>
 
         </form>
 
         {/* 1-Click Demo Admin Button for effortless testing */}
-        <div className="pt-4 border-t border-gray-100 text-center space-y-3">
-          <p className="text-[11px] text-gray-400">Default Demo Credentials: admin@banahattiweaves.com / admin123</p>
+        <div className="admin-login-demo">
+          <p className="admin-login-demo-note">Default Demo Credentials: admin@banahattiweaves.com / admin123</p>
           <button
             onClick={handleDemoAdmin}
-            className="w-full bg-gold-zari/15 hover:bg-gold-zari text-gold-zari hover:text-black font-bold text-xs py-2.5 rounded-xl border border-gold-zari/40 transition-colors uppercase tracking-wider"
+            className="admin-login-demo-button"
           >
             ⚡ 1-Click Quick Admin Demo Login
           </button>
