@@ -8,7 +8,7 @@ import {
   Award,
 } from 'lucide-react';
 
-import heroImg from '../assets/hero.png';
+import heroImg from '../assets/sarees/saree_model_maroon_1789668365104.png';
 
 export default function HeroBannerSlider({ sarees = [] }) {
   const navigate = useNavigate();

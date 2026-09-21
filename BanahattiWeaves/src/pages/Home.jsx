@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import SareeCard from '../components/SareeCard';
 import { ArrowRight, Headphones, ShieldCheck, ShoppingBag, Sparkles } from 'lucide-react';
-import heroImg from '../assets/hero.png';
+import heroImg from '../assets/sarees/saree_model_maroon_1789668365104.png';
 
 export default function Home() {
   const navigate = useNavigate();
