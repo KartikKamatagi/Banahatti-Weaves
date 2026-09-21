@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import './admin.css';
+import './AdminSettings.css';
 import { useAuth } from '../context/AuthContext';
 import { 
   Store, 

@@ -1,0 +1,50 @@
+/* ==================================================
+   BANAHATTI WEAVES - ADMIN SETTINGS STYLESHEET
+   ================================================== */
+
+.admin-settings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: 'Inter', sans-serif;
+}
+
+.settings-nav-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E0D9;
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: fit-content;
+}
+
+.settings-nav-btn {
+  width: 100%;
+  text-align: left;
+  padding: 0 14px;
+  height: 42px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #77716B;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.settings-nav-btn:hover {
+  background-color: #FAF8F5;
+  color: #242424;
+}
+
+.settings-nav-btn.active {
+  background-color: #1E2D29;
+  color: #FFFFFF;
+  font-weight: 600;
+}

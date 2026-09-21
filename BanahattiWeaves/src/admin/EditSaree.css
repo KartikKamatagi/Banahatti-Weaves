@@ -1,0 +1,44 @@
+/* ==================================================
+   BANAHATTI WEAVES - ADMIN EDIT SAREE STYLESHEET
+   ================================================== */
+
+.edit-saree-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: 'Inter', sans-serif;
+}
+
+.edit-saree-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.edit-saree-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #77716B;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.edit-saree-back-btn:hover {
+  color: #242424;
+}
+
+.edit-saree-not-found {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E0D9;
+  border-radius: 8px;
+  text-align: center;
+  padding: 48px 24px;
+  max-width: 440px;
+  margin: 48px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}

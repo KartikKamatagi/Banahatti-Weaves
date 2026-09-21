@@ -1,0 +1,72 @@
+/* ==================================================
+   BANAHATTI WEAVES - ADMIN ORDERS STYLESHEET
+   ================================================== */
+
+.admin-orders-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: 'Inter', sans-serif;
+}
+
+.order-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .order-kpi-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.order-kpi-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E0D9;
+  border-radius: 6px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.order-kpi-card:hover {
+  border-color: #1E2D29;
+  background-color: #FAF8F5;
+}
+
+.order-kpi-card.active-all {
+  border-color: #1E2D29;
+  background-color: #FAF8F5;
+}
+
+.order-kpi-card.active-pending {
+  border-color: #B9823B;
+  background-color: rgba(245, 239, 230, 0.5);
+}
+
+.order-kpi-card.active-confirmed,
+.order-kpi-card.active-delivered {
+  border-color: #4F806B;
+  background-color: rgba(232, 242, 237, 0.5);
+}
+
+.order-kpi-card.active-shipped {
+  border-color: #455A64;
+  background-color: rgba(236, 239, 241, 0.5);
+}
+
+.order-id-code {
+  font-family: monospace;
+  font-weight: 600;
+  color: #1E2D29;
+}
+
+.order-item-thumb {
+  width: 36px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid #E5E0D9;
+}

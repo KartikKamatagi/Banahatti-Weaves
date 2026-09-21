@@ -1,4 +1,6 @@
 import React from 'react';
+import './admin.css';
+import './DeleteConfirmModal.css';
 import { X } from 'lucide-react';
 
 export default function DeleteConfirmModal({ isOpen, onClose, onConfirm, title, message }) {

@@ -1,0 +1,36 @@
+/* ==================================================
+   BANAHATTI WEAVES - ADMIN MESSAGES STYLESHEET
+   ================================================== */
+
+.admin-messages-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: 'Inter', sans-serif;
+}
+
+.message-box {
+  background-color: #FAF8F5;
+  border: 1px solid #E5E0D9;
+  border-radius: 6px;
+  padding: 16px;
+  color: #242424;
+  line-height: 1.6;
+}
+
+.reply-box {
+  background-color: rgba(232, 242, 237, 0.5);
+  border: 1px solid rgba(79, 128, 107, 0.2);
+  border-radius: 6px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.reply-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #4F806B;
+  text-transform: uppercase;
+}

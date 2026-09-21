@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import './admin.css';
+import './AdminInventory.css';
 import { useCart } from '../context/CartContext';
 import { 
   Search, 

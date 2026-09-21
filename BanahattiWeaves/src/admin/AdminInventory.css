@@ -1,0 +1,51 @@
+/* ==================================================
+   BANAHATTI WEAVES - ADMIN INVENTORY STYLESHEET
+   ================================================== */
+
+.admin-inventory-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: 'Inter', sans-serif;
+}
+
+.inventory-stepper-btn {
+  width: 28px;
+  height: 28px;
+  background-color: #FFFFFF;
+  border: 1px solid #D8D2CA;
+  border-radius: 4px;
+  color: #242424;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.inventory-stepper-btn:hover {
+  background-color: #FAF8F5;
+  border-color: #C8C2BA;
+}
+
+.inventory-stepper-input {
+  width: 48px;
+  height: 28px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  background-color: #FFFFFF;
+  border: 1px solid #D8D2CA;
+  border-radius: 4px;
+  color: #242424;
+  outline: none;
+}
+
+.inventory-stepper-input:focus {
+  border-color: #9A6863;
+}
+
+.row-dirty-highlight {
+  background-color: #FFFDF9 !important;
+}

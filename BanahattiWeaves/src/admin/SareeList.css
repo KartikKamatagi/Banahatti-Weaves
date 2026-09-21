@@ -1,0 +1,202 @@
+/* ==================================================
+   BANAHATTI WEAVES - ADMIN SAREE LIST STYLESHEET
+   ================================================== */
+
+.saree-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: 'Inter', sans-serif;
+}
+
+.saree-list-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .saree-list-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* Filter Toolbar */
+.saree-filter-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  background-color: #FFFFFF;
+  padding: 16px;
+  border: 1px solid #E5E0D9;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.saree-filter-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #77716B;
+}
+
+.saree-filter-select {
+  height: 38px;
+  padding: 0 12px;
+  background-color: #FFFFFF;
+  border: 1px solid #DCD6CE;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #242424;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.saree-filter-select:focus {
+  border-color: #9A6863;
+}
+
+.saree-reset-btn {
+  font-size: 13px;
+  font-weight: 500;
+  color: #9A6863;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.saree-reset-btn:hover {
+  text-decoration: underline;
+}
+
+/* Saree Table Card */
+.saree-table-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E0D9;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.saree-table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  font-size: 13px;
+  color: #242424;
+}
+
+.saree-table th {
+  background-color: #F7F5F1;
+  font-size: 12px;
+  font-weight: 600;
+  color: #77716B;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 12px 16px;
+  border-bottom: 1px solid #E5E0D9;
+}
+
+.saree-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #E5E0D9;
+  vertical-align: middle;
+}
+
+.saree-table tr {
+  height: 64px;
+  transition: background-color 0.2s ease;
+}
+
+.saree-table tr:hover {
+  background-color: #FAF8F5;
+}
+
+/* Saree Image Thumbnail */
+.saree-thumb {
+  width: 48px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #E5E0D9;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.saree-title {
+  font-weight: 600;
+  color: #242424;
+}
+
+.saree-sku {
+  font-family: monospace;
+  font-size: 12px;
+  color: #77716B;
+}
+
+/* Stock Status Badges */
+.stock-badge-instock {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #E8F2ED;
+  color: #4F806B;
+}
+
+.stock-badge-lowstock {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #F5EFE6;
+  color: #B9823B;
+}
+
+.stock-badge-outofstock {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #FBEBEB;
+  color: #B45454;
+}
+
+/* Table Actions */
+.saree-action-btn {
+  font-size: 13px;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.saree-action-view {
+  color: #77716B;
+}
+.saree-action-view:hover {
+  color: #242424;
+}
+
+.saree-action-edit {
+  color: #9A6863;
+}
+.saree-action-edit:hover {
+  text-decoration: underline;
+}
+
+.saree-action-delete {
+  color: #B45454;
+}
+.saree-action-delete:hover {
+  text-decoration: underline;
+}

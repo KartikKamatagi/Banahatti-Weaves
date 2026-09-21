@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import './admin.css';
+import './AdminCustomers.css';
 import { 
   Search, 
   Eye, 

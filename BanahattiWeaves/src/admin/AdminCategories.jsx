@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import './admin.css';
+import './AdminCategories.css';
 import { 
   FolderTree, 
   Plus, 

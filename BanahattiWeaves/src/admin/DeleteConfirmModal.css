@@ -1,0 +1,59 @@
+/* ==================================================
+   BANAHATTI WEAVES - DELETE CONFIRM MODAL STYLESHEET
+   ================================================== */
+
+.delete-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 16px;
+  backdrop-filter: blur(4px);
+}
+
+.delete-modal-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E0D9;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  color: #242424;
+}
+
+.delete-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #E5E0D9;
+  background-color: #F7F5F1;
+}
+
+.delete-modal-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: #242424;
+}
+
+.delete-modal-body {
+  padding: 20px;
+  font-size: 14px;
+  color: #77716B;
+  line-height: 1.5;
+}
+
+.delete-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 20px;
+  border-top: 1px solid #E5E0D9;
+  background-color: #F7F5F1;
+}

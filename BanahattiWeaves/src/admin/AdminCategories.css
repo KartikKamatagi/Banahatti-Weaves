@@ -1,0 +1,29 @@
+/* ==================================================
+   BANAHATTI WEAVES - ADMIN CATEGORIES STYLESHEET
+   ================================================== */
+
+.admin-categories-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: 'Inter', sans-serif;
+}
+
+.category-banner-thumb {
+  width: 48px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #E5E0D9;
+}
+
+.category-slug-tag {
+  font-family: monospace;
+  font-size: 13px;
+  color: #77716B;
+}
+
+.category-product-count {
+  font-weight: 600;
+  color: #242424;
+}

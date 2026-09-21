@@ -1,0 +1,41 @@
+/* ==================================================
+   BANAHATTI WEAVES - ADMIN CUSTOMERS STYLESHEET
+   ================================================== */
+
+.admin-customers-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: 'Inter', sans-serif;
+}
+
+.customer-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #1E2D29;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.customer-card-box {
+  background-color: #FAF8F5;
+  border: 1px solid #E5E0D9;
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.customer-card-icon {
+  width: 16px;
+  height: 16px;
+  color: #9A6863;
+  flex-shrink: 0;
+}
