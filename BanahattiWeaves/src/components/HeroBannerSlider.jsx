@@ -8,7 +8,8 @@ import {
   Award,
 } from 'lucide-react';
 
-import heroImg from '../assets/sarees/saree_model_maroon_1789668365104.png';
+import heroImg from '../assets/hero_professional.jpg';
+import heroPortraitImg from '../assets/hero_portrait.jpg';
 
 export default function HeroBannerSlider({ sarees = [] }) {
   const navigate = useNavigate();
@@ -31,10 +32,10 @@ export default function HeroBannerSlider({ sarees = [] }) {
         'Discover beautiful sarees woven with traditional craftsmanship and the timeless character of Karnataka handloom weaving.',
       primaryBtn: 'SHOP NOW',
       secondaryBtn: 'EXPLORE COLLECTION',
-      image: sarees?.[0]?.images?.[0] || heroImg,
+      image: heroImg,
       sareeName:
-        sarees?.[0]?.name || 'Crimson Red Chikki Paras Cotton Saree',
-      sareePrice: sarees?.[0]?.price || 3499,
+        'Crimson Red & Gold Zari Handwoven Saree',
+      sareePrice: 3499,
     },
 
     {
@@ -45,10 +46,10 @@ export default function HeroBannerSlider({ sarees = [] }) {
         'Elegant silk sarees with beautiful borders and rich textures, created for weddings, festivals and unforgettable occasions.',
       primaryBtn: 'SHOP SILK',
       secondaryBtn: 'VIEW BESTSELLERS',
-      image: sarees?.[2]?.images?.[0] || heroImg,
+      image: heroPortraitImg,
       sareeName:
-        sarees?.[2]?.name || 'Mustard Gold Handwoven Silk Saree',
-      sareePrice: sarees?.[2]?.price || 7999,
+        'Emerald Green & Gold Zari Pure Silk Saree',
+      sareePrice: 7999,
     },
 
     {
@@ -59,10 +60,10 @@ export default function HeroBannerSlider({ sarees = [] }) {
         'Discover traditional designs, distinctive borders and beautiful colours inspired by the rich textile heritage of Karnataka.',
       primaryBtn: 'EXPLORE TRADITIONAL',
       secondaryBtn: 'SHOP COLLECTION',
-      image: sarees?.[1]?.images?.[0] || heroImg,
+      image: '/images/sarees/saree_model_blue_1789668405492.png',
       sareeName:
-        sarees?.[1]?.name || 'Royal Blue Traditional Saree',
-      sareePrice: sarees?.[1]?.price || 4899,
+        'Royal Blue Traditional Kasuti Saree',
+      sareePrice: 4899,
     },
   ];
 

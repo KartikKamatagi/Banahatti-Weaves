@@ -4,8 +4,8 @@ import { useCart } from '../context/CartContext';
 import SareeCard from '../components/SareeCard';
 import { ArrowRight, Headphones, ShieldCheck, ShoppingBag, Sparkles } from 'lucide-react';
 
-const heroImg = 'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=1400&q=85';
-const craftImg = 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85';
+import heroImg from '../assets/hero_professional.jpg';
+import craftImg from '../assets/hero_portrait.jpg';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-visual">
-            <img src={heroImg} alt="Banahatti handloom saree" />
+            <img src={heroImg} alt="Banahatti handloom saree professional model" />
             <div className="hero-stamp"><span>Authentically</span><strong>HANDWOVEN</strong><span>in Banahatti</span></div>
             <div className="hero-caption"><span>01</span> The heirloom collection</div>
           </div>
@@ -51,7 +51,7 @@ export default function Home() {
 
       <section id="craft" className="craft-section">
         <div className="container-custom craft-grid">
-          <div className="craft-image"><img src={craftImg} alt="Blue gingham handwoven Banahatti saree" /><span className="craft-number">01</span></div>
+          <div className="craft-image"><img src={craftImg} alt="Banahatti handwoven saree craftsmanship" /><span className="craft-number">01</span></div>
           <div className="craft-copy"><p className="eyebrow">A slower kind of luxury</p><h2>Every thread has a pair of hands behind it.</h2><p>Our sarees come directly from Banahatti’s pit looms—where craft knowledge is passed between generations and a single weave can take days to become whole.</p><button onClick={() => navigate('/about')} className="button-outline">Meet our weavers <ArrowRight size={16} /></button></div>
           <div className="craft-note"><span>Made in small batches</span><strong>Thoughtfully<br />woven.</strong></div>
         </div>
