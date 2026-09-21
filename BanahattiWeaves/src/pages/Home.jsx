@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import SareeCard from '../components/SareeCard';
 import { ArrowRight, Headphones, ShieldCheck, ShoppingBag, Sparkles } from 'lucide-react';
-import heroImg from '../assets/sarees/saree_model_maroon_1789668365104.png';
+
+const heroImg = 'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=1400&q=85';
+const craftImg = 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -49,7 +51,7 @@ export default function Home() {
 
       <section id="craft" className="craft-section">
         <div className="container-custom craft-grid">
-          <div className="craft-image"><img src={sarees[1]?.images[0] || sarees[0]?.images[0]} alt="Detail of a handwoven Banahatti saree" /><span className="craft-number">01</span></div>
+          <div className="craft-image"><img src={craftImg} alt="Blue gingham handwoven Banahatti saree" /><span className="craft-number">01</span></div>
           <div className="craft-copy"><p className="eyebrow">A slower kind of luxury</p><h2>Every thread has a pair of hands behind it.</h2><p>Our sarees come directly from Banahatti’s pit looms—where craft knowledge is passed between generations and a single weave can take days to become whole.</p><button onClick={() => navigate('/about')} className="button-outline">Meet our weavers <ArrowRight size={16} /></button></div>
           <div className="craft-note"><span>Made in small batches</span><strong>Thoughtfully<br />woven.</strong></div>
         </div>

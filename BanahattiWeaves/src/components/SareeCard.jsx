@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { ArrowUpRight, Check, Heart, ShoppingBag } from 'lucide-react';
+import fallbackSareeImage from '../assets/sarees/saree_model_maroon_1789668365104.png';
 
 export default function SareeCard({ saree }) {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export default function SareeCard({ saree }) {
   return (
     <article className="product-card">
       <div className="product-image-wrap">
-        <Link to={`/saree/${saree.id}`} className="product-image-link"><img src={saree.images[0]} alt={saree.name} /></Link>
+        <Link to={`/saree/${saree.id}`} className="product-image-link"><img src={saree.images[0]} alt={saree.name} onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = fallbackSareeImage; }} /></Link>
         {saree.isLatest && <span className="product-tag">New arrival</span>}
         <button onClick={() => toggleWishlist(saree.id)} className={`wishlist-button ${isWishlisted ? 'is-active' : ''}`} aria-label="Add to wishlist"><Heart size={17} fill={isWishlisted ? 'currentColor' : 'none'} /></button>
         <button onClick={handleAddToCart} className={`quick-add ${isJustAdded ? 'is-added' : ''}`} aria-label="Add to cart">{isJustAdded ? <Check size={17} /> : <ShoppingBag size={17} />}<span>{isJustAdded ? 'Added' : 'Quick add'}</span></button>

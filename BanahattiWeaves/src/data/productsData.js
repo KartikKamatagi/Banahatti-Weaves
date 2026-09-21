@@ -120,7 +120,7 @@ export const productsData = [
     artisanGuild: 'Banahatti Guild #14',
     artisanLocation: 'Banahatti Artisan Sector',
     images: [
-      '/images/sarees/media__1789668463626.jpg',
+      '/images/sarees/saree_model_magenta_grid_1789755709147.jpg',
       '/images/sarees/saree_model_purple_1789668387478.png'
     ],
     description: 'Vibrant magenta purple cotton saree featuring fine white and gold dashed grid check lines, complemented by a broad gold zari border, purple stripe accents, and bright orange selvedge.'
