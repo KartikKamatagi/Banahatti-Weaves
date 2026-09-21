@@ -144,7 +144,7 @@ export default function AdminMessages() {
                     <td className="py-2 px-4 text-right">
                       <button
                         onClick={() => handleOpenMessage(msg)}
-                        className="text-[13px] font-medium text-[#9A6863] hover:underline"
+                        className="px-3 py-1 text-[12px] font-semibold text-white bg-[#8C3E43] hover:bg-[#743237] rounded-md transition-colors shadow-2xs cursor-pointer"
                       >
                         Read
                       </button>

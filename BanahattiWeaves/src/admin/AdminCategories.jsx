@@ -199,16 +199,16 @@ export default function AdminCategories() {
 
                     {/* Actions */}
                     <td className="py-2 px-4 text-right">
-                      <div className="flex items-center justify-end gap-3 text-[13px] font-medium">
+                      <div className="flex items-center justify-end gap-2">
                         <button
                           onClick={() => handleOpenEdit(cat)}
-                          className="text-[#9A6863] hover:underline"
+                          className="px-2.5 py-1 text-[12px] font-semibold text-white bg-[#8C3E43] hover:bg-[#743237] rounded-md transition-colors shadow-2xs cursor-pointer"
                         >
                           Edit
                         </button>
                         <button
                           onClick={() => setDeletingCategory(cat)}
-                          className="text-[#B45454] hover:underline"
+                          className="px-2.5 py-1 text-[12px] font-semibold text-white bg-[#D32F2F] hover:bg-[#B71C1C] rounded-md transition-colors shadow-2xs cursor-pointer"
                         >
                           Delete
                         </button>

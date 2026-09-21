@@ -167,9 +167,9 @@ export default function AdminCustomers() {
                     <td className="py-2 px-4 text-right">
                       <button
                         onClick={() => setSelectedCustomer(cust)}
-                        className="text-[13px] font-medium text-[#77716B] hover:text-[#242424]"
+                        className="px-3 py-1 text-[12px] font-semibold text-white bg-[#1E2D29] hover:bg-[#8C3E43] rounded-md transition-colors shadow-2xs cursor-pointer"
                       >
-                        Profile
+                        View Profile
                       </button>
                     </td>
 

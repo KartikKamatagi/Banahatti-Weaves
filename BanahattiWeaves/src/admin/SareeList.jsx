@@ -199,24 +199,24 @@ export default function SareeList() {
                     {/* Status Badge */}
                     <td className="py-2 px-4">{renderStockBadge(s.stock)}</td>
 
-                    {/* Subtle Text Actions */}
+                    {/* Action Buttons */}
                     <td className="py-2 px-4 text-right whitespace-nowrap">
-                      <div className="flex items-center justify-end gap-3 text-[13px] font-medium">
+                      <div className="flex items-center justify-end gap-2">
                         <button
                           onClick={() => setSelectedSareeView(s)}
-                          className="text-[#77716B] hover:text-[#242424]"
+                          className="px-2.5 py-1 text-[12px] font-semibold text-[#1E2D29] bg-[#F7F5F1] hover:bg-[#EAE5DC] border border-[#DCD6CE] rounded-md transition-colors cursor-pointer"
                         >
                           View
                         </button>
                         <button
                           onClick={() => navigate(`/admin/sarees/edit/${s.id}`)}
-                          className="text-[#9A6863] hover:underline"
+                          className="px-2.5 py-1 text-[12px] font-semibold text-white bg-[#8C3E43] hover:bg-[#743237] rounded-md transition-colors shadow-2xs cursor-pointer"
                         >
                           Edit
                         </button>
                         <button
                           onClick={() => setDeleteTarget(s)}
-                          className="text-[#B45454] hover:underline"
+                          className="px-2.5 py-1 text-[12px] font-semibold text-white bg-[#D32F2F] hover:bg-[#B71C1C] rounded-md transition-colors shadow-2xs cursor-pointer"
                         >
                           Delete
                         </button>
