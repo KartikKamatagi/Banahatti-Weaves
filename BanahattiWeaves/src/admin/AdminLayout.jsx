@@ -150,7 +150,8 @@ export default function AdminLayout() {
       </aside>
 
       {/* MAIN LAYOUT WRAPPER (Padded left 240px on desktop) */}
-      <div className="md:pl-[240px] flex flex-col min-h-screen w-full">
+      <div className="admin-main-wrapper">
+
         
         {/* TOP HEADER (Height: 72px, z-20) */}
         <header className="sticky top-0 z-20 bg-white border-b border-[#E5E0D9] h-[72px] px-6 md:px-10 flex items-center justify-between w-full shadow-xs">
