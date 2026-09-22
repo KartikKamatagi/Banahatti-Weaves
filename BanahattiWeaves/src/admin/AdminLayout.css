@@ -20,7 +20,20 @@
 }
 
 /* Sidebar Navigation */
+.-translate-x-full {
+  transform: translateX(-100%);
+}
+.translate-x-0 {
+  transform: translateX(0);
+}
+@media (min-width: 768px) {
+  .md\:translate-x-0 {
+    transform: translateX(0) !important;
+  }
+}
+
 .admin-sidebar {
+
   position: fixed;
   top: 0;
   bottom: 0;
