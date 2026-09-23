@@ -7,15 +7,9 @@ import {
   ShoppingBag, 
   Receipt, 
   Clock, 
-  Users, 
   TrendingUp, 
   ArrowUpRight, 
-  AlertTriangle, 
-  ChevronRight, 
-  Eye, 
-  CheckCircle2,
-  XCircle,
-  Truck
+  AlertTriangle
 } from 'lucide-react';
 
 export default function Dashboard() {
@@ -69,27 +63,27 @@ export default function Dashboard() {
     const norm = (status || 'Pending').toLowerCase();
     if (norm === 'delivered' || norm === 'confirmed') {
       return (
-        <span className="inline-block px-2 py-0.5 rounded text-[12px] font-medium bg-[#E8F2ED] text-[#4F806B]">
+        <span className="badge-admin badge-admin-delivered">
           {status}
         </span>
       );
     }
     if (norm === 'shipped') {
       return (
-        <span className="inline-block px-2 py-0.5 rounded text-[12px] font-medium bg-[#ECEFF1] text-[#455A64]">
+        <span className="badge-admin badge-admin-shipped">
           Shipped
         </span>
       );
     }
     if (norm === 'cancelled') {
       return (
-        <span className="inline-block px-2 py-0.5 rounded text-[12px] font-medium bg-[#FBEBEB] text-[#B45454]">
+        <span className="badge-admin badge-admin-cancelled">
           Cancelled
         </span>
       );
     }
     return (
-      <span className="inline-block px-2 py-0.5 rounded text-[12px] font-medium bg-[#F5EFE6] text-[#B9823B]">
+      <span className="badge-admin badge-admin-pending">
         Pending
       </span>
     );
@@ -101,56 +95,68 @@ export default function Dashboard() {
       {/* Subtitle */}
       <div>
         <p className="text-[14px] text-[#77716B]">
-          Overview of your saree store.
+          Overview & analytics for Banahatti Weaves saree store.
         </p>
       </div>
 
       {/* 4 STATISTICS CARDS IN ONE ROW ON DESKTOP */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="dashboard-stat-grid">
         
         {/* Card 1: TOTAL SAREES */}
-        <div className="card-admin space-y-2">
-          <span className="text-[12px] font-semibold text-[#77716B] uppercase tracking-wider block">
-            TOTAL SAREES
-          </span>
-          <div className="text-[28px] font-bold text-[#242424]">{totalSareesCount}</div>
-          <p className="text-[13px] font-medium text-[#4F806B] flex items-center gap-1">
-            <ArrowUpRight className="w-3.5 h-3.5" /> 4 new this month
+        <div className="dashboard-stat-card">
+          <div className="dashboard-stat-header">
+            <span className="dashboard-stat-label">TOTAL SAREES</span>
+            <div className="dashboard-stat-icon">
+              <ShoppingBag className="w-5 h-5" />
+            </div>
+          </div>
+          <div className="dashboard-stat-value">{totalSareesCount}</div>
+          <p className="dashboard-stat-trend positive">
+            <ArrowUpRight className="w-4 h-4" /> 4 new this month
           </p>
         </div>
 
         {/* Card 2: TOTAL ORDERS */}
-        <div className="card-admin space-y-2">
-          <span className="text-[12px] font-semibold text-[#77716B] uppercase tracking-wider block">
-            TOTAL ORDERS
-          </span>
-          <div className="text-[28px] font-bold text-[#242424]">{totalOrdersCount}</div>
-          <p className="text-[13px] font-medium text-[#4F806B] flex items-center gap-1">
-            <ArrowUpRight className="w-3.5 h-3.5" /> 12 new this month
+        <div className="dashboard-stat-card">
+          <div className="dashboard-stat-header">
+            <span className="dashboard-stat-label">TOTAL ORDERS</span>
+            <div className="dashboard-stat-icon">
+              <Receipt className="w-5 h-5" />
+            </div>
+          </div>
+          <div className="dashboard-stat-value">{totalOrdersCount}</div>
+          <p className="dashboard-stat-trend positive">
+            <ArrowUpRight className="w-4 h-4" /> 12 new this month
           </p>
         </div>
 
         {/* Card 3: PENDING ORDERS */}
-        <div className="card-admin space-y-2">
-          <span className="text-[12px] font-semibold text-[#77716B] uppercase tracking-wider block">
-            PENDING ORDERS
-          </span>
-          <div className="text-[28px] font-bold text-[#242424]">{pendingOrdersCount}</div>
-          <p className="text-[13px] font-medium text-[#B9823B]">
+        <div className="dashboard-stat-card">
+          <div className="dashboard-stat-header">
+            <span className="dashboard-stat-label">PENDING ORDERS</span>
+            <div className="dashboard-stat-icon">
+              <Clock className="w-5 h-5" />
+            </div>
+          </div>
+          <div className="dashboard-stat-value">{pendingOrdersCount}</div>
+          <p className="dashboard-stat-trend warning">
             Requires fulfillment
           </p>
         </div>
 
         {/* Card 4: REVENUE */}
-        <div className="card-admin space-y-2">
-          <span className="text-[12px] font-semibold text-[#77716B] uppercase tracking-wider block">
-            REVENUE
-          </span>
-          <div className="text-[28px] font-bold text-[#242424]">
+        <div className="dashboard-stat-card">
+          <div className="dashboard-stat-header">
+            <span className="dashboard-stat-label">REVENUE</span>
+            <div className="dashboard-stat-icon">
+              <TrendingUp className="w-5 h-5" />
+            </div>
+          </div>
+          <div className="dashboard-stat-value">
             ₹{totalRevenue.toLocaleString('en-IN')}
           </div>
-          <p className="text-[13px] font-medium text-[#4F806B] flex items-center gap-1">
-            <ArrowUpRight className="w-3.5 h-3.5" /> +15.4% this month
+          <p className="dashboard-stat-trend positive">
+            <ArrowUpRight className="w-4 h-4" /> +15.4% this month
           </p>
         </div>
 
@@ -160,7 +166,7 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* LEFT: SALES OVERVIEW (2 Cols) */}
-        <div className="lg:col-span-2 card-admin space-y-6">
+        <div className="lg:col-span-2 sales-chart-wrapper space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#E5E0D9] pb-4">
             <div>
               <h2 className="text-[18px] font-bold text-[#242424]">Sales Overview</h2>
@@ -168,16 +174,12 @@ export default function Dashboard() {
             </div>
             
             {/* Timeframe selector pills */}
-            <div className="flex items-center bg-[#F7F5F1] p-1 rounded border border-[#E5E0D9]">
+            <div className="timeframe-pill-container">
               {['7D', '30D', '3M', '1Y'].map((tf) => (
                 <button
                   key={tf}
                   onClick={() => setSalesTimeframe(tf)}
-                  className={`px-3 py-1 text-[12px] font-medium rounded transition-all cursor-pointer ${
-                    salesTimeframe === tf 
-                      ? 'bg-[#1E2D29] text-white' 
-                      : 'text-[#77716B] hover:text-[#242424]'
-                  }`}
+                  className={`timeframe-pill ${salesTimeframe === tf ? 'active' : ''}`}
                 >
                   {tf}
                 </button>
@@ -187,17 +189,17 @@ export default function Dashboard() {
 
           {/* Minimal Bar Chart */}
           <div className="pt-2 pb-1">
-            <div className="h-44 flex items-end gap-6 sm:gap-10 px-4 border-b border-[#E5E0D9]">
+            <div className="chart-bar-container">
               {currentChart.map((item, idx) => {
                 const heightPercent = Math.round((item.sales / maxSaleVal) * 100);
                 return (
-                  <div key={idx} className="flex-1 flex flex-col items-center gap-2 group h-full justify-end">
-                    <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-[#1E2D29] text-white text-[11px] py-0.5 px-2 rounded font-medium whitespace-nowrap">
+                  <div key={idx} className="chart-bar-column group">
+                    <div className="chart-bar-tooltip">
                       ₹{item.sales.toLocaleString('en-IN')}
                     </div>
                     <div 
                       style={{ height: `${heightPercent}%` }}
-                      className="w-full bg-[#1E2D29] hover:bg-[#9A6863] transition-colors rounded-t cursor-pointer min-h-[12px]"
+                      className="chart-bar-fill"
                     />
                     <span className="text-[12px] font-medium text-[#77716B] mt-1">{item.label}</span>
                   </div>
@@ -212,29 +214,29 @@ export default function Dashboard() {
               <h3 className="text-[14px] font-semibold text-[#242424]">Recent Orders</h3>
               <button 
                 onClick={() => navigate('/admin/orders')}
-                className="text-[13px] font-medium text-[#9A6863] hover:underline"
+                className="text-[13px] font-medium text-[#8C3E43] hover:underline"
               >
                 View all orders &rarr;
               </button>
             </div>
             
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-[13px] text-[#242424]">
-                <thead className="bg-[#F7F5F1] text-[12px] font-medium text-[#77716B] uppercase tracking-[0.05em] border-b border-[#E5E0D9]">
+              <table className="admin-table">
+                <thead>
                   <tr>
-                    <th className="py-2.5 px-3">Order ID</th>
-                    <th className="py-2.5 px-3">Customer</th>
-                    <th className="py-2.5 px-3">Amount</th>
-                    <th className="py-2.5 px-3">Status</th>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Amount</th>
+                    <th>Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#E5E0D9]">
+                <tbody>
                   {orders.slice(0, 4).map((o) => (
-                    <tr key={o.id} className="hover:bg-[#FAF8F5] h-[52px]">
-                      <td className="py-2 px-3 font-mono font-medium text-[#1E2D29]">{o.id}</td>
-                      <td className="py-2 px-3">{o.customerName || 'Customer'}</td>
-                      <td className="py-2 px-3 font-semibold">₹{(o.totalAmount || 3499).toLocaleString('en-IN')}</td>
-                      <td className="py-2 px-3">{renderStatusBadge(o.status)}</td>
+                    <tr key={o.id}>
+                      <td className="font-mono font-medium text-[#1E2D29]">#{o.id}</td>
+                      <td>{o.customerName || 'Customer'}</td>
+                      <td className="font-semibold">₹{(o.totalAmount || 3499).toLocaleString('en-IN')}</td>
+                      <td>{renderStatusBadge(o.status)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -244,25 +246,28 @@ export default function Dashboard() {
         </div>
 
         {/* RIGHT: LOW STOCK (1 Col) */}
-        <div className="card-admin space-y-4 flex flex-col justify-between">
+        <div className="low-stock-card space-y-4">
           <div>
-            <div className="border-b border-[#E5E0D9] pb-4 mb-4">
-              <h2 className="text-[18px] font-bold text-[#242424]">Low Stock Alert</h2>
-              <p className="text-[13px] text-[#77716B]">Items running low in warehouse</p>
+            <div className="border-b border-[#E5E0D9] pb-4 mb-4 flex items-center justify-between">
+              <div>
+                <h2 className="text-[18px] font-bold text-[#242424]">Low Stock Alert</h2>
+                <p className="text-[13px] text-[#77716B]">Items running low in warehouse</p>
+              </div>
+              <AlertTriangle className="w-5 h-5 text-[#B9823B]" />
             </div>
 
             <div className="space-y-3">
               {lowStockProducts.map((p) => (
-                <div key={p.id} className="flex items-center justify-between p-3 rounded border border-[#E5E0D9] bg-[#FAF8F5]">
+                <div key={p.id} className="low-stock-item">
                   <div className="flex items-center gap-3 min-w-0">
                     <img 
                       src={p.images?.[0] || '/images/sarees/saree_model_maroon_1789668365104.png'} 
                       alt={p.name} 
-                      className="w-[48px] h-[60px] object-cover rounded border border-[#E5E0D9]"
+                      className="saree-thumb-48x60"
                     />
                     <div className="min-w-0">
                       <p className="text-[13px] font-medium text-[#242424] truncate">{p.name}</p>
-                      <span className="text-[12px] font-medium text-[#B9823B] block mt-0.5">
+                      <span className="low-stock-badge mt-0.5 inline-block">
                         Only {p.stock} remaining
                       </span>
                     </div>
