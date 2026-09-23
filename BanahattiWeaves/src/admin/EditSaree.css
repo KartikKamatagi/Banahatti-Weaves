@@ -13,6 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
 }
 
 .edit-saree-back-btn {
@@ -20,25 +21,26 @@
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   color: #77716B;
   background: transparent;
   border: none;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .edit-saree-back-btn:hover {
   color: #242424;
+  transform: translateX(-2px);
 }
 
 .edit-saree-not-found {
   background-color: #FFFFFF;
   border: 1px solid #E5E0D9;
-  border-radius: 8px;
+  border-radius: 12px;
   text-align: center;
   padding: 48px 24px;
   max-width: 440px;
   margin: 48px auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 16px rgba(30, 45, 41, 0.06);
 }

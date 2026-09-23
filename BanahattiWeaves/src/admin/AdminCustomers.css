@@ -10,32 +10,38 @@
 }
 
 .customer-avatar {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background-color: #1E2D29;
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #1E2D29 0%, #283834 100%);
+  color: #D8C38A;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 13px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  border: 1px solid #1E2D29;
+  box-shadow: 0 2px 5px rgba(30, 45, 41, 0.1);
 }
 
 .customer-card-box {
   background-color: #FAF8F5;
   border: 1px solid #E5E0D9;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  transition: border-color 0.2s ease;
+}
+
+.customer-card-box:hover {
+  border-color: #D4CDC5;
 }
 
 .customer-card-icon {
   width: 16px;
   height: 16px;
-  color: #9A6863;
+  color: #8C3E43;
   flex-shrink: 0;
 }

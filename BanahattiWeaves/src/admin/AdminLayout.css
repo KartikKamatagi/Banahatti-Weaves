@@ -14,9 +14,10 @@
 .admin-mobile-backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
+  background-color: rgba(18, 28, 25, 0.65);
+  backdrop-filter: blur(6px);
   z-index: 30;
+  transition: opacity 0.3s ease;
 }
 
 /* Sidebar Navigation & Layout Alignment */
@@ -46,8 +47,6 @@
 }
 
 .admin-sidebar {
-
-
   position: fixed;
   top: 0;
   bottom: 0;
@@ -60,21 +59,36 @@
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  border-right: 1px solid #1E2D29;
-  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
+  border-right: 1px solid #162320;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.12);
 }
 
 .admin-sidebar-brand {
-  padding: 24px 20px;
+  padding: 20px 18px;
   border-bottom: 1px solid #2A3B37;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #162320;
+}
+
+.admin-brand-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #8C3E43 0%, #9A6863 100%);
+  color: #D8C38A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(140, 62, 67, 0.4);
+  border: 1px solid rgba(216, 195, 138, 0.35);
+  flex-shrink: 0;
 }
 
 .admin-brand-title {
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: #FFFFFF;
@@ -83,16 +97,19 @@
 }
 
 .admin-brand-subtitle {
-  font-size: 10px;
-  color: #9A6863;
+  font-size: 9px;
+  color: #D8C38A;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .admin-nav-list {
-  padding: 12px;
+  padding: 12px 10px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -105,11 +122,11 @@
   gap: 12px;
   padding: 0 14px;
   height: 46px;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 500;
   color: #B0ACA8;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
 }
 
@@ -119,9 +136,10 @@
 }
 
 .admin-nav-item.active {
-  background-color: rgba(154, 104, 99, 0.2);
+  background: linear-gradient(90deg, #8C3E43 0%, #9A6863 100%);
   color: #FFFFFF;
   font-weight: 600;
+  box-shadow: 0 4px 12px rgba(140, 62, 67, 0.3);
 }
 
 .admin-nav-item.active::before {
@@ -130,15 +148,16 @@
   left: 0;
   top: 8px;
   bottom: 8px;
-  width: 3px;
-  background-color: #9A6863;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
+  width: 3.5px;
+  background-color: #D8C38A;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 
 .admin-sidebar-footer {
   padding: 16px;
   border-top: 1px solid #2A3B37;
+  background-color: #162320;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -150,11 +169,12 @@
   gap: 12px;
   padding: 0 14px;
   height: 42px;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 13px;
   font-weight: 500;
   color: #B0ACA8;
   transition: color 0.2s ease, background 0.2s ease;
+  text-decoration: none;
 }
 
 .admin-external-link:hover {
@@ -169,10 +189,10 @@
   gap: 12px;
   padding: 0 14px;
   height: 42px;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 13px;
-  font-weight: 500;
-  color: #B45454;
+  font-weight: 700;
+  color: #E57373;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -180,7 +200,8 @@
 }
 
 .admin-logout-btn:hover {
-  background-color: rgba(180, 84, 84, 0.12);
+  background-color: rgba(180, 84, 84, 0.16);
+  color: #FF8A8A;
 }
 
 /* Header Area */
@@ -188,7 +209,8 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  background-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid #E5E0D9;
   height: 72px;
   padding: 0 24px;
@@ -212,14 +234,16 @@
 }
 
 .admin-avatar-badge {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background-color: #1E2D29;
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #1E2D29 0%, #283834 100%);
+  color: #D8C38A;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 14px;
+  border: 1px solid #1E2D29;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }

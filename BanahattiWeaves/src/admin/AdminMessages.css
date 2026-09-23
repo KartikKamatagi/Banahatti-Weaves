@@ -12,16 +12,16 @@
 .message-box {
   background-color: #FAF8F5;
   border: 1px solid #E5E0D9;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 16px;
   color: #242424;
   line-height: 1.6;
 }
 
 .reply-box {
-  background-color: rgba(232, 242, 237, 0.5);
-  border: 1px solid rgba(79, 128, 107, 0.2);
-  border-radius: 6px;
+  background-color: rgba(232, 242, 237, 0.6);
+  border: 1px solid rgba(79, 128, 107, 0.25);
+  border-radius: 8px;
   padding: 14px;
   display: flex;
   flex-direction: column;
@@ -33,4 +33,5 @@
   font-weight: 700;
   color: #4F806B;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
 }

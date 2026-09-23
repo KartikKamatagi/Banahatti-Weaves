@@ -9,17 +9,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(18, 28, 25, 0.65);
   padding: 16px;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
 }
 
 .delete-modal-card {
   background-color: #FFFFFF;
   border: 1px solid #E5E0D9;
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(30, 45, 41, 0.18);
+  max-width: 420px;
   width: 100%;
   overflow: hidden;
   font-family: 'Inter', sans-serif;
@@ -30,21 +30,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
+  padding: 18px 22px;
   border-bottom: 1px solid #E5E0D9;
-  background-color: #F7F5F1;
+  background-color: #FAF8F5;
 }
 
 .delete-modal-title {
   font-weight: 700;
   font-size: 16px;
   color: #242424;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .delete-modal-body {
-  padding: 20px;
+  padding: 22px;
   font-size: 14px;
-  color: #77716B;
+  color: #524E4A;
   line-height: 1.5;
 }
 
@@ -53,7 +56,7 @@
   align-items: center;
   justify-content: flex-end;
   gap: 12px;
-  padding: 16px 20px;
+  padding: 16px 22px;
   border-top: 1px solid #E5E0D9;
-  background-color: #F7F5F1;
+  background-color: #FAF8F5;
 }

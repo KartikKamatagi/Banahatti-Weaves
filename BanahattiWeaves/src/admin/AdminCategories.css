@@ -13,8 +13,9 @@
   width: 48px;
   height: 60px;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 6px;
   border: 1px solid #E5E0D9;
+  box-shadow: 0 1px 3px rgba(30, 45, 41, 0.04);
 }
 
 .category-slug-tag {
@@ -24,6 +25,6 @@
 }
 
 .category-product-count {
-  font-weight: 600;
+  font-weight: 700;
   color: #242424;
 }
