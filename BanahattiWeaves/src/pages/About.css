@@ -1,0 +1,300 @@
+/* ==================================================
+   BANAHATTI WEAVES - ABOUT PAGE STYLESHEET
+   ================================================== */
+
+.about-page {
+  background-color: var(--cream, #FBF9F5);
+  color: var(--ink, #20332F);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Hero Section */
+.about-hero-section {
+  position: relative;
+  padding: 48px 0 64px;
+}
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .about-hero-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 60px;
+  }
+}
+
+.about-eyebrow {
+  color: #B96E55;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.about-hero-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(34px, 4.5vw, 56px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #18362E;
+  margin-bottom: 20px;
+}
+
+.about-hero-title em {
+  color: #8C3E43;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.about-hero-description {
+  color: #55625B;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 32px;
+  max-width: 540px;
+}
+
+/* Visual Framing & Stamps */
+.about-hero-image-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(24, 54, 46, 0.12);
+  border: 1px solid #DDD5C9;
+}
+
+.about-hero-image-wrapper img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+.about-hero-image-wrapper:hover img {
+  transform: scale(1.03);
+}
+
+.about-stamp-badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: rgba(24, 54, 46, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(216, 195, 138, 0.6);
+  color: #FFF;
+  border-radius: 50%;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotate(8deg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+}
+
+.about-stamp-badge span {
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #D8C38A;
+}
+
+.about-stamp-badge strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Heritage Narrative Section */
+.about-narrative-section {
+  padding: 80px 0;
+  background-color: #F3EEE6;
+  border-top: 1px solid #DDD5C9;
+  border-bottom: 1px solid #DDD5C9;
+}
+
+.about-narrative-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .about-narrative-grid {
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 72px;
+  }
+}
+
+.about-collage-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.about-collage-img-1 {
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #C69B54;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.about-collage-img-2 {
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 32px;
+  border: 1px solid #DDD5C9;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.about-collage-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Pillars Grid */
+.about-pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .about-pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-pillars-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.about-pillar-card {
+  background-color: #FFFFFF;
+  border: 1px solid #DDD5C9;
+  border-radius: 12px;
+  padding: 28px 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about-pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(24, 54, 46, 0.08);
+  border-color: #C69B54;
+}
+
+.about-pillar-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: #F8F5F0;
+  color: #8C3E43;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #DDD5C9;
+}
+
+/* Craftsmanship Timeline Steps */
+.about-craft-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .about-craft-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-craft-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.about-craft-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #DDD5C9;
+  border-radius: 12px;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-craft-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #C69B54;
+  line-height: 1;
+}
+
+/* Stats Full Banner */
+.about-stats-banner {
+  background: linear-gradient(135deg, #18362E 0%, #122822 100%);
+  color: #FFFFFF;
+  border-radius: 20px;
+  padding: 48px 32px;
+  border: 1px solid rgba(198, 155, 84, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .about-stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.about-stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 700;
+  color: #D8C38A;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.about-stat-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #B8C3BD;
+}
