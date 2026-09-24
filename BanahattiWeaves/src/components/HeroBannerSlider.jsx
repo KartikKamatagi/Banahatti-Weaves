@@ -32,7 +32,7 @@ export default function HeroBannerSlider({ sarees = [] }) {
         'Discover beautiful sarees woven with traditional craftsmanship and the timeless character of Karnataka handloom weaving.',
       primaryBtn: 'SHOP NOW',
       secondaryBtn: 'EXPLORE COLLECTION',
-      image: heroImg,
+      image: 'https://i.pinimg.com/736x/b8/b4/74/b8b474daa43741772e25a94634289d0c.jpg',
       sareeName:
         'Crimson Red & Gold Zari Handwoven Saree',
       sareePrice: 3499,
@@ -65,6 +65,7 @@ export default function HeroBannerSlider({ sarees = [] }) {
         'Royal Blue Traditional Kasuti Saree',
       sareePrice: 4899,
     },
+
   ];
 
   /*
