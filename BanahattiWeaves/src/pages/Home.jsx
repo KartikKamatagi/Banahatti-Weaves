@@ -2,9 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import SareeCard from '../components/SareeCard';
-import { ArrowRight, Headphones, ShieldCheck, ShoppingBag, Sparkles } from 'lucide-react';
+import HeroBannerSlider from '../components/HeroBannerSlider';
+import { ArrowRight, Headphones, ShieldCheck, ShoppingBag } from 'lucide-react';
 
-import heroImg from '../assets/hero_professional.jpg';
 import craftImg from '../assets/hero_portrait.jpg';
 
 export default function Home() {
@@ -15,30 +15,8 @@ export default function Home() {
 
   return (
     <div className="home-page">
-      <section className="hero-section container-custom">
-        <div className="hero-card">
-          <div className="hero-copy">
-            <div className="eyebrow"><Sparkles size={14} /> Made by hand in Banahatti</div>
-            <p className="hero-season">The festive edit · 2026</p>
-            <h1>Woven with <em>stories</em><br />to be worn for life.</h1>
-            <p className="hero-description">Exceptional handloom sarees, shaped patiently by artisans and finished in the colours of Karnataka.</p>
-            <div className="hero-actions">
-              <button onClick={() => navigate('/collections')} className="button-primary">Explore the collection <ArrowRight size={16} /></button>
-              <button onClick={() => document.getElementById('craft')?.scrollIntoView({ behavior: 'smooth' })} className="button-text">Our craft <span>↓</span></button>
-            </div>
-            <div className="hero-proof">
-              <div><strong>30+</strong><span>years of weaving</span></div>
-              <div><strong>100%</strong><span>handloom made</span></div>
-              <div><strong>4.9/5</strong><span>loved by customers</span></div>
-            </div>
-          </div>
-          <div className="hero-visual">
-            <img src={heroImg} alt="Banahatti handloom saree professional model" />
-            <div className="hero-stamp"><span>Authentically</span><strong>HANDWOVEN</strong><span>in Banahatti</span></div>
-            <div className="hero-caption"><span>01</span> The heirloom collection</div>
-          </div>
-        </div>
-      </section>
+      {/* Professional Automatic Changing Hero Slider with Beautiful Sarees */}
+      <HeroBannerSlider />
 
       <section className="collection-section container-custom">
         <div className="section-heading">
