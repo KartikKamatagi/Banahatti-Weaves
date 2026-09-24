@@ -8,8 +8,8 @@ import {
   Award,
 } from 'lucide-react';
 
-import heroImg from '../assets/hero_professional.jpg';
-import heroPortraitImg from '../assets/hero_portrait.jpg';
+// import heroImg from '../assets/hero_professional.jpg';
+// import heroPortraitImg from '../assets/hero_portrait.jpg';
 
 export default function HeroBannerSlider({ sarees = [] }) {
   const navigate = useNavigate();
