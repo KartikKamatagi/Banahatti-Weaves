@@ -148,13 +148,16 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Hidden Admin Trigger */}
-          <Link
-            to={isAdmin ? "/admin/dashboard" : "/admin/login"}
-            className="text-[10px] font-bold uppercase text-[#77716B] hover:text-[#9A6863] hidden xl:inline ml-2"
-          >
-            {isAdmin ? '[Admin]' : '[Admin]'}
-          </Link>
+          {/* Admin Shortcut - Only visible when logged in as Admin */}
+          {isAdmin && (
+            <Link
+              to="/admin/dashboard"
+              className="text-[10px] font-bold uppercase text-[#9A6863] hover:underline hidden xl:inline ml-2"
+              title="Go to Admin Dashboard"
+            >
+              [Admin Dashboard]
+            </Link>
+          )}
 
         </div>
 
