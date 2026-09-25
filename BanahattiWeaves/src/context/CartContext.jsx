@@ -140,36 +140,156 @@ export const CartProvider = ({ children }) => {
     showToast('Saree deleted from catalog');
   };
 
+  // Coupons State
+  const [coupon, setCoupon] = useState(() => {
+    const saved = localStorage.getItem('bw_coupon');
+    return saved ? JSON.parse(saved) : null;
+  });
+
+  useEffect(() => {
+    if (coupon) {
+      localStorage.setItem('bw_coupon', JSON.stringify(coupon));
+    } else {
+      localStorage.removeItem('bw_coupon');
+    }
+  }, [coupon]);
+
+  const PROMO_CODES = {
+    'WEAVE10': { code: 'WEAVE10', type: 'percent', value: 10, label: '10% Handloom Welcome Discount', minSpend: 1500 },
+    'HANDLOOM300': { code: 'HANDLOOM300', type: 'flat', value: 300, label: '₹300 Off Artisanal Special', minSpend: 2500 },
+    'UTSAV500': { code: 'UTSAV500', type: 'flat', value: 500, label: '₹500 Off Festive Loom Offer', minSpend: 4000 }
+  };
+
+  const applyCoupon = (codeStr) => {
+    const clean = codeStr.trim().toUpperCase();
+    const promo = PROMO_CODES[clean];
+    if (!promo) {
+      return { success: false, message: 'Invalid coupon code. Try WEAVE10 or HANDLOOM300' };
+    }
+    if (cartSubtotal < promo.minSpend) {
+      return { success: false, message: `Requires a minimum cart value of ₹${promo.minSpend.toLocaleString('en-IN')}` };
+    }
+    setCoupon(promo);
+    showToast(`✨ Coupon "${promo.code}" applied!`);
+    return { success: true, promo };
+  };
+
+  const removeCoupon = () => {
+    setCoupon(null);
+    showToast('Coupon removed');
+  };
+
   // Orders Operations
-  const createOrder = (customerInfo) => {
+  const createOrder = (customerInfo, extraDetails = {}) => {
     const subtotal = cart.reduce((sum, item) => sum + item.saree.price * item.quantity, 0);
-    const delivery = subtotal >= 3000 ? 0 : 150;
-    const totalAmount = subtotal + delivery;
+    const delivery = subtotal >= 3000 || subtotal === 0 ? 0 : 150;
+    
+    let discount = 0;
+    if (coupon) {
+      if (coupon.type === 'percent') {
+        discount = Math.round((subtotal * coupon.value) / 100);
+      } else {
+        discount = coupon.value;
+      }
+    }
+
+    const totalAmount = Math.max(0, subtotal - discount + delivery);
+
+    // Calculate delivery date (4 days from today)
+    const estDate = new Date();
+    estDate.setDate(estDate.getDate() + 4);
+    const estDeliveryStr = estDate.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 
     const newOrder = {
       id: `BW-ORD-${Math.floor(1000 + Math.random() * 9000)}`,
       date: new Date().toISOString().split('T')[0],
+      createdAt: new Date().toISOString(),
       customerName: customerInfo.fullName,
       customerEmail: customerInfo.email || 'customer@example.com',
       customerPhone: customerInfo.phone,
       address: `${customerInfo.address}, ${customerInfo.city}, ${customerInfo.state} - ${customerInfo.pincode}`,
+      rawAddress: {
+        fullName: customerInfo.fullName,
+        phone: customerInfo.phone,
+        email: customerInfo.email,
+        address: customerInfo.address,
+        city: customerInfo.city,
+        state: customerInfo.state,
+        pincode: customerInfo.pincode,
+        landmark: customerInfo.landmark || ''
+      },
       items: cart.map((item) => ({
         sareeId: item.saree.id,
         name: item.saree.name,
+        fabric: item.saree.fabric || 'Pure Handloom',
         price: item.saree.price,
         quantity: item.quantity,
-        image: item.saree.images[0]
+        image: item.saree.images && item.saree.images[0] ? item.saree.images[0] : '/images/sarees/saree_model_maroon_1789668365104.png'
       })),
       subtotal,
       delivery,
+      discount,
+      couponCode: coupon ? coupon.code : null,
       totalAmount,
-      status: 'Pending'
+      paymentMethod: customerInfo.paymentMethod || extraDetails.paymentMethod || 'COD',
+      paymentStatus: (customerInfo.paymentMethod === 'COD' ? 'Pending (Pay on Delivery)' : 'Paid Online (Verified)'),
+      paymentDetails: extraDetails.paymentDetails || null,
+      trackingNumber: `BD-${Math.floor(10000000 + Math.random() * 90000000)}IN`,
+      carrier: 'BlueDart Express Handloom Logistics',
+      estimatedDelivery: estDeliveryStr,
+      giftWrap: extraDetails.giftWrap || false,
+      giftMessage: extraDetails.giftMessage || '',
+      status: 'Confirmed'
     };
 
     setOrders((prev) => [newOrder, ...prev]);
     clearCart();
+    setCoupon(null);
     showToast('🎉 Order placed successfully!');
     return newOrder;
+  };
+
+  const cancelOrder = (orderId, reason = 'Customer requested cancellation') => {
+    setOrders((prev) =>
+      prev.map((ord) => {
+        if (ord.id === orderId) {
+          return {
+            ...ord,
+            status: 'Cancelled',
+            cancellationReason: reason,
+            cancelledAt: new Date().toISOString()
+          };
+        }
+        return ord;
+      })
+    );
+    showToast(`Order ${orderId} has been cancelled`);
+  };
+
+  const reorder = (orderId) => {
+    const orderToReorder = orders.find((o) => o.id === orderId);
+    if (!orderToReorder || !orderToReorder.items?.length) {
+      showToast('Order items not available');
+      return false;
+    }
+
+    orderToReorder.items.forEach((item) => {
+      // Find saree in catalog or make safe object
+      const catalogSaree = sarees.find((s) => s.id === item.sareeId);
+      if (catalogSaree) {
+        addToCart(catalogSaree, item.quantity);
+      } else {
+        addToCart({
+          id: item.sareeId,
+          name: item.name,
+          price: item.price,
+          images: [item.image]
+        }, item.quantity);
+      }
+    });
+
+    showToast('✨ Items added to your shopping bag!');
+    return true;
   };
 
   const updateOrderStatus = (orderId, newStatus) => {
@@ -182,7 +302,12 @@ export const CartProvider = ({ children }) => {
   // Calculations
   const cartSubtotal = cart.reduce((sum, item) => sum + item.saree.price * item.quantity, 0);
   const deliveryFee = cartSubtotal >= 3000 || cartSubtotal === 0 ? 0 : 150;
-  const cartTotal = cartSubtotal + deliveryFee;
+  const couponDiscount = coupon
+    ? coupon.type === 'percent'
+      ? Math.round((cartSubtotal * coupon.value) / 100)
+      : coupon.value
+    : 0;
+  const cartTotal = Math.max(0, cartSubtotal - couponDiscount + deliveryFee);
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
@@ -201,7 +326,13 @@ export const CartProvider = ({ children }) => {
         editSaree,
         deleteSaree,
         createOrder,
+        cancelOrder,
+        reorder,
         updateOrderStatus,
+        coupon,
+        applyCoupon,
+        removeCoupon,
+        couponDiscount,
         cartSubtotal,
         deliveryFee,
         cartTotal,
