@@ -9,6 +9,7 @@ export default function QuickAddModal() {
     addToCart, 
     formatPrice, 
     setIsSizeChartOpen 
+    
   } = useShop();
 
   const [blouseStitching, setBlouseStitching] = useState(false);
