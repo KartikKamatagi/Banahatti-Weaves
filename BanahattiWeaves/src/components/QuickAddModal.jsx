@@ -9,7 +9,7 @@ export default function QuickAddModal() {
     addToCart, 
     formatPrice, 
     setIsSizeChartOpen 
-    
+
   } = useShop();
 
   const [blouseStitching, setBlouseStitching] = useState(false);
@@ -19,6 +19,7 @@ export default function QuickAddModal() {
 
   if (!quickAddProduct) return null;
 
+  //hi
   const sizes = ['32 (XS)', '34 (S)', '36 (M)', '38 (L)', '40 (XL)', '42 (2XL)'];
 
   const handleAddToCart = () => {
