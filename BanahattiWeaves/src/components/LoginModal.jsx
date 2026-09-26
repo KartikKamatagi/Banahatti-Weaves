@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { useShop } from '../context/ShopContext';
 import { X, Lock, Mail } from 'lucide-react';
 
+//login
 export default function LoginModal() {
   const { isLoginModalOpen, setIsLoginModalOpen, login } = useAuth();
   const { showToast } = useShop();
