@@ -35,7 +35,7 @@ export default function LoginModal() {
 
           <button 
             onClick={() => setIsLoginModalOpen(false)}
-            className="p-1 rounded-full hover:bg-black/10 text-gray-400 hover:text-gray-600"
+            className="p-1 rounded-full hover:bg-black/10 text-gray-400 hover:text-gray-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B261D]"
           >
             <X className="w-5 h-5" />
           </button>
@@ -51,7 +51,7 @@ export default function LoginModal() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-[#F7F1E5] dark:bg-[#12100E] p-2.5 pl-9 rounded-xl border border-gray-300 dark:border-white/10"
+                className="w-full bg-[#F7F1E5] dark:bg-[#12100E] p-2.5 pl-9 rounded-xl border border-gray-300 dark:border-white/10 transition-colors focus:outline-none focus:border-[#8B261D] focus:ring-2 focus:ring-[#8B261D]/20 dark:focus:border-[#E5B33A] dark:focus:ring-[#E5B33A]/20"
               />
               <Mail className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
             </div>
@@ -65,7 +65,7 @@ export default function LoginModal() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-[#F7F1E5] dark:bg-[#12100E] p-2.5 pl-9 rounded-xl border border-gray-300 dark:border-white/10"
+                className="w-full bg-[#F7F1E5] dark:bg-[#12100E] p-2.5 pl-9 rounded-xl border border-gray-300 dark:border-white/10 transition-colors focus:outline-none focus:border-[#8B261D] focus:ring-2 focus:ring-[#8B261D]/20 dark:focus:border-[#E5B33A] dark:focus:ring-[#E5B33A]/20"
               />
               <Lock className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
             </div>
@@ -73,7 +73,7 @@ export default function LoginModal() {
 
           <button 
             type="submit"
-            className="w-full bg-gradient-to-r from-[#8B261D] to-[#0D4C53] text-white py-3 rounded-2xl font-bold text-xs shadow-md hover:opacity-95 transition-transform active:scale-95"
+            className="w-full bg-gradient-to-r from-[#8B261D] to-[#0D4C53] text-white py-3 rounded-2xl font-bold text-xs shadow-md hover:opacity-95 transition-transform active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C69214] focus-visible:ring-offset-2"
           >
             Sign In & Access Profile
           </button>
