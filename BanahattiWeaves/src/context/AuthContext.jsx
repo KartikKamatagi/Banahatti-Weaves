@@ -51,6 +51,14 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const updateProfile = (updatedData) => {
+    setCurrentUser((prev) => {
+      const updated = { ...(prev || {}), ...updatedData };
+      localStorage.setItem('bw_user', JSON.stringify(updated));
+      return updated;
+    });
+  };
+
   const logout = () => {
     setCurrentUser(null);
     setReturnUrl(null);
@@ -65,6 +73,7 @@ export const AuthProvider = ({ children }) => {
       loginAsAdmin,
       register,
       logout,
+      updateProfile,
       returnUrl,
       setReturnUrl
     }}>
