@@ -8,8 +8,8 @@ export default function LoginModal() {
   const { isLoginModalOpen, setIsLoginModalOpen, login } = useAuth();
   const { showToast } = useShop();
 
-  const [email, setEmail] = useState('kartik.gowda@example.com');
-  const [password, setPassword] = useState('password123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   if (!isLoginModalOpen) return null;
 
@@ -50,6 +50,7 @@ export default function LoginModal() {
                 type="email"
                 required
                 value={email}
+                placeholder="you@example.com"
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-[#F7F1E5] dark:bg-[#12100E] p-2.5 pl-9 rounded-xl border border-gray-300 dark:border-white/10 transition-colors focus:outline-none focus:border-[#8B261D] focus:ring-2 focus:ring-[#8B261D]/20 dark:focus:border-[#E5B33A] dark:focus:ring-[#E5B33A]/20"
               />
@@ -64,6 +65,7 @@ export default function LoginModal() {
                 type="password"
                 required
                 value={password}
+                placeholder="Enter your password"
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full bg-[#F7F1E5] dark:bg-[#12100E] p-2.5 pl-9 rounded-xl border border-gray-300 dark:border-white/10 transition-colors focus:outline-none focus:border-[#8B261D] focus:ring-2 focus:ring-[#8B261D]/20 dark:focus:border-[#E5B33A] dark:focus:ring-[#E5B33A]/20"
               />
