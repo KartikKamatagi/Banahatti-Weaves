@@ -80,6 +80,16 @@ export default function LoginModal() {
             Sign In & Access Profile
           </button>
 
+          <div className="text-center text-[10px] text-gray-500">
+            <button
+              type="button"
+              onClick={() => setIsLoginModalOpen(false)}
+              className="font-semibold text-[#8B261D] hover:text-[#0D4C53] transition-colors underline-offset-2 hover:underline"
+            >
+              Create account instead
+            </button>
+          </div>
+
         </form>
 
         <div className="text-center text-[10px] text-gray-500 pt-2 border-t border-gray-200 dark:border-white/10">
