@@ -80,13 +80,19 @@ export default function LoginModal() {
             Sign In & Access Profile
           </button>
 
-          <div className="text-center text-[10px] text-gray-500">
+          <div className="flex items-center justify-between gap-3 text-[10px] text-gray-500">
             <button
               type="button"
               onClick={() => setIsLoginModalOpen(false)}
               className="font-semibold text-[#8B261D] hover:text-[#0D4C53] transition-colors underline-offset-2 hover:underline"
             >
-              Create account instead
+              Create account
+            </button>
+            <button
+              type="button"
+              className="font-semibold text-[#0D4C53] hover:text-[#8B261D] transition-colors underline-offset-2 hover:underline"
+            >
+              Forgot password?
             </button>
           </div>
 
