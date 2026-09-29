@@ -3,6 +3,7 @@ import './admin.css';
 import './AddSaree.css';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { readCompressedImage } from '../utils/imageUpload';
 import { 
   UploadCloud, 
   Trash2, 
@@ -10,25 +11,6 @@ import {
   Check, 
   Star 
 } from 'lucide-react';
-
-const readCompressedImage = (file) => new Promise((resolve, reject) => {
-  const reader = new FileReader();
-  reader.onerror = reject;
-  reader.onload = () => {
-    const image = new Image();
-    image.onerror = reject;
-    image.onload = () => {
-      const scale = Math.min(1, 1200 / Math.max(image.width, image.height));
-      const canvas = document.createElement('canvas');
-      canvas.width = Math.round(image.width * scale);
-      canvas.height = Math.round(image.height * scale);
-      canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
-      resolve(canvas.toDataURL('image/webp', 0.82));
-    };
-    image.src = reader.result;
-  };
-  reader.readAsDataURL(file);
-});
 
 export default function AddSaree() {
   const navigate = useNavigate();

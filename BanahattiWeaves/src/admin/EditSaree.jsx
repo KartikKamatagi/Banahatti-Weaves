@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './admin.css';
 import './EditSaree.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { readCompressedImage } from '../utils/imageUpload';
 import { 
   UploadCloud, 
   Trash2, 
@@ -14,6 +15,7 @@ export default function EditSaree() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { sarees, editSaree } = useCart();
+  const fileInputRef = useRef(null);
 
   const targetSaree = sarees.find((s) => String(s.id) === String(id));
 
@@ -32,6 +34,20 @@ export default function EditSaree() {
   });
 
   const [images, setImages] = useState([]);
+
+  const handleImageFiles = async (event) => {
+    const files = Array.from(event.target.files || []);
+    if (!files.length) return;
+
+    try {
+      const uploadedImages = await Promise.all(files.map(readCompressedImage));
+      setImages((current) => [...current, ...uploadedImages]);
+    } catch {
+      alert('One or more images could not be loaded. Please choose PNG, JPG, or WEBP files.');
+    } finally {
+      event.target.value = '';
+    }
+  };
 
   useEffect(() => {
     if (targetSaree) {
@@ -306,12 +322,17 @@ export default function EditSaree() {
                 <p className="text-[14px] font-semibold text-[#242424]">Upload saree images</p>
                 <p className="text-[12px] text-[#77716B] mt-0.5">PNG, JPG or WEBP</p>
               </div>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/png,image/jpeg,image/webp"
+                multiple
+                onChange={handleImageFiles}
+                className="hidden"
+              />
               <button
                 type="button"
-                onClick={() => {
-                  const url = prompt('Enter image URL (/images/sarees/...):');
-                  if (url) setImages([...images, url]);
-                }}
+                onClick={() => fileInputRef.current?.click()}
                 className="btn-admin-secondary h-[38px] text-[13px] inline-flex items-center"
               >
                 Choose Images
