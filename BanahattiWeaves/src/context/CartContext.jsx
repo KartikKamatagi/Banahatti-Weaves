@@ -41,6 +41,22 @@ export const CartProvider = ({ children }) => {
   }, [sarees]);
 
   useEffect(() => {
+    const syncSarees = (event) => {
+      if (event.key !== 'bw_sarees' || !event.newValue) return;
+
+      try {
+        const updatedSarees = JSON.parse(event.newValue);
+        if (Array.isArray(updatedSarees)) setSarees(updatedSarees);
+      } catch {
+        // Ignore malformed catalog data from another tab.
+      }
+    };
+
+    window.addEventListener('storage', syncSarees);
+    return () => window.removeEventListener('storage', syncSarees);
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem('bw_cart', JSON.stringify(cart));
   }, [cart]);
 
