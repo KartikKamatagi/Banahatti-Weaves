@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './admin.css';
 import './AddSaree.css';
 import { useNavigate } from 'react-router-dom';
@@ -11,9 +11,29 @@ import {
   Star 
 } from 'lucide-react';
 
+const readCompressedImage = (file) => new Promise((resolve, reject) => {
+  const reader = new FileReader();
+  reader.onerror = reject;
+  reader.onload = () => {
+    const image = new Image();
+    image.onerror = reject;
+    image.onload = () => {
+      const scale = Math.min(1, 1200 / Math.max(image.width, image.height));
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(image.width * scale);
+      canvas.height = Math.round(image.height * scale);
+      canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
+      resolve(canvas.toDataURL('image/webp', 0.82));
+    };
+    image.src = reader.result;
+  };
+  reader.readAsDataURL(file);
+});
+
 export default function AddSaree() {
   const navigate = useNavigate();
   const { addSaree } = useCart();
+  const fileInputRef = useRef(null);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -32,10 +52,21 @@ export default function AddSaree() {
     urlInput: ''
   });
 
-  const [images, setImages] = useState([
-    '/images/sarees/saree_model_maroon_1789668365104.png',
-    '/images/sarees/media__1789668269619.jpg'
-  ]);
+  const [images, setImages] = useState([]);
+
+  const handleImageFiles = async (event) => {
+    const files = Array.from(event.target.files || []);
+    if (!files.length) return;
+
+    try {
+      const uploadedImages = await Promise.all(files.map(readCompressedImage));
+      setImages((current) => [...current, ...uploadedImages]);
+    } catch {
+      alert('One or more images could not be loaded. Please choose PNG, JPG, or WEBP files.');
+    } finally {
+      event.target.value = '';
+    }
+  };
 
   const handleAddImageUrl = () => {
     if (formData.urlInput.trim()) {
@@ -275,12 +306,17 @@ export default function AddSaree() {
                 <p className="text-[14px] font-semibold text-[#242424]">Upload saree images</p>
                 <p className="text-[12px] text-[#77716B] mt-0.5">PNG, JPG or WEBP</p>
               </div>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/png,image/jpeg,image/webp"
+                multiple
+                onChange={handleImageFiles}
+                className="hidden"
+              />
               <button
                 type="button"
-                onClick={() => {
-                  const url = prompt('Enter image URL (/images/sarees/...):');
-                  if (url) setImages([...images, url]);
-                }}
+                onClick={() => fileInputRef.current?.click()}
                 className="btn-admin-secondary h-[38px] text-[13px] inline-flex items-center"
               >
                 Choose Images

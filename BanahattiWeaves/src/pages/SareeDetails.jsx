@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import SareeCard from '../components/SareeCard';
+import fallbackSareeImage from '../assets/sarees/saree_model_maroon_1789668365104.png';
 import { ArrowLeft, Check, Heart, Minus, Plus, ShieldCheck, ShoppingBag, Star, Truck } from 'lucide-react';
 
 export default function SareeDetails() {
@@ -18,7 +19,7 @@ export default function SareeDetails() {
   return <main className="purchase-page container-custom">
     <Link to="/collections" className="purchase-back"><ArrowLeft size={16} /> Continue browsing</Link>
     <div className="product-view">
-      <section className="product-gallery"><div className="product-main-image"><img src={saree.images[selectedImage] || saree.images[0]} alt={saree.name} /><span>Handwoven in Banahatti</span></div><div className="product-thumbnails">{saree.images.map((image, index) => <button key={image} onClick={() => setSelectedImage(index)} className={selectedImage === index ? 'selected' : ''}><img src={image} alt={`View ${index + 1} of ${saree.name}`} /></button>)}</div></section>
+      <section className="product-gallery"><div className="product-main-image"><img src={saree.images?.[selectedImage] || saree.images?.[0] || fallbackSareeImage} alt={saree.name} onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = fallbackSareeImage; }} /><span>Handwoven in Banahatti</span></div><div className="product-thumbnails">{(saree.images || []).map((image, index) => <button key={image} onClick={() => setSelectedImage(index)} className={selectedImage === index ? 'selected' : ''}><img src={image} alt={`View ${index + 1} of ${saree.name}`} onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = fallbackSareeImage; }} /></button>)}</div></section>
       <section className="product-purchase">
         <p className="eyebrow">{saree.category} handloom · limited weave</p>
         <div className="product-name-row"><h1>{saree.name}</h1><button onClick={() => toggleWishlist(saree.id)} className={saved ? 'detail-wishlist saved' : 'detail-wishlist'} aria-label="Save this saree"><Heart size={19} fill={saved ? 'currentColor' : 'none'} /></button></div>
