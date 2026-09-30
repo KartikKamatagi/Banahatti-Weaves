@@ -133,9 +133,7 @@ export const CartProvider = ({ children }) => {
       rating: 5.0,
       reviewsCount: 1,
       isLatest: true,
-      images: newSareeData.images && newSareeData.images.length > 0 
-        ? newSareeData.images 
-        : ['/images/sarees/saree_model_maroon_1789668365104.png']
+      images: Array.isArray(newSareeData.images) ? newSareeData.images : []
     };
     setSarees((prev) => [formatted, ...prev]);
     showToast('✨ Saree successfully added to store!');
@@ -240,7 +238,7 @@ export const CartProvider = ({ children }) => {
         fabric: item.saree.fabric || 'Pure Handloom',
         price: item.saree.price,
         quantity: item.quantity,
-        image: item.saree.images && item.saree.images[0] ? item.saree.images[0] : '/images/sarees/saree_model_maroon_1789668365104.png'
+        image: item.saree.images && item.saree.images[0] ? item.saree.images[0] : ''
       })),
       subtotal,
       delivery,

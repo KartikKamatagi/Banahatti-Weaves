@@ -119,7 +119,7 @@ export default function EditSaree() {
       price: Number(formData.price),
       originalPrice: Number(formData.originalPrice || formData.price * 1.2),
       stock: Number(formData.stock),
-      images: images.length > 0 ? images : [targetSaree.image || '/images/sarees/saree_model_maroon_1789668365104.png']
+      images: images.length > 0 ? images : []
     });
 
     navigate('/admin/sarees');

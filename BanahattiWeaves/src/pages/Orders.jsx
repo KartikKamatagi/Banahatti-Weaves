@@ -239,10 +239,11 @@ export default function Orders() {
                 {order.items.map((item, index) => (
                   <div className="order-item-row" key={`${item.sareeId}-${index}`}>
                     <div className="item-thumb-details">
-                      <img 
-                        src={item.image || '/images/sarees/saree_model_maroon_1789668365104.png'} 
-                        alt={item.name} 
-                      />
+                      {item.image ? (
+                        <img src={item.image} alt={item.name} />
+                      ) : (
+                        <div className="image-placeholder small">Unable to load image</div>
+                      )}
                       <div className="item-info-text">
                         <h3>{item.name}</h3>
                         <p>

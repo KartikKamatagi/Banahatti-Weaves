@@ -260,11 +260,11 @@ export default function Dashboard() {
               {lowStockProducts.map((p) => (
                 <div key={p.id} className="low-stock-item">
                   <div className="flex items-center gap-3 min-w-0">
-                    <img 
-                      src={p.images?.[0] || '/images/sarees/saree_model_maroon_1789668365104.png'} 
-                      alt={p.name} 
-                      className="saree-thumb-48x60"
-                    />
+                    {p.images?.[0] ? (
+                      <img src={p.images[0]} alt={p.name} className="saree-thumb-48x60" />
+                    ) : (
+                      <div className="image-placeholder small">Unable to load image</div>
+                    )}
                     <div className="min-w-0">
                       <p className="text-[13px] font-medium text-[#242424] truncate">{p.name}</p>
                       <span className="low-stock-badge mt-0.5 inline-block">

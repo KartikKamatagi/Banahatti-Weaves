@@ -3,23 +3,32 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { ArrowUpRight, Check, Heart, ShoppingBag } from 'lucide-react';
-import fallbackSareeImage from '../assets/sarees/saree_model_maroon_1789668365104.png';
 
 export default function SareeCard({ saree }) {
   const navigate = useNavigate();
   const { wishlist, toggleWishlist, addToCart } = useCart();
   const { isAuthenticated, setReturnUrl } = useAuth();
   const [isJustAdded, setIsJustAdded] = useState(false);
+  const [imageFailed, setImageFailed] = useState(false);
+  const imageUrl = saree.images?.[0];
   const isWishlisted = wishlist.includes(saree.id);
+
   const handleAddToCart = (e) => {
     e.preventDefault(); e.stopPropagation();
     if (!isAuthenticated) { setReturnUrl(`/saree/${saree.id}`); navigate('/login'); return; }
     addToCart(saree, 1); setIsJustAdded(true); setTimeout(() => setIsJustAdded(false), 1200);
   };
+
   return (
     <article className="product-card">
       <div className="product-image-wrap">
-        <Link to={`/saree/${saree.id}`} className="product-image-link"><img src={saree.images[0]} alt={saree.name} onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = fallbackSareeImage; }} /></Link>
+        <Link to={`/saree/${saree.id}`} className="product-image-link">
+          {imageUrl && !imageFailed ? (
+            <img src={imageUrl} alt={saree.name} onError={() => setImageFailed(true)} />
+          ) : (
+            <div className="image-placeholder">Unable to load image</div>
+          )}
+        </Link>
         {saree.isLatest && <span className="product-tag">New arrival</span>}
         <button onClick={() => toggleWishlist(saree.id)} className={`wishlist-button ${isWishlisted ? 'is-active' : ''}`} aria-label="Add to wishlist"><Heart size={17} fill={isWishlisted ? 'currentColor' : 'none'} /></button>
         <button onClick={handleAddToCart} className={`quick-add ${isJustAdded ? 'is-added' : ''}`} aria-label="Add to cart">{isJustAdded ? <Check size={17} /> : <ShoppingBag size={17} />}<span>{isJustAdded ? 'Added' : 'Quick add'}</span></button>

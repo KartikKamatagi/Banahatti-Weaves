@@ -169,11 +169,11 @@ export default function SareeList() {
                     
                     {/* 48px x 60px Image */}
                     <td>
-                      <img 
-                        src={s.images?.[0] || '/images/sarees/saree_model_maroon_1789668365104.png'} 
-                        alt={s.name} 
-                        className="saree-thumb-48x60"
-                      />
+                      {s.images?.[0] ? (
+                        <img src={s.images[0]} alt={s.name} className="saree-thumb-48x60" />
+                      ) : (
+                        <div className="image-placeholder small">Unable to load image</div>
+                      )}
                     </td>
 
                     {/* Saree Name & SKU */}
@@ -244,11 +244,11 @@ export default function SareeList() {
 
             <div className="p-6 space-y-4 overflow-y-auto max-h-[70vh]">
               <div className="saree-modal-detail-grid">
-                <img 
-                  src={selectedSareeView.images?.[0] || '/images/sarees/saree_model_maroon_1789668365104.png'} 
-                  alt="saree" 
-                  className="saree-modal-image" 
-                />
+                {selectedSareeView.images?.[0] ? (
+                  <img src={selectedSareeView.images[0]} alt="saree" className="saree-modal-image" />
+                ) : (
+                  <div className="image-placeholder">Unable to load image</div>
+                )}
                 <div className="space-y-1 text-[13px]">
                   <p className="text-[20px] font-bold text-[#8C3E43]">₹{selectedSareeView.price.toLocaleString('en-IN')}</p>
                   <p className="text-[#77716B]">SKU: <span className="font-mono text-[#242424] font-medium">{selectedSareeView.id}</span></p>

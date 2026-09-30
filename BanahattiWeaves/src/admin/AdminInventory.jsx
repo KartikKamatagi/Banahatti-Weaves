@@ -149,11 +149,15 @@ export default function AdminInventory() {
                       
                       {/* 48px x 60px Image */}
                       <td className="py-2 px-4">
-                        <img 
-                          src={item.image || (item.images && item.images[0]) || '/images/sarees/saree_model_maroon_1789668365104.png'} 
-                          alt={item.name} 
-                          className="w-[48px] h-[60px] object-cover rounded-[4px] border border-[#E5E0D9]" 
-                        />
+                        {item.image || (item.images && item.images[0]) ? (
+                          <img 
+                            src={item.image || item.images?.[0]} 
+                            alt={item.name} 
+                            className="w-[48px] h-[60px] object-cover rounded-[4px] border border-[#E5E0D9]" 
+                          />
+                        ) : (
+                          <div className="image-placeholder small">Unable to load image</div>
+                        )}
                       </td>
 
                       {/* Saree Name */}

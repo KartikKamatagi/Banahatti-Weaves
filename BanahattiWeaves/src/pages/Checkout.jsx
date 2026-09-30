@@ -715,10 +715,11 @@ export default function Checkout() {
           <div className="sidebar-items-scroll">
             {cart.map(({ saree, quantity }) => (
               <div key={saree.id} className="sidebar-item-row">
-                <img 
-                  src={saree.images && saree.images[0] ? saree.images[0] : '/images/sarees/saree_model_maroon_1789668365104.png'} 
-                  alt={saree.name} 
-                />
+                {saree.images && saree.images[0] ? (
+                  <img src={saree.images[0]} alt={saree.name} />
+                ) : (
+                  <div className="image-placeholder small">Unable to load image</div>
+                )}
                 <div className="sidebar-item-info">
                   <strong>{saree.name}</strong>
                   <span>Qty: {quantity} · {saree.fabric || 'Pure Handloom'}</span>

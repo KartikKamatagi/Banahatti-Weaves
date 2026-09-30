@@ -3,7 +3,6 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import SareeCard from '../components/SareeCard';
-import fallbackSareeImage from '../assets/sarees/saree_model_maroon_1789668365104.png';
 import { ArrowLeft, Check, Heart, Minus, Plus, ShieldCheck, ShoppingBag, Star, Truck } from 'lucide-react';
 
 export default function SareeDetails() {
@@ -11,15 +10,42 @@ export default function SareeDetails() {
   const { sarees, addToCart, wishlist, toggleWishlist } = useCart();
   const { isAuthenticated, setReturnUrl } = useAuth();
   const saree = sarees.find((item) => item.id === id) || sarees[0];
-  const [selectedImage, setSelectedImage] = useState(0); const [quantity, setQuantity] = useState(1);
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const [mainImageFailed, setMainImageFailed] = useState(false);
+  const [thumbImageFailed, setThumbImageFailed] = useState({});
+
   if (!saree) return <div className="container-custom purchase-empty"><h2>Saree not found</h2><Link className="button-outline" to="/collections">Back to collections</Link></div>;
+
+  const currentImage = saree.images?.[selectedImage] || saree.images?.[0] || '';
   const saved = wishlist.includes(saree.id);
   const related = sarees.filter((item) => item.id !== saree.id && item.category === saree.category).slice(0, 4);
   const handleAction = (buyNow = false) => { if (!isAuthenticated) { setReturnUrl(`/saree/${saree.id}`); navigate('/login'); return; } addToCart(saree, quantity); if (buyNow) navigate('/cart'); };
+
   return <main className="purchase-page container-custom">
     <Link to="/collections" className="purchase-back"><ArrowLeft size={16} /> Continue browsing</Link>
     <div className="product-view">
-      <section className="product-gallery"><div className="product-main-image"><img src={saree.images?.[selectedImage] || saree.images?.[0] || fallbackSareeImage} alt={saree.name} onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = fallbackSareeImage; }} /><span>Handwoven in Banahatti</span></div><div className="product-thumbnails">{(saree.images || []).map((image, index) => <button key={image} onClick={() => setSelectedImage(index)} className={selectedImage === index ? 'selected' : ''}><img src={image} alt={`View ${index + 1} of ${saree.name}`} onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = fallbackSareeImage; }} /></button>)}</div></section>
+      <section className="product-gallery">
+        <div className="product-main-image">
+          {currentImage && !mainImageFailed ? (
+            <img src={currentImage} alt={saree.name} onError={() => setMainImageFailed(true)} />
+          ) : (
+            <div className="image-placeholder">Unable to load image</div>
+          )}
+          <span>Handwoven in Banahatti</span>
+        </div>
+        <div className="product-thumbnails">
+          {(saree.images || []).map((image, index) => (
+            <button key={`${saree.id}-${image}-${index}`} onClick={() => setSelectedImage(index)} className={selectedImage === index ? 'selected' : ''}>
+              {image && !thumbImageFailed[index] ? (
+                <img src={image} alt={`View ${index + 1} of ${saree.name}`} onError={() => setThumbImageFailed((prev) => ({ ...prev, [index]: true }))} />
+              ) : (
+                <div className="image-placeholder small">Image</div>
+              )}
+            </button>
+          ))}
+        </div>
+      </section>
       <section className="product-purchase">
         <p className="eyebrow">{saree.category} handloom · limited weave</p>
         <div className="product-name-row"><h1>{saree.name}</h1><button onClick={() => toggleWishlist(saree.id)} className={saved ? 'detail-wishlist saved' : 'detail-wishlist'} aria-label="Save this saree"><Heart size={19} fill={saved ? 'currentColor' : 'none'} /></button></div>
