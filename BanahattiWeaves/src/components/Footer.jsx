@@ -75,7 +75,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="pt-6 border-t border-[#333] text-center text-[11px] text-[#C9C4BE] font-light">
-          © {new Date().getFullYear()} Banahatti Weaves · All rights reserved
+          © {new Date().getFullYear()} Banahatti Weaves · All rights reserved · Website by Kartik Kamatagi
         </div>
 
       </div>

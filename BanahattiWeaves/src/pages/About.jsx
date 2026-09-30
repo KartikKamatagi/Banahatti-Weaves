@@ -1,105 +1,84 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './About.css';
-import { 
-  ShieldCheck, 
-  Heart, 
-  Sparkles, 
-  Award, 
-  ArrowRight, 
-  CheckCircle2, 
-  Feather, 
-  Users, 
-  Compass,
-  Star
+import {
+  ShieldCheck,
+  Sparkles,
+  Award,
+  ArrowRight,
+  Feather,
+  Users,
+  Compass
 } from 'lucide-react';
 
 export default function About() {
   return (
     <div className="about-page">
-      
-      {/* 1. HERO BANNER SECTION */}
       <section className="about-hero-section container-custom">
         <div className="about-hero-grid">
-          
-          {/* Left Text Column */}
-          <div>
+          <div className="about-hero-copy">
             <span className="about-eyebrow">
-              <Sparkles className="w-3.5 h-3.5" /> HERITAGE OF BANAHATTI, KARNATAKA
+              <Sparkles className="w-3.5 h-3.5" /> Heritage of Banahatti, Karnataka
             </span>
             <h1 className="about-hero-title">
-              Centuries of Weaving Heritage, <em>Woven for Modern Elegance.</em>
+              Centuries of weaving heritage, <em>woven for modern elegance.</em>
             </h1>
             <p className="about-hero-description">
               Nestled along the serene Krishna river in Bagalkot district, Banahatti is world-renowned for its master pit-loom weavers who have passed down Karnataka’s double-warp cotton and silk weaving traditions across generations.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Link
-                to="/collections"
-                className="button-primary flex items-center gap-2"
-              >
+            <div className="about-hero-actions">
+              <Link to="/collections" className="button-primary">
                 <span>Explore Saree Collection</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <a
-                href="#our-story"
-                className="button-outline flex items-center gap-2"
-              >
+              <a href="#our-story" className="button-outline">
                 <span>Read Our Journey</span>
               </a>
             </div>
           </div>
 
-          {/* Right Image Column */}
           <div className="about-hero-image-wrapper">
-            <img 
-              src="/images/banahatti_hero_portrait.jpg" 
-              alt="Banahatti Pitloom Saree Weaver" 
+            <img
+              src="/images/banahatti_hero_portrait.jpg"
+              alt="Banahatti Pitloom Saree Weaver"
             />
-            
-            {/* Stamp Overlay */}
             <div className="about-stamp-badge">
-              <span>100% HANDWOVEN</span>
-              <strong>PITLOOM CRAFT</strong>
+              <span>100% Handwoven</span>
+              <strong>Pitloom Craft</strong>
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* 2. OUR STORY & NARRATIVE SECTION */}
       <section id="our-story" className="about-narrative-section">
         <div className="container-custom">
           <div className="about-narrative-grid">
-            
-            {/* Dual Image Collage */}
             <div className="about-collage-container">
               <div className="about-collage-img-1">
-                <img 
-                  src="/images/sarees/saree_model_maroon_1789668365104.png" 
-                  alt="Banahatti Maroon Saree" 
+                <img
+                  src="/images/sarees/saree_model_maroon_1789668365104.png"
+                  alt="Banahatti Maroon Saree"
                 />
               </div>
               <div className="about-collage-img-2">
-                <img 
-                  src="/images/sarees/saree_model_emerald_green_1789755773551.jpg" 
-                  alt="Banahatti Emerald Green Saree" 
+                <img
+                  src="/images/sarees/saree_model_emerald_green_1789755773551.jpg"
+                  alt="Banahatti Emerald Green Saree"
                 />
               </div>
             </div>
 
-            {/* Narrative Content */}
-            <div className="space-y-6">
+            <div className="about-story-copy">
               <span className="about-eyebrow">
-                <Compass className="w-3.5 h-3.5" /> OUR SOUL & ORIGINS
+                <Compass className="w-3.5 h-3.5" /> Our soul & origins
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#18362E] leading-tight">
-                Empowering Artisan Families Directly From Loom to Wardrobe.
+              <h2 className="about-story-title">
+                Empowering artisan families directly from loom to wardrobe.
               </h2>
-              
-              <div className="space-y-4 text-sm text-[#55625B] leading-relaxed">
-                <p className="text-base font-serif text-[#18362E] font-medium">
+
+              <div className="about-story-text">
+                <p className="about-story-lead">
                   Banahatti handlooms are distinguished by their fine count combed cotton yarns, sturdy double-warp structure, and signature <em>Chikki Paras</em> and <em>Gomi Teni</em> border motifs.
                 </p>
                 <p>
@@ -110,143 +89,123 @@ export default function About() {
                 </p>
               </div>
 
-              <div className="pt-4 grid grid-cols-2 gap-4 border-t border-[#DDD5C9]">
-                <div>
-                  <h4 className="font-serif text-lg font-bold text-[#8C3E43]">Pure Double Warp</h4>
-                  <p className="text-xs text-[#77716B]">Unmatched strength, featherlight softness, and longevity.</p>
+              <div className="about-story-feature-grid">
+                <div className="about-story-feature-box">
+                  <h4>Pure Double Warp</h4>
+                  <p>Unmatched strength, featherlight softness, and longevity.</p>
                 </div>
-                <div>
-                  <h4 className="font-serif text-lg font-bold text-[#8C3E43]">Kasuti Inspired</h4>
-                  <p className="text-xs text-[#77716B]">Intricate geometric border embroidery patterns.</p>
+                <div className="about-story-feature-box">
+                  <h4>Kasuti Inspired</h4>
+                  <p>Intricate geometric border embroidery patterns.</p>
                 </div>
               </div>
-
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* 3. FOUR CORE BRAND PILLARS */}
-      <section className="py-20 container-custom space-y-12">
-        <div className="text-center max-w-2xl mx-auto space-y-3">
-          <span className="about-eyebrow justify-center">
-            <Award className="w-3.5 h-3.5" /> WHY BANAHATTI WEAVES
+      <section className="about-pillars-section container-custom">
+        <div className="about-section-heading">
+          <span className="about-eyebrow">
+            <Award className="w-3.5 h-3.5" /> Why Banahatti Weaves
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#18362E]">
-            Our Unwavering Commitment to Quality & Artisans
-          </h2>
-          <p className="text-sm text-[#6C766F]">
+          <h2>Our unwavering commitment to quality & artisans</h2>
+          <p>
             Every saree we curate represents timeless technique, ethical production, and uncompromising craft perfection.
           </p>
         </div>
 
         <div className="about-pillars-grid">
-          
-          {/* Pillar 1 */}
           <div className="about-pillar-card">
             <div className="about-pillar-icon">
               <ShieldCheck className="w-6 h-6" />
             </div>
-            <h3 className="font-serif text-lg font-bold text-[#18362E]">100% Pit-Loom Woven</h3>
-            <p className="text-xs text-[#6C766F] leading-relaxed">
+            <h3>100% Pit-Loom Woven</h3>
+            <p>
               Crafted manually on traditional pit looms to preserve the soft texture, breathability, and natural strength of fine combed cottons.
             </p>
           </div>
 
-          {/* Pillar 2 */}
           <div className="about-pillar-card">
             <div className="about-pillar-icon">
-              <Users className="w-6 h-6 text-[#C69B54]" />
+              <Users className="w-6 h-6" />
             </div>
-            <h3 className="font-serif text-lg font-bold text-[#18362E]">Fair Artisan Wages</h3>
-            <p className="text-xs text-[#6C766F] leading-relaxed">
+            <h3>Fair Artisan Wages</h3>
+            <p>
               We work directly with weaver families, ensuring equitable pricing, sustained livelihoods, and community upliftment in Bagalkot.
             </p>
           </div>
 
-          {/* Pillar 3 */}
           <div className="about-pillar-card">
             <div className="about-pillar-icon">
               <Sparkles className="w-6 h-6" />
             </div>
-            <h3 className="font-serif text-lg font-bold text-[#18362E]">Signature Heritage Motifs</h3>
-            <p className="text-xs text-[#6C766F] leading-relaxed">
+            <h3>Signature Heritage Motifs</h3>
+            <p>
               Adorned with iconic <em>Chikki Paras</em> temple borders, zari detailing, and traditional Karnataka color pairings.
             </p>
           </div>
 
-          {/* Pillar 4 */}
           <div className="about-pillar-card">
             <div className="about-pillar-icon">
-              <Feather className="w-6 h-6 text-[#4F806B]" />
+              <Feather className="w-6 h-6" />
             </div>
-            <h3 className="font-serif text-lg font-bold text-[#18362E]">Eco-Conscious Natural Fibers</h3>
-            <p className="text-xs text-[#6C766F] leading-relaxed">
+            <h3>Eco-Conscious Natural Fibers</h3>
+            <p>
               Woven from pure organic cotton and Mulberry silk yarns using zero-emission manual weaving methods.
             </p>
           </div>
-
         </div>
       </section>
 
-      {/* 4. THE CRAFTSMANSHIP JOURNEY TIMELINE */}
-      <section className="py-16 bg-[#F3EEE6] border-y border-[#DDD5C9]">
-        <div className="container-custom space-y-12">
-          
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="about-eyebrow justify-center">
-              <Sparkles className="w-3.5 h-3.5" /> THE WEAVER'S JOURNEY
+      <section className="about-craft-section">
+        <div className="container-custom">
+          <div className="about-section-heading">
+            <span className="about-eyebrow">
+              <Sparkles className="w-3.5 h-3.5" /> The weaver’s journey
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#18362E]">
-              From Raw Thread to Timeless Elegance
-            </h2>
+            <h2>From raw thread to timeless elegance</h2>
           </div>
 
           <div className="about-craft-grid">
-            
             <div className="about-craft-card">
               <span className="about-craft-num">01</span>
-              <h4 className="font-serif font-bold text-base text-[#18362E]">Yarn Dyeing & Spinning</h4>
-              <p className="text-xs text-[#6C766F] leading-relaxed">
+              <h4>Yarn Dyeing & Spinning</h4>
+              <p>
                 Combed cotton yarns are dyed in rich fast colors and spun onto wooden bobbins.
               </p>
             </div>
 
             <div className="about-craft-card">
               <span className="about-craft-num">02</span>
-              <h4 className="font-serif font-bold text-base text-[#18362E]">Warping & Reed Setup</h4>
-              <p className="text-xs text-[#6C766F] leading-relaxed">
+              <h4>Warping & Reed Setup</h4>
+              <p>
                 Thousands of threads are hand-aligned on double warps for exact border motif weaving.
               </p>
             </div>
 
             <div className="about-craft-card">
               <span className="about-craft-num">03</span>
-              <h4 className="font-serif font-bold text-base text-[#18362E]">Master Pit-Loom Weaving</h4>
-              <p className="text-xs text-[#6C766F] leading-relaxed">
+              <h4>Master Pit-Loom Weaving</h4>
+              <p>
                 Shuttles fly rhythmically as master artisans weave 6.3 meters with attached blouse pieces.
               </p>
             </div>
 
             <div className="about-craft-card">
               <span className="about-craft-num">04</span>
-              <h4 className="font-serif font-bold text-base text-[#18362E]">Quality Audit & Delivery</h4>
-              <p className="text-xs text-[#6C766F] leading-relaxed">
+              <h4>Quality Audit & Delivery</h4>
+              <p>
                 Inspected for warp density, border perfection, and eco-friendly protective packaging.
               </p>
             </div>
-
           </div>
-
         </div>
       </section>
 
-      {/* 5. IMPACT & COMMUNITY STATS BANNER */}
       <section className="py-16 container-custom">
         <div className="about-stats-banner">
           <div className="about-stats-grid">
-            
             <div>
               <div className="about-stat-number">350+</div>
               <div className="about-stat-label">Active Artisan Pit Looms</div>
@@ -266,21 +225,17 @@ export default function About() {
               <div className="about-stat-number">4.9 ★</div>
               <div className="about-stat-label">Customer Satisfaction Rating</div>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* 6. CALL TO ACTION SECTION */}
-      <section className="pb-24 container-custom">
-        <div className="bg-[#EADFCE] p-10 md:p-16 rounded-3xl text-center space-y-6 relative overflow-hidden">
-          <h2 className="font-serif text-3xl md:text-5xl font-normal text-[#18362E] max-w-2xl mx-auto">
-            Experience the Soft Grace of Authentic Banahatti Sarees.
-          </h2>
-          <p className="text-sm text-[#6F665D] max-w-lg mx-auto">
+      <section className="about-cta-section container-custom">
+        <div className="about-cta-panel">
+          <h2>Experience the soft grace of authentic Banahatti sarees.</h2>
+          <p>
             Discover our latest collection of cotton, silk, and traditional handlooms crafted directly by Karnataka’s master weavers.
           </p>
-          <div className="pt-2 flex flex-wrap justify-center gap-4">
+          <div className="about-cta-actions">
             <Link to="/collections" className="button-primary">
               Shop Collections
             </Link>
@@ -290,7 +245,7 @@ export default function About() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }
+
