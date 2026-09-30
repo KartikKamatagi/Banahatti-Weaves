@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import SareeCard from '../components/SareeCard';
 import HeroBannerSlider from '../components/HeroBannerSlider';
-import { ArrowRight, Headphones, ShieldCheck, ShoppingBag } from 'lucide-react';
+import { ArrowRight, Headphones, ShieldCheck, ShoppingBag, Sparkles } from 'lucide-react';
 
 import craftImg from '../assets/hero_portrait.jpg';
 
@@ -25,6 +25,32 @@ export default function Home() {
         </div>
         <div className="product-grid">{latestSarees.map((saree) => <SareeCard key={saree.id} saree={saree} />)}</div>
         <button onClick={() => navigate('/collections')} className="button-outline mobile-only">View all sarees <ArrowRight size={15} /></button>
+      </section>
+
+      <section className="promise-section container-custom">
+        <div className="promise-grid">
+          <div className="promise-card">
+            <div className="promise-icon"><ShieldCheck size={18} /></div>
+            <div>
+              <h3>Authentic handloom</h3>
+              <p>Directly sourced from Banahatti artisan families.</p>
+            </div>
+          </div>
+          <div className="promise-card">
+            <div className="promise-icon"><Sparkles size={18} /></div>
+            <div>
+              <h3>Heritage craft</h3>
+              <p>Traditional weaving preserved with modern elegance.</p>
+            </div>
+          </div>
+          <div className="promise-card">
+            <div className="promise-icon"><ShoppingBag size={18} /></div>
+            <div>
+              <h3>Thoughtful delivery</h3>
+              <p>Careful packaging and confident support at every step.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="craft" className="craft-section">
