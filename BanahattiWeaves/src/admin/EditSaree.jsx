@@ -69,8 +69,6 @@ export default function EditSaree() {
         setImages(targetSaree.images);
       } else if (targetSaree.image) {
         setImages([targetSaree.image]);
-      } else {
-        setImages(['/images/sarees/saree_model_maroon_1789668365104.png']);
       }
     }
   }, [targetSaree]);

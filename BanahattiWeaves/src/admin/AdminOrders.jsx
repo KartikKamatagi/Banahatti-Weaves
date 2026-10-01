@@ -153,11 +153,11 @@ export default function AdminOrders() {
                     {/* Saree Items */}
                     <td>
                       <div className="flex items-center gap-2">
-                        <img 
-                          src={ord.items?.[0]?.image || '/images/sarees/saree_model_maroon_1789668365104.png'} 
-                          alt="saree" 
-                          className="order-item-thumb" 
-                        />
+                        {ord.items?.[0]?.image ? (
+                          <img src={ord.items[0].image} alt="saree" className="order-item-thumb" />
+                        ) : (
+                          <div className="image-placeholder small">Image</div>
+                        )}
                         <span className="font-medium truncate max-w-[160px]">
                           {ord.items?.[0]?.name || 'Banahatti Saree'} {ord.items?.length > 1 && `+${ord.items.length - 1} more`}
                         </span>
