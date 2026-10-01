@@ -13,7 +13,13 @@
 .dashboard-stat-grid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 16px;
+  gap: 12px;
+}
+
+@media (min-width: 480px) {
+  .dashboard-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 640px) {
@@ -29,9 +35,10 @@
 }
 
 .dashboard-stat-card {
+  min-width: 0;
   background-color: #FFFFFF;
   border: 1px solid #E5E0D9;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 8px rgba(30, 45, 41, 0.04);
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
@@ -125,6 +132,11 @@
   transition: all 0.2s ease;
 }
 
+.timeframe-pill:focus-visible {
+  outline: 2px solid #8C3E43;
+  outline-offset: 2px;
+}
+
 .timeframe-pill.active {
   background-color: #1E2D29;
   color: #FFFFFF;
@@ -138,9 +150,10 @@
 
 /* Sales Overview Chart Section */
 .sales-chart-wrapper {
+  min-width: 0;
   background: #FFFFFF;
   border: 1px solid #E5E0D9;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 24px;
   box-shadow: 0 2px 8px rgba(30, 45, 41, 0.04);
 }
@@ -208,7 +221,7 @@
 .low-stock-card {
   background-color: #FFFFFF;
   border: 1px solid #E5E0D9;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 24px;
   box-shadow: 0 2px 8px rgba(30, 45, 41, 0.04);
   display: flex;
@@ -240,4 +253,43 @@
   padding: 4px 10px;
   border-radius: 6px;
   border: 1px solid rgba(185, 130, 59, 0.2);
+}
+
+@media (max-width: 639px) {
+  .dashboard-stat-card {
+    padding: 16px;
+  }
+
+  .dashboard-stat-value {
+    font-size: 24px;
+    overflow-wrap: anywhere;
+  }
+
+  .sales-chart-wrapper,
+  .low-stock-card {
+    padding: 16px;
+  }
+
+  .chart-bar-container {
+    height: 176px;
+    gap: 10px;
+    padding: 0 2px;
+  }
+}
+
+@media (max-width: 380px) {
+  .timeframe-pill {
+    padding: 6px 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-stat-card,
+  .dashboard-stat-icon,
+  .timeframe-pill,
+  .chart-bar-fill,
+  .chart-bar-tooltip,
+  .low-stock-item {
+    transition: none;
+  }
 }
