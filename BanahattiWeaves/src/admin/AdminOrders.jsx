@@ -144,6 +144,7 @@ export default function AdminOrders() {
                       <p className="font-semibold text-[#242424]">{ord.customerName}</p>
                       <p className="text-[12px] text-[#77716B]">{ord.customerPhone}</p>
                     </td>
+                    
 
                     {/* Date */}
                     <td className="text-[#77716B] font-medium">
@@ -151,7 +152,7 @@ export default function AdminOrders() {
                     </td>
 
                     {/* Saree Items */}
-                    
+
                     <td>
                       <div className="flex items-center gap-2">
                         {ord.items?.[0]?.image ? (
