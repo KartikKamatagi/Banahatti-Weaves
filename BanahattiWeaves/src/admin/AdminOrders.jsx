@@ -151,6 +151,7 @@ export default function AdminOrders() {
                     </td>
 
                     {/* Saree Items */}
+                    
                     <td>
                       <div className="flex items-center gap-2">
                         {ord.items?.[0]?.image ? (
